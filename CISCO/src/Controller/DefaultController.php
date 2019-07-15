@@ -16,4 +16,13 @@ class DefaultController extends AbstractController
             'controller_name' => 'DefaultController',
         ]);
     }
+    /**
+     * @Route("/equipement", name="equipement")
+     */
+    public function getEquipement()
+    {
+        return $this->render('recup_conf_equipement.html.twig', [
+            'controller_name' => 'DefaultController',
+        ]);
+    }
 }
