@@ -7,22 +7,31 @@
  */
 
 namespace App\Service;
-use Symfony\Component\HttpFoundation\HeaderUtils;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\ResponseHeaderBag;
+
+use Symfony\Component\Validator\Constraints\Date;
 
 class DownloadFile
 {
     public function downloadFile($titre, $contenue){
 
-        $fileContent = $contenue; // the generated file content
-        $response = new Response($fileContent);
+        $date = (string) new Date('ddmmYY');
+        $filename = $titre.$date.'.txt';
 
-        $disposition = HeaderUtils::makeDisposition(
-            HeaderUtils::DISPOSITION_ATTACHMENT,
-            $titre.'.txt'
-        );
+        file_put_contents($filename, $contenue);
+        // Generate response
+        $response = new \Symfony\Component\HttpFoundation\Response();
 
-        $response->headers->set('Content-Disposition', $disposition);
+        // Set headers
+        $response->headers->set('Cache-Control', 'private');
+        $response->headers->set('Content-type', mime_content_type($filename));
+        $response->headers->set('Content-Disposition', 'attachment; filename="' . basename($filename) . '";');
+        $response->headers->set('Content-length', filesize($filename));
+
+        // Send headers before outputting anything
+        $response->sendHeaders();
+
+        $response->setContent(file_get_contents($filename));
+
+        return $response;
     }
 }
