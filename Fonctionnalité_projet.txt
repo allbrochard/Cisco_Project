@@ -1,0 +1,10 @@
+EQUIPEMENT
+	- Detetecter l'équipement sur le réseau
+	- afficher l'équipement sur le réseau
+	- superviser l'équipement
+	- (ajouter un équipement)
+
+CONFIG
+	- récupérer la conf
+	- sauvegarder la conf actuelle et la précédente
+	- envoyer la conf
