@@ -11,7 +11,7 @@
     <div class="panel-body">
         <ul class="list-group" >
        {% for equipement in liste_equipement %}
-                <a href="{{path('equipement/'+equipement.ip)}}">
+                <a href="{{path('equipement',{'ip': equipement.ip})}}">
                     <li id="equipement" class="list-group-item">
                         <strong>{{equipement.nom}}</strong>
                         <br/>
