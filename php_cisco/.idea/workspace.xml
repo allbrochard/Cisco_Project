@@ -2,46 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9bcb179d-9b86-4910-92ed-cc76a2fee45f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../CISCO/src/Controller/DefaultController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../CISCO/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../CISCO/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/css/accueil.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/css/bootstrap-grid.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/css/bootstrap-grid.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/css/bootstrap-grid.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/css/bootstrap-grid.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/css/bootstrap-reboot.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/css/bootstrap-reboot.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/css/bootstrap-reboot.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/css/bootstrap-reboot.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/css/bootstrap.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/css/bootstrap.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/css/bootstrap.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/css/recup_conf_equipement.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/css/supervisionEquipement.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/js/bootstrap.bundle.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/js/bootstrap.bundle.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/js/bootstrap.bundle.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/js/bootstrap.bundle.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/js/bootstrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/js/bootstrap.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/js/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/js/bootstrap.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/js/recup_conf_equipement.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/quill/examples/bubble.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/quill/examples/full.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/quill/examples/snow.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/quill/quill.bubble.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/quill/quill.core.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/quill/quill.core.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/quill/quill.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/quill/quill.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/quill/quill.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/quill/quill.snow.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/DefaultController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/DownloadFile.php" beforeDir="false" afterPath="$PROJECT_DIR$/../CISCO/src/Service/DownloadFile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/accueil.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/../CISCO/templates/accueil.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,17 +11,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../CISCO/src/Controller/DefaultController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -161,12 +112,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1563278558820</updated>
-      <workItem from="1563278563396" duration="1395000" />
+      <workItem from="1563278563396" duration="1865000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1395000" />
+    <option name="totallyTimeSpent" value="1865000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="762" y="0" width="781" height="870" extended-state="0" />
