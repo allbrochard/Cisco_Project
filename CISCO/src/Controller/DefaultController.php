@@ -17,7 +17,7 @@ class DefaultController extends AbstractController
         for ($i = 255; $i > $minPing; $i--){
             $ip = '172.25.200.'.$i;
             $comu = 'cisco';
-            $output = shell_exec('ping '.$ip.' -w 2 -c 1');
+            $output = shell_exec('ping '.$ip.' -w 1 -c 1');
             if(strpos($output, ' 0%')==true){
                 $output = shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' .1.3.6.1.2.1.1.1.0');
                 if(strpos($output, 'Cisco')){
