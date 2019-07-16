@@ -13,7 +13,7 @@ class DefaultController extends AbstractController
     public function index()
     {
         $liste_equipement = array();
-        $minPing = 1;
+        $minPing = 245;
         for ($i = 255; $i > $minPing; $i--){
             $ip = '172.25.200.'.$i;
             $comu = 'cisco';
