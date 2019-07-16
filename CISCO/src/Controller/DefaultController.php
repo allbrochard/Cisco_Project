@@ -13,7 +13,7 @@ class DefaultController extends AbstractController
     public function index()
     {
         $liste_equipement = array();
-        $minPing = 245;
+        $minPing = 1;
         for ($i = 255; $i > $minPing; $i--){
             $ip = '172.25.200.'.$i;
             $comu = 'cisco';
@@ -27,16 +27,16 @@ class DefaultController extends AbstractController
                     }else{
                         $type='Rooter';
                     }
+                    $nom = str_replace('"', '', shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' .1.3.6.1.2.1.1.5.0 -Ov -Oq'));
                     array_push($liste_equipement, array(
-                        'nom' => shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' .1.3.6.1.2.1.1.5.0'),
+                        'nom' => $nom,
                         'type' => $type,
                         'ip' => $ip,
                      ));
                 }
             }
         }
-        dump($liste_equipement);
-        die;
+//        dump($liste_equipement);
         return $this->render('accueil.html.twig', [
             'controller_name' => 'DefaultController',
             'liste_equipement' => $liste_equipement
