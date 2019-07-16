@@ -8,16 +8,16 @@
 {% endblock %}
 {% block body %}
 <div class="panel panel-primary offset-md-3 col-md-6" id="result_panel">
-    <div class="panel-heading"><h3 class="panel-title">Supervision de l'équipement X</h3>
+    <div class="panel-heading"><h3 class="panel-title">Supervision de l'équipement {{equipement.nom}}</h3>
         </div>
             <div class="panel-body">
                 <div class="nomEquipement">
-                        <label class="labelTitre">Nom de l'équipement : </label>
+                        <label class="labelTitre">Nom de l'équipement : {{equipement.nom}}</label>
                         <input type="text"></input>
                 </div>  
                 <div class="typeEquipement">
                         <label class="labelTitre">Type de l'équipement : </label>
-                        <label> blablablabal [à remplacer]</label>
+                        <label> {{equipement.type}}</label>
                 </div>
                 <div>  
                     <ul class="list-group lgPorts" >
