@@ -9,6 +9,9 @@
     <div class="panel-heading"><h3 class="panel-title">Liste des équipements</h3>
     </div>
     <div class="panel-body">
+       {% for equipement in liste_equipement %}
+           {{equipement.nom}} </br> {{equipement.type}} </br> {{equipement.ip}}
+                  {% endfor %}
         <ul class="list-group" >
             <a href="{{path('equipement')}}">  
                 <li id="equipement" class="list-group-item">
