@@ -9,31 +9,18 @@
     <div class="panel-heading"><h3 class="panel-title">Liste des équipements</h3>
     </div>
     <div class="panel-body">
-       {% for equipement in liste_equipement %}
-           {{equipement.nom}} </br> {{equipement.type}} </br> {{equipement.ip}}
-                  {% endfor %}
         <ul class="list-group" >
-            <a href="{{path('equipement')}}">  
-                <li id="equipement" class="list-group-item">
-                    <strong>Equipement 1</strong>
-                    <br/>
-                    <p class="description-item">Description</p> 
-                </li>
-            </a>
-            <a href="{{path('equipement')}}">  
-                <li id="equipement" class="list-group-item">
-                    <strong>Equipement 2</strong>
-                    <br/>
-                    <p class="description-item">Description</p> 
-                </li>
-            </a>
-            <a href="{{path('equipement')}}">  
-                <li id="equipement" class="list-group-item">
-                    <strong>Equipement 3</strong>
-                    <br/>
-                    <p class="description-item">Description</p> 
-                </li>
-            </a>
+       {% for equipement in liste_equipement %}
+                <a href="{{path('equipement')}}">  
+                    <li id="equipement" class="list-group-item">
+                        <strong>{{equipement.nom}}</strong>
+                        <br/>
+                        <p class="description-item">{{equipement.type}}</p> 
+                        <br/>
+                        <p class="description-item">{{equipement.ip}} </p>
+                    </li>
+                </a>           
+         {% endfor %}
         </ul>
     </div>
 </div>
