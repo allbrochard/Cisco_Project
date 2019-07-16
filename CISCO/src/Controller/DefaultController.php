@@ -26,6 +26,15 @@ class DefaultController extends AbstractController
         ]);
     }
      /**
+     * @Route("/saveEquipement", name="saveEquipement")
+     */
+    public function setConfEquipement()
+    {
+        return $this->render('valider_conf_equipement.html.twig', [
+            'controller_name' => 'DefaultController',
+        ]);
+    }
+      /**
      * @Route("/confEquipement", name="confEquipement")
      */
     public function getConfEquipement()

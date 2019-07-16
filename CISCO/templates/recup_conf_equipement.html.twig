@@ -1,23 +1,10 @@
 {% extends "base.html.twig" %}
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('css/recup_conf_equipement.css') }}" />
-    <link rel="stylesheet" href="{{ asset('quill/quill.snow.css') }}" />
-    <link rel="stylesheet" href="{{ asset('quill/quill.bubble.css') }}" />
-    <link rel="stylesheet" href="{{ asset('quill/quill.core.css') }}" />
 {% endblock %}
 {% block javascripts %}
     <script src="{{ asset('js/recup_conf_equipement.js') }}"></script>
-    <script src="{{ asset('quill/quill.js') }}"></script>
-    <script src="{{ asset('quill/quill.min.js') }}"></script>
-    <script src="{{ asset('quill/quill.core.js') }}"></script>
     <script src="https://cdn.ckeditor.com/ckeditor5/12.3.0/classic/ckeditor.js"></script>
-    <script>
-    ClassicEditor
-        .create( document.querySelector( '#editor' ) )
-        .catch( error => {
-            console.error( error );
-        } );
-</script>
 {% endblock %}
 {% block body %}
    <div class="panel panel-primary offset-md-3 col-md-6" id="result_panel">
@@ -30,8 +17,14 @@
         <p><br></p>
     </div>
     </div>
-   <button type="button" class="bt0 btn btn-light">Valider la configuration</button>
-   <button type="button" class="bt1 btn btn-light" onclick="window.location.href = './default'" />Retour</button>
+    <div>
+        <a href="{{path('saveEquipement')}}">
+        <button type="button" class="bt0 btn btn-light">Modifier la configuration</button>
+        </a>
+        <a href="{{path('default')}}">
+        <button type="button" class="bt1 btn btn-light"/>Retour</button>
+        </a>
+   </div>
 </div>
 
   {% endblock %}
