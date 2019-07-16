@@ -15,6 +15,6 @@ class DownloadFileFromEditorController extends AbstractController
     {
 
         $response = $downloadFile->downloadFile('test', 'test123456789');
-        return $this->render('download_file_from_editor/index.html.twig', array('response'=>$response));
+        return $response;
     }
 }
