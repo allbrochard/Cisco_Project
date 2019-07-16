@@ -21,8 +21,7 @@ class DefaultController extends AbstractController
             if(strpos($output, ' 0%')==true){
                 $output = shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' .1.3.6.1.2.1.1.1.0');
                 if(strpos($output, 'Cisco')){
-                    $type = shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' .1.3.6.1.2.1.1.9.1.3.30');
-                    if(strpos($type, 'Switched')){
+                    if(strpos(shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' .1.3.6.1.2.1.1.9.1.3.30'), 'Switched')){
                         $type='Switch';
                     }else{
                         $type='Rooter';
@@ -43,30 +42,25 @@ class DefaultController extends AbstractController
         ]);
     }
     /**
-     * @Route("/equipement", name="equipement")
+     * @Route("/equipement/{ip}", name="equipement")
      */
-    public function getSupervisionEquipement()
+    public function getSupervisionEquipement($ip)
     {
+        $comu = 'cisco';
+        if(strpos(shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' .1.3.6.1.2.1.1.9.1.3.30'), 'Switched')){
+            $type='Switch';
+        }else{
+            $type='Rooter';
+        }
+        $nom = str_replace('"', '', shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' .1.3.6.1.2.1.1.5.0 -Ov -Oq'));
+        $equipement = array(
+            'nom' => $nom,
+            'type' => $type,
+            'ip' => $ip,
+        ));
         return $this->render('supervisionEquipement.html.twig', [
             'controller_name' => 'DefaultController',
-        ]);
-    }
-    /**
-     * @Route("/saveEquipement", name="saveEquipement")
-     */
-    public function setConfEquipement()
-    {
-        return $this->render('valider_conf_equipement.html.twig', [
-            'controller_name' => 'DefaultController',
-        ]);
-    }
-    /**
-     * @Route("/confEquipement", name="confEquipement")
-     */
-    public function getConfEquipement()
-    {
-        return $this->render('recup_conf_equipement.html.twig', [
-            'controller_name' => 'DefaultController',
+            'equipement' => $equipement,
         ]);
     }
 }
