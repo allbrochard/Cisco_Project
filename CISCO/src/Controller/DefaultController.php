@@ -19,7 +19,16 @@ class DefaultController extends AbstractController
     /**
      * @Route("/equipement", name="equipement")
      */
-    public function getEquipement()
+    public function getSupervisionEquipement()
+    {
+        return $this->render('supervisionEquipement.html.twig', [
+            'controller_name' => 'DefaultController',
+        ]);
+    }
+     /**
+     * @Route("/confEquipement", name="confEquipement")
+     */
+    public function getConfEquipement()
     {
         return $this->render('recup_conf_equipement.html.twig', [
             'controller_name' => 'DefaultController',
