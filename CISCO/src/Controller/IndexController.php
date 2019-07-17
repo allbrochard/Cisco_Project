@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Annotation\Route;
 
 class IndexController extends AbstractController
@@ -12,7 +13,6 @@ class IndexController extends AbstractController
      */
     public function index()
     {
-
         $liste_equipement = array();
         $minPing = 245;
         for ($i = 255; $i > $minPing; $i--){
@@ -37,7 +37,7 @@ class IndexController extends AbstractController
                 }
             }
         }
-//        dump($liste_equipement);
+        $_SESSION['liste_equipement']=$liste_equipement;
         return $this->redirectToRoute('equipement_liste');
     }
 }
