@@ -12,7 +12,9 @@
     <div class="panel-body">
         <ul class="list-group" >
        {% for equipement in liste_equipement %}
-                <a href="{{path('equipement',{'ip': equipement.ip})}}">
+        {% if equipement.on == true %}
+            <a href="{{path('equipement',{'ip': equipement.ip})}}">
+        {% endif %}
                     <li id="equipement" class="list-group-item">
                         <strong>{{equipement.nom}}</strong>
                         <br/>
@@ -36,7 +38,14 @@
                             {% endif %}
                         </span>
                     </li>
-                </a>           
+        {% if equipement.on == true %}
+            </a>
+        {% endif %} 
+             
+        
+
+         
+                     
          {% endfor %}
         </ul>
     </div>
