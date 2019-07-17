@@ -13,7 +13,7 @@
         <ul class="list-group" >
        {% for equipement in liste_equipement %}
         {% if equipement.on == true %}
-            <a href="{{path('equipement',{'ip': equipement.ip})}}">
+            <a href="{{path('equipement_connexion',{'ip': equipement.ip})}}">
         {% endif %}
                     <li id="equipement" class="list-group-item">
                         <strong>{{equipement.nom}}</strong>
