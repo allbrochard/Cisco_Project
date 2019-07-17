@@ -13,6 +13,7 @@ class IndexController extends AbstractController
      */
     public function index()
     {
+        session_start();
         $liste_equipement = array();
         $minPing = 245;
         for ($i = 255; $i > $minPing; $i--){
