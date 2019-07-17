@@ -18,8 +18,6 @@ class DefaultController extends AbstractController
     public function index()
     {
         $liste_equipement = $_SESSION['liste_equipement'];
-        dump('DefaultController Début');
-        dump($liste_equipement);
         foreach ($liste_equipement as $equipement){
             $ip = $equipement['ip'];
             $output = shell_exec('ping '.$ip.' -w 1 -c 1');
@@ -31,6 +29,8 @@ class DefaultController extends AbstractController
                 dump($equipement);
             }
         }
+        dump('DefaultController Début');
+        dump($liste_equipement);
         $_SESSION['liste_equipement']=$liste_equipement;
         dump('DefaultController fin');
         dump($liste_equipement);
