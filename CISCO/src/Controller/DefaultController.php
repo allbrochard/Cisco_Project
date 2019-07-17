@@ -25,8 +25,10 @@ class DefaultController extends AbstractController
             if(strpos($output, ' 0%')==true){
                 $comu = 'cisco';
                 $nom = str_replace('"', '', shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' .1.3.6.1.2.1.1.5.0 -Ov -Oq'));
-                $equipement['domaine'] = strstr($nom, '.');
-                $equipement['nom']= strstr($nom, '.', true);
+                if(strpos($nom, '.')){
+                    $domaine = strstr($nom, '.');
+                    $nom = strstr($nom, '.', true);
+                }
                 $equipement['on'] = true;
             }else{
                 $equipement['on'] = false;
@@ -64,8 +66,10 @@ class DefaultController extends AbstractController
             $type = 'Autre équipement Cisco';
         }
         $nom = str_replace('"', '', shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' .1.3.6.1.2.1.1.5.0 -Ov -Oq'));
-        $domaine = strstr($nom, '.');
-        $nom = strstr($nom, '.', true);
+        if(strpos($nom, '.')){
+            $domaine = strstr($nom, '.');
+            $nom = strstr($nom, '.', true);
+        }
         $equipement = array(
             'nom' => $nom,
             'type' => $type,
