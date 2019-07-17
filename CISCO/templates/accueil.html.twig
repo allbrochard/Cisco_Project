@@ -3,6 +3,7 @@
     <link rel="stylesheet" href="{{ asset('css/accueil.css') }}" />
 {% endblock %}
 {% block javascripts %}
+
 {% endblock %}
 {% block body %}
    <div class="panel panel-primary offset-md-3 col-md-6" id="result_panel">
@@ -17,8 +18,13 @@
                         <br/>
                         <p class="description-item">{{equipement.type}}</p>
                         <span id="{{ equipement.ip }}">
+                            <script>
+                                element = document.getElementById("{{ equipement.ip }}");
+                                element.classList.remove("offset-md-3 badge badge-pill badge-success");
+                                element.classList.remove("offset-md-3 badge badge-pill badge-danger");
+                            </script>
                             {% if equipement.on == true %}
-                                <script>
+                                <script>                                
                                     element = document.getElementById("{{ equipement.ip }}");
                                     element.setAttribute("class", "offset-md-3 badge badge-pill badge-success");
                                 </script>
