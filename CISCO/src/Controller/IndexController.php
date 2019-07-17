@@ -43,7 +43,8 @@ class IndexController extends AbstractController
                 }
             }
         }
-        dump('indexController'.$liste_equipement);
+        dump('indexController');
+        dump($liste_equipement);
         $_SESSION['liste_equipement']=$liste_equipement;
         return $this->redirectToRoute('equipement_liste');
     }

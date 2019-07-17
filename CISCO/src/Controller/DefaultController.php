@@ -18,7 +18,8 @@ class DefaultController extends AbstractController
     public function index()
     {
         $liste_equipement = $_SESSION['liste_equipement'];
-        dump('DefaultController Début'.$liste_equipement);
+        dump('DefaultController Début');
+        dump($liste_equipement);
         foreach ($liste_equipement as $equipement){
             $ip = $equipement['ip'];
             $comu = 'cisco';
@@ -30,7 +31,7 @@ class DefaultController extends AbstractController
             }
         }
         $_SESSION['liste_equipement']=$liste_equipement;
-        dump('DefaultController fin'.$liste_equipement);
+        dump('DefaultController fin');
         return $this->render('accueil.html.twig', [
             'controller_name' => 'DefaultController',
             'liste_equipement' => $liste_equipement
