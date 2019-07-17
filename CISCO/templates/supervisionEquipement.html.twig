@@ -22,7 +22,7 @@
                 action: 'changer_nom'
                 },
             success: function(data){
-                console.log('ça marche');
+                alert('ça marche');
             },
             error:function(err){
             alert("err");
@@ -43,7 +43,7 @@
                 <div class="nomEquipement">
                         <label class="labelTitre" >Nom de l'équipement : </label>
                         <input id="nameInput" type="text" value="{{equipement.nom}}"></input>                        
-                        <button type="button" id="btnNom" class="bt2 btn btn-light"/><span class="glyphicon glyphicon-check"></span></button>                         
+                        <button type="button" id="btnNom" class="bt2 btn btn-light"/><span class="glyphicon glyphicon-check">Valider</span></button>                         
                 </div>  
                 <div class="typeEquipement">
                         <label class="labelTitre">Type de l'équipement : </label>
