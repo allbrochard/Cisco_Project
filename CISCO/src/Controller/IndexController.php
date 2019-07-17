@@ -31,8 +31,10 @@ class IndexController extends AbstractController
                         $type='Router';
                     }
                     $nom = str_replace('"', '', shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' .1.3.6.1.2.1.1.5.0 -Ov -Oq'));
-                    $domaine = strstr($nom, '.');
-                    $nom = strstr($nom, '.', true);
+                    if(strpos($nom, '.')){
+                        $domaine = strstr($nom, '.');
+                        $nom = strstr($nom, '.', true);
+                    }
                     array_push($liste_equipement, array(
                         'nom' => $nom,
                         'domaine' => $domaine,
