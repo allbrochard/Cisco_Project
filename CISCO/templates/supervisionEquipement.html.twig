@@ -5,6 +5,16 @@
 {% endblock %}
 {% block javascripts %}
     <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.5.0/js/bootstrap4-toggle.min.js"></script>
+    <script>
+        function functionName(parameters) {
+        // URL fichier appel fonction
+        var url = '/func/setEtatEquipement.php';
+            $.post(url, function(data){
+                // Action JS
+                $('#div_donnees').html(data);
+            });
+        }
+    </script>
 {% endblock %}
 {% block body %}
 <div class="panel panel-primary offset-md-3 col-md-6" id="result_panel">
@@ -23,30 +33,30 @@
                         <label class="labelTitre">IP de l'équipement : </label>
                         <label> {{equipement.ip}}</label>
                 </div>
-                <div>  
+                <div>
                     <ul class="list-group lgPorts" >
                         <li id="port" class="list-group-item row">
                                 <span class="col-md-1">Port 1</span>
                                 <span class="offset-md-3 badge badge-pill badge-danger">OFF</span>
                                 <label class="switch offset-md-5">
-                                <input type="checkbox">
-                                <span class="slider round"></span>
+                                    <input type="checkbox" onClick="setEtatEquipement('ON')">
+                                    <span class="slider round"></span>
                                 </label>
                         </li>
                         <li id="port" class="list-group-item row">
                                 <span class="col-md-1">Port 2</span>
                                 <span class="offset-md-3">KO</span>
                                 <label class="switch offset-md-5">
-                                <input type="checkbox">
-                                <span class="slider round"></span>
+                                    <input type="checkbox" onclick="set">
+                                    <span class="slider round"></span>
                                 </label>
                         </li>
                         <li id="port" class="list-group-item row">
                                 <span class="col-md-1">Port 3</span>
                                 <span class="offset-md-3">OK</span>
                                 <label class="switch offset-md-5">
-                                <input type="checkbox">
-                                <span class="slider round"></span>
+                                    <input type="checkbox">
+                                    <span class="slider round"></span>
                                 </label>
                         </li>
                     </ul>
