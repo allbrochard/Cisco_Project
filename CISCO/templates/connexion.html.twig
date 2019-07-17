@@ -1,21 +1,35 @@
 {% extends "base.html.twig" %}
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('css/accueil.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/accueil.css') }}"/>
 {% endblock %}
-{% block javascripts %}
-
-{% endblock %}
+{% block javascripts %}{% endblock %}
 {% block body %}
     <div class="panel panel-primary offset-md-3 col-md-6" id="result_panel">
-        <div class="panel-heading"><h3 class="panel-title">Liste des équipements Cisco</h3>
+        <div class="panel-heading">
+            <h3 class="panel-title">Liste des équipements Cisco</h3>
         </div>
     </div>
     <div class="panel-body">
         <form method="POST" action="{{ path('equipement') }}">
-            <label>Nom d'utilisateur : <input type="text" name="user"></label>
-            <label>Mot de passe utilisateur : <input type="password" name="userpswd"></label>
-            <label>Mot de passe administration : <input type="password" name="adminpswd"></label>
+            <label>Nom d'utilisateur :
+                <input name="user" type="text">
+            </label>
+            <br>
+            <label>Mot de passe utilisateur :
+                <input name="userpswd" type="password">
+            </label>
+            <br>
+            <label>Mot de passe administration :
+                <input name="adminpswd" type="password">
+            </label>
+            <br>
             <input type="submit" value="se connecter">
+            <a href="{{path('equipement_liste')}}">
+                <button class="bt1 btn btn-light" type="button"/>Retour</button>
+            </a>
         </form>
+        <a href="{{path('equipement_liste')}}">
+            <button class="bt1 btn btn-light" type="button"/>Retour</button>
+        </a>
     </div>
 {% endblock %}
