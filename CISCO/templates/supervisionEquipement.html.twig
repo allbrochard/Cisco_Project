@@ -5,10 +5,43 @@
 {% endblock %}
 {% block javascripts %}
     <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.5.0/js/bootstrap4-toggle.min.js"></script>
+    <script src"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <script src"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/core.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js" /></script>
     <script>
-        function functionName(parameters) {
+
+     $(document).ready(function() {
+        $('#calling').load(function() {
+        $.ajax({
+            cache: false,
+            type: "POST",
+            url: "fonction_equipement.php",
+            data: {
+                name: 'myname',
+                action: 'functionname'
+                }
+            success: function(msg)
+            {
+                $('#calling').html((msg));
+            }
+
+            }); // Ajax Call
+        }); //event handler
+    }); 
+
+    </script>
+    <script>
+        function setEtatEquipement(parameters) {
         // URL fichier appel fonction
         var url = '../public/php/setEtatEquipement.php';
+            $.post(url, function(data){
+                // Action JS
+                $('#div_donnees').html(data);
+            });
+        }
+        function setNomEquipement(parameters) {
+        // URL fichier appel fonction
+        var url = '../public/php/setNomEquipement.php';
             $.post(url, function(data){
                 // Action JS
                 $('#div_donnees').html(data);
@@ -19,15 +52,23 @@
 {% block body %}
 <div class="panel panel-primary offset-md-3 col-md-6" id="result_panel">
     <div class="panel-heading"><h3 class="panel-title">Supervision de l'équipement {{equipement.nom}}</h3>
+    </br>
         </div>
             <div class="panel-body">
                 <div class="nomEquipement">
                         <label class="labelTitre" >Nom de l'équipement : </label>
                         <input type="text" value="{{equipement.nom}}"></input>
+                         <a href="{{path('equipement_liste')}}">
+                             <button type="button" class="bt2 btn btn-light"/><span class="glyphicon glyphicon-check"></button>
+                         </a>
                 </div>  
                 <div class="typeEquipement">
                         <label class="labelTitre">Type de l'équipement : </label>
                         <label> {{equipement.type}}</label>
+                </div>
+                   <div class="domainEquipement">
+                        <label class="labelTitre">Domaine de l'équipement : </label>
+                        <label> {{equipement.domaine}}</label>
                 </div>
                 <div class="idEquipement">
                         <label class="labelTitre">IP de l'équipement : </label>
@@ -92,6 +133,7 @@
             </div>
         </div>
         <div class="buttonBlock">
+        </br>
             <button type="button" class="bt0 btn btn-light">Valider les modifications</button>
            
             <a href="{{path('equipement_liste')}}">
