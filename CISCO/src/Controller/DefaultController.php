@@ -28,11 +28,13 @@ class DefaultController extends AbstractController
                     $nom  = str_replace('"', '', shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' .1.3.6.1.2.1.1.5.0 -Ov -Oq'));;
                     $domaine = strstr($nom, '.');
                     $nom = strstr($nom, '@', true);
+                    dump($nom.'  '.$domaine);
                     if(strpos(shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' .1.3.6.1.2.1.1.9.1.3.30'), 'Switched')){
                         $type='Switch';
                     }else{
                         $type='Router';
                     }
+
                     array_push($liste_equipement, array(
                         'nom' => $nom,
                         'domaine' => $domaine,
