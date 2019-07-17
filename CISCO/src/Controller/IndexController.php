@@ -13,6 +13,9 @@ class IndexController extends AbstractController
      */
     public function index()
     {
+        if(!isset($_SESSION['liste_equipement'])){
+            session_start();
+        }
         $liste_equipement = array();
         $minPing = 245;
         for ($i = 255; $i > $minPing; $i--){
@@ -28,8 +31,11 @@ class IndexController extends AbstractController
                         $type='Router';
                     }
                     $nom = str_replace('"', '', shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' .1.3.6.1.2.1.1.5.0 -Ov -Oq'));
+                    $domaine = strstr($nom, '.');
+                    $nom = strstr($nom, '.', true);
                     array_push($liste_equipement, array(
                         'nom' => $nom,
+                        'domaine' => $domaine,
                         'type' => $type,
                         'ip' => $ip,
                         'on' => true,
