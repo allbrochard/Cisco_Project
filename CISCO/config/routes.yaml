@@ -1,3 +1,6 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+
+fonction_equipement:
+    resource: '../public/php/fonction_equipement.php'
