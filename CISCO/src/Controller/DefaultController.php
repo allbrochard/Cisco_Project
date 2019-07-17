@@ -41,13 +41,13 @@ class DefaultController extends AbstractController
             }
         }
         foreach ($liste_equipement as $equipement){
-            $ip = $equipement->ip;
+            $ip = $equipement['ip'];
             $comu = 'cisco';
             $output = shell_exec('ping '.$ip.' -w 1 -c 1');
             if(strpos($output, ' 0%')==true){
-                $equipement->on = true;
+                $equipement['on'] = true;
             }else{
-                $equipement->on = false;
+                $equipement['on'] = false;
             }
         }
 //        dump($liste_equipement);
