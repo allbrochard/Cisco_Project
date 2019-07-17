@@ -15,7 +15,7 @@
             var value = document.getElementById('nameInput').value;
         $.ajax({
             cache: false,
-            type: "POST",
+            type: "GET",
             url: {{ path('fonction_equipement') }},
             data: {
                 name: 'value',
