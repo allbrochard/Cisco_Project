@@ -13,7 +13,9 @@ class IndexController extends AbstractController
      */
     public function index()
     {
-        session_start();
+        if(!isset($_SESSION['liste_equipement'])){
+            session_start();
+        }
         $liste_equipement = array();
         $minPing = 245;
         for ($i = 255; $i > $minPing; $i--){
