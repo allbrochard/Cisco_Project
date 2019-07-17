@@ -19,12 +19,10 @@
             url: "../public/php/fonction_equipement.php",
             data: {
                 name: 'value',
-                action: 'changer_nom',
+                action: 'changer_nom'
                 }
-            success: function()
-            {
-                $('#btnNom').html(("msg"));
-                console.log('ça marche')
+            success: function(data){
+                console.log('ça marche');
             }
             error:function(err){
             alert("err");
