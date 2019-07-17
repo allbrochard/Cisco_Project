@@ -32,6 +32,7 @@ class DefaultController extends AbstractController
         }
         $_SESSION['liste_equipement']=$liste_equipement;
         dump('DefaultController fin');
+        dump($liste_equipement);
         return $this->render('accueil.html.twig', [
             'controller_name' => 'DefaultController',
             'liste_equipement' => $liste_equipement
