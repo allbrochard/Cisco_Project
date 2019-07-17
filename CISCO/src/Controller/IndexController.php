@@ -13,7 +13,7 @@ class IndexController extends AbstractController
      */
     public function index()
     {
-        if(!isset($_SESSION['liste_equipement'])){
+        if(!isset($_SESSION)){
             session_start();
         }
         $liste_equipement = array();

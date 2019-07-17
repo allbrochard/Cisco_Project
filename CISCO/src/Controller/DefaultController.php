@@ -41,7 +41,7 @@ class DefaultController extends AbstractController
     }
 
     /**
-     * @Route("equipement/", name="equipement")
+     * @Route("/equipement_supervision", name="equipement")
      */
     public function getSupervisionEquipement(Request $request)
     {
@@ -51,9 +51,9 @@ class DefaultController extends AbstractController
         $userpswd = $request->request->get('userpswd');
         $adminpswd = $request->request->get('adminpswd');
 
-        $_SESSION['username'] = $username;
-        $_SESSION['mdp_user'] = $userpswd;
-        $_SESSION['mdp_admin'] = $adminpswd;
+        $_SESSION['user'] = $username;
+        $_SESSION['mp_user'] = $userpswd;
+        $_SESSION['mp_admin'] = $adminpswd;
 
         $comu = 'cisco';
         if(strpos(shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' .1.3.6.1.2.1.1.9.1.3.30'), 'Switched')){
