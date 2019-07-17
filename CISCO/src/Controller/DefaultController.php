@@ -22,8 +22,8 @@ class DefaultController extends AbstractController
         dump($liste_equipement);
         foreach ($liste_equipement as $equipement){
             $ip = $equipement['ip'];
-            $comu = 'cisco';
             $output = shell_exec('ping '.$ip.' -w 1 -c 1');
+            dump($output);
             if(strpos($output, ' 0%')==true){
                 $equipement['on'] = true;
             }else{
