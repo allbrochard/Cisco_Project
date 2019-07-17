@@ -22,6 +22,10 @@ class DefaultController extends AbstractController
             $ip = $equipement['ip'];
             $output = shell_exec('ping '.$ip.' -w 1 -c 1');
             if(strpos($output, ' 0%')==true){
+                $comu = 'cisco';
+                $nom = str_replace('"', '', shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' .1.3.6.1.2.1.1.5.0 -Ov -Oq'));
+                $equipement['domaine'] = strstr($nom, '.');
+                $equipement['nom']= strstr($nom, '.', true);
                 $equipement['on'] = true;
             }else{
                 $equipement['on'] = false;
