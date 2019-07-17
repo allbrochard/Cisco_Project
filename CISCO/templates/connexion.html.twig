@@ -1,0 +1,21 @@
+{% extends "base.html.twig" %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/accueil.css') }}" />
+{% endblock %}
+{% block javascripts %}
+
+{% endblock %}
+{% block body %}
+    <div class="panel panel-primary offset-md-3 col-md-6" id="result_panel">
+        <div class="panel-heading"><h3 class="panel-title">Liste des équipements Cisco</h3>
+        </div>
+    </div>
+    <div class="panel-body">
+        <form method="POST" action="{{ path('equipement') }}">
+            <label>Nom d'utilisateur : <input type="text" name="user"></label>
+            <label>Mot de passe utilisateur : <input type="password" name="userpswd"></label>
+            <label>Mot de passe administration : <input type="password" name="adminpswd"></label>
+            <input type="submit" value="se connecter">
+        </form>
+    </div>
+{% endblock %}
