@@ -20,12 +20,12 @@
                             {% if equipement.on == true %}
                                 <script>
                                     element = document.getElementById({{ equipement.ip }});
-                                    element.classList.add("badge-success");
+                                   element.setAttribute("class", "offset-md-3 badge badge-pill badge-success");
                                 </script>
                             {% else %}
                                 <script>
                                     element = document.getElementById({{ equipement.ip }});
-                                    element.classList.add("badge-danger");
+                                    element.setAttribute("class", "offset-md-3 badge badge-pill badge-danger");
                                 </script>
                             {% endif %}
                         </span>
