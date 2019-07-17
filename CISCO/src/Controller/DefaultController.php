@@ -8,12 +8,11 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Class DefaultController
  * @package App\Controller
- * @Route("/equipement", name="equipement_liste")
  */
 class DefaultController extends AbstractController
 {
     /**
-     * @Route("/", name="default")
+     * @Route("/equipement", name="equipement_liste")
      */
     public function index($liste_equipement)
     {
@@ -35,7 +34,7 @@ class DefaultController extends AbstractController
         ]);
     }
     /**
-     * @Route("/{ip}", name="equipement")
+     * @Route("equipement/{ip}", name="equipement")
      */
     public function getSupervisionEquipement($ip)
     {
