@@ -38,6 +38,6 @@ class IndexController extends AbstractController
             }
         }
 //        dump($liste_equipement);
-        return $this->redirectToRoute('equipement_liste',$liste_equipement);
+        return $this->redirectToRoute('equipement_liste');
     }
 }
