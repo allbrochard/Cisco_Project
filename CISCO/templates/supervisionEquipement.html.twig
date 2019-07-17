@@ -9,45 +9,26 @@
     <script src"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/core.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js" /></script>
     <script>
-
      $(document).ready(function() {
-        $('#calling').load(function() {
+        $('#btnNom').onClick(function() {
+            var value = document.getElementById('#nameInput').value;
         $.ajax({
             cache: false,
             type: "POST",
-            url: "fonction_equipement.php",
+            url: "../public/php/fonction_equipement.php",
             data: {
-                name: 'myname',
-                action: 'functionname'
+                name: value,
+                action: 'changer_nom'
                 }
             success: function(msg)
             {
-                $('#calling').html((msg));
+                $('#btnNom').html((msg));
             }
-
             }); // Ajax Call
         }); //event handler
     }); 
 
-    </script>
-    <script>
-        function setEtatEquipement(parameters) {
-        // URL fichier appel fonction
-        var url = '../public/php/setEtatEquipement.php';
-            $.post(url, function(data){
-                // Action JS
-                $('#div_donnees').html(data);
-            });
-        }
-        function setNomEquipement(parameters) {
-        // URL fichier appel fonction
-        var url = '../public/php/setNomEquipement.php';
-            $.post(url, function(data){
-                // Action JS
-                $('#div_donnees').html(data);
-            });
-        }
-    </script>
+    </script>   
 {% endblock %}
 {% block body %}
 <div class="panel panel-primary offset-md-3 col-md-6" id="result_panel">
@@ -57,10 +38,8 @@
             <div class="panel-body">
                 <div class="nomEquipement">
                         <label class="labelTitre" >Nom de l'équipement : </label>
-                        <input type="text" value="{{equipement.nom}}"></input>
-                         <a href="{{path('equipement_liste')}}">
-                             <button type="button" class="bt2 btn btn-light"/><span class="glyphicon glyphicon-check"></button>
-                         </a>
+                        <input id="nameInput" type="text" value="{{equipement.nom}}"></input>                        
+                        <button type="button" id="btnNom" class="bt2 btn btn-light"/><span class="glyphicon glyphicon-check"></button>                         
                 </div>  
                 <div class="typeEquipement">
                         <label class="labelTitre">Type de l'équipement : </label>
