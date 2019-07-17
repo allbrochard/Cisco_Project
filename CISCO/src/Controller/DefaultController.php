@@ -5,34 +5,27 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * Class DefaultController
+ * @package App\Controller
+ * @Route("/equipement", name="equipement_liste")
+ */
 class DefaultController extends AbstractController
 {
     /**
      * @Route("/", name="default")
      */
-    public function index()
+    public function index($liste_equipement)
     {
-        $liste_equipement = array();
-        $minPing = 245;
-        for ($i = 255; $i > $minPing; $i--){
-            $ip = '172.25.200.'.$i;
+
+        foreach ($liste_equipement as $equipement){
+            $ip = $equipement->ip;
             $comu = 'cisco';
             $output = shell_exec('ping '.$ip.' -w 1 -c 1');
             if(strpos($output, ' 0%')==true){
-                $output = shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' .1.3.6.1.2.1.1.1.0');
-                if(strpos($output, 'Cisco')){
-                    if(strpos(shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' .1.3.6.1.2.1.1.9.1.3.30'), 'Switched')){
-                        $type='Switch';
-                    }else{
-                        $type='Router';
-                    }
-                    $nom = str_replace('"', '', shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' .1.3.6.1.2.1.1.5.0 -Ov -Oq'));
-                    array_push($liste_equipement, array(
-                        'nom' => $nom,
-                        'type' => $type,
-                        'ip' => $ip,
-                     ));
-                }
+                $equipement->on = true;
+            }else{
+                $equipement->on = false;
             }
         }
 //        dump($liste_equipement);
@@ -42,7 +35,7 @@ class DefaultController extends AbstractController
         ]);
     }
     /**
-     * @Route("/equipement/{ip}", name="equipement")
+     * @Route("/{ip}", name="equipement")
      */
     public function getSupervisionEquipement($ip)
     {
