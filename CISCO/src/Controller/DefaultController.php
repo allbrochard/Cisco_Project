@@ -25,14 +25,17 @@ class DefaultController extends AbstractController
             if(strpos($output, ' 0%')==true){
                 $output = shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' .1.3.6.1.2.1.1.1.0');
                 if(strpos($output, 'Cisco')){
+                    $nom  = str_replace('"', '', shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' .1.3.6.1.2.1.1.5.0 -Ov -Oq'));;
+                    $domaine = strstr($nom, '.');
+                    $nom = strstr($nom, '@', true);
                     if(strpos(shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' .1.3.6.1.2.1.1.9.1.3.30'), 'Switched')){
                         $type='Switch';
                     }else{
                         $type='Router';
                     }
-                    $nom = str_replace('"', '', shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' .1.3.6.1.2.1.1.5.0 -Ov -Oq'));
                     array_push($liste_equipement, array(
                         'nom' => $nom,
+                        'domaine' => $domaine,
                         'type' => $type,
                         'ip' => $ip,
                         'on' => true,
