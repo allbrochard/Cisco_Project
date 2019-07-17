@@ -28,6 +28,7 @@ class DefaultController extends AbstractController
                 $equipement['on'] = true;
             }else{
                 $equipement['on'] = false;
+                dump($equipement);
             }
         }
         $_SESSION['liste_equipement']=$liste_equipement;
