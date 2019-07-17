@@ -25,8 +25,11 @@ class IndexController extends AbstractController
             if(strpos($output, ' 0%')==true){
                 $output = shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' .1.3.6.1.2.1.1.1.0');
                 if(strpos($output, 'Cisco')){
-                    if(strpos(shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' .1.3.6.1.2.1.1.9.1.3.30'), 'Switched')){
+                    $type = strpos(shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' .1.3.6.1.2.1.1.9.1.3.30'), 'Switched');
+                    if($type){
                         $type='Switch';
+                    }elseif($type==null){
+                        $type='non connue';
                     }else{
                         $type='Router';
                     }
