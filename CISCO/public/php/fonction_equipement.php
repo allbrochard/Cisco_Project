@@ -1,9 +1,16 @@
 <?php
 
-switch($_GET['']){
+if(isset($_POST['action']) && function_exists($_POST['action'])) {
+    $action = $_POST['action'];
+    $var = isset($_POST['name']) ? $_POST['name'] : null;
+    $getData = $action($var);
+    // do whatever with the result
+}
+switch($action) {
     case 'changer_nom':
-        setEquipmentName($_GET['nom']);
-
+        setEquipmentName($_POST['name']);
+    default:
+        die('Access denied for this function!');
 }
 
 function setEtatEquipement($bool){
@@ -24,5 +31,5 @@ function getConf(){
     $conf = shell_exec('');
     return $conf;
 }
-
+echo $action($var);
 ?>
