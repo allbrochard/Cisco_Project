@@ -13,8 +13,6 @@ class IndexController extends AbstractController
      */
     public function index()
     {
-
-        $session = new Session();
         $liste_equipement = array();
         $minPing = 245;
         for ($i = 255; $i > $minPing; $i--){
@@ -39,7 +37,7 @@ class IndexController extends AbstractController
                 }
             }
         }
-        $session->set('liste_equipement',$liste_equipement);
+        $_SESSION['liste_equipement']=$liste_equipement;
         return $this->redirectToRoute('equipement_liste');
     }
 }
