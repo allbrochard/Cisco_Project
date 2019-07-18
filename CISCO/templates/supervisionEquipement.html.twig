@@ -44,7 +44,7 @@
                         <li id="port" class="list-group-item row">
                             <span class="col-md-1">{{ item.NomInterface }}</span>
                             <div>
-                                <label>{% if {{item.StatutAdmin}} == 1 %}Actif{% else %}Inactif{% endif %}</label>
+                                <label>{% if item.StatutAdmin == 1 %} Actif {% else %} Inactif {% endif %}</label>
                                 <span class="pastille offset-md-3 badge badge-pill {% if item.StatutAdmin == 1 %}badge-success{% else %}badge-danger{% endif %}"></span>
                             </div>
                             {% if equipement.type == 'Switch' %}
