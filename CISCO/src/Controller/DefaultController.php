@@ -59,6 +59,7 @@ class DefaultController extends AbstractController
             $_SESSION['user'] = $username;
             $_SESSION['mp_user'] = $userpswd;
             $_SESSION['mp_admin'] = $adminpswd;
+            $_SESSION['type'] =  $request->request->get('type');
         }
         if ($request->request->get('type_form')=='equipement'){
             $response = $fonction_equipement->setEquipmentName($request->request->get('nameInput'));
@@ -111,7 +112,17 @@ class DefaultController extends AbstractController
      */
     public function connexionSupervision($ip)
     {
+        $comu = 'cisco';
+        if(strpos(shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' .1.3.6.1.2.1.1.9.1.3.30'), 'Switched')){
+            $type='Switch';
+        }elseif(strpos(shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' .1.3.6.1.2.1.1'), 'ISR')){
+            $type='Router';
+        }else{
+            $type = 'Autre équipement Cisco';
+        }
         $_SESSION["ip_equipement"] = $ip;
-        return $this->render('connexion.html.twig');
+        return $this->render('connexion.html.twig', array(
+            'type' => $type
+        ));
     }
 }
