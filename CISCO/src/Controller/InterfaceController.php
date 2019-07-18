@@ -12,9 +12,8 @@ class InterfaceController extends AbstractController
      */
     public function index($name)
     {
-        return $this->render('interface/index.html.twig', [
-            'controller_name' => 'InterfaceController',
+        return $this->render('interface.html.twig', array(
             'interface_name' => $name,
-        ]);
+        ));
     }
 }
