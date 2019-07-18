@@ -42,7 +42,7 @@
                     
                         <li id="port" class="list-group-item row">
                             <span class="col-md-1">{{item["NomInterface"]}}</span>
-                            <span class="col-md-3" id="{{ item["StatutAdmin"]}}">   
+                            <span class="col-md-3" id="{{ item["StatutAdmin"]}}">                                   
                                 <script>
                                     element = document.getElementById("{{ item["StatutAdmin"] }}");
                                     element.classList.remove("offset-md-3 badge badge-pill badge-success");
@@ -51,13 +51,11 @@
                                 {% if item["StatutAdmin"] == 1 %}
                                     <script>                                
                                         element = document.getElementById("{{  item["StatutAdmin"] }}");
-                                        element.text("ON");
                                         element.setAttribute("class", "offset-md-3 badge badge-pill badge-success");
                                     </script>
                                 {% elseif item["StatutAdmin"] == 2 %}
                                     <script>
                                         element = document.getElementById("{{  item["StatutAdmin"] }}");
-                                        element.text("OFF");
                                         element.setAttribute("class", "offset-md-3 badge badge-pill badge-danger");
                                     </script>
                                 {% endif %}
