@@ -45,8 +45,9 @@
                             <span class="col-md-1">{{ item.NomInterface }}</span>
                             <div class="offset-md-3">
                                 <label>{% if item.StatutAdmin == 1 %} Actif {% else %} Inactif {% endif %}</label>
-                                <span class="pastille  badge badge-pill {% if item.StatutAdmin == 1 %}badge-success{% else %}badge-danger{% endif %}"></span>
+                                
                             </div>
+                            <span class="pastille offset-md-3 badge badge-pill {% if item.StatutAdmin == 1 %}badge-success{% else %}badge-danger{% endif %}"></span>
                             {% if equipement.type == 'Switch' %}
                                 <a href="{{ path('port', {'name': item.NomInterface}) }} " class="btn btn-primary offset-md-9" name="modifPort">
                                     Modifier le port
