@@ -51,7 +51,7 @@
                                 <a href="{{ path('port', {'name': item.NomInterface}) }} " class="btn btn-primary offset-md-9" name="modifPort">
                                     Modifier le port
                                 </a>
-                            {% elseif equipement.type == 'Routeur' %}
+                            {% elseif equipement.type == 'Router' %}
                                 <a href="{{ path('interface', {'name': item.NomInterface}) }} " class="btn btn-primary offset-md-9" name="modifinterface">
                                     Modifier l'interface
                                 </a>
@@ -64,7 +64,7 @@
                 {% if equipement.type == 'Switch' %}
                     <button id="addPort">Ajouter un port</button>
                 {% endif %}
-                {% if equipement.type == 'Routeur' %}
+                {% if equipement.type == 'Router' %}
                     <button id="addPort">Ajouter une interface</button>
                 {% endif %}
             </div>
