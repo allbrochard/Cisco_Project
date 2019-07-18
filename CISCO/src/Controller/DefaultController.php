@@ -88,8 +88,6 @@ class DefaultController extends AbstractController
         $tabStatusAdmin = Array(explode("INTEGER:", $interfacesStatusAdmin));
         $tabStatusLinks = Array(explode("INTEGER:", $interfacesStatusLinks));
         $tabFinal = array();
-        dump($tabNames);
-        dump($interfacesStatusAdmin);
             for($i = 1; $i < count($tabNames[0])-1 ; $i++){
             dump($i);
             $tab = array (
@@ -102,8 +100,6 @@ class DefaultController extends AbstractController
         }
         
         dump($tabFinal);
-        dump($tabStatusAdmin);
-        dump($tabStatusLinks);
         $equipement = array(
             'nom' => $nom,
             'type' => $type,
