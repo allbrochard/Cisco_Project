@@ -87,6 +87,7 @@ class DefaultController extends AbstractController
         $tabStatusAdmin = Array(explode("INTEGER:", $interfacesStatusAdmin));
         $tabStatusLinks = Array(explode("INTEGER:", $interfacesStatusLinks));
         $tabFinal = array();
+        dump(count($tabNames));
         for($i = 1; $i < count($tabNames) ; $i++){
             "VOITURE";
             $tab = array (
