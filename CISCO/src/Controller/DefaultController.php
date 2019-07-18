@@ -86,15 +86,19 @@ class DefaultController extends AbstractController
         $tabNames = Array(explode("STRING:", $interfacesNames));
         $tabStatusAdmin = Array(explode("STRING:", $interfacesStatusAdmin));
         $tabStatusLinks = Array(explode("STRING:", $interfacesStatusLinks));
-        $tab = array();
+        $tabFinal = array();
         for($i = 1; $i < count($tabNames) ; $i++){
-            $tab[$tabNames[i]] = array (
-                $interfacesStatusAdmin[i],
-                $interfacesStatusLinks[i]
+            
+            $tab = array (
+                  "NomInterface" => $tabNames[i], 
+                 "StatutAdmin" =>  $interfacesStatusAdmin[i],
+                  "StatutLink" =>  $interfacesStatusLinks[i]                  
             );
+            array_push($tabFinal,$tab);
+           
         }
         
-        dump($tab);
+        dump($tabFinal);
         $equipement = array(
             'nom' => $nom,
             'type' => $type,
