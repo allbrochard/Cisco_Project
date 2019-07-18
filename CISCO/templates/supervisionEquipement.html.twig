@@ -42,10 +42,10 @@
                     {% for item in equipement.info %}                  
                     
                         <li id="port" class="list-group-item row">
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <span>{{ item.originalName}}</span>
                             </div>
-                            <div class="offset-md-4 divStatutAdmin row">
+                            <div class="offset-md-3 divStatutAdmin row">
                                 <div class="col-md-12">
                                     <label>{% if item.StatutAdmin == 1 %} Actif {% else %} Inactif {% endif %}</label>
                                     <span class="pastille offset-md-3 badge badge-pill {% if item.StatutAdmin == 1 %}badge-success{% else %}badge-danger{% endif %}"></span>
@@ -55,13 +55,13 @@
                                     <span class="pastille offset-md-4 badge badge-pill {% if item.StatutLink == 1 %}badge-success{% else %}badge-danger{% endif %}"></span>
                                 </div>
                             </div> 
-                            <div class="offset-md-4 divStatutLink">
+                            <div class="offset-md-3 divStatutLink">
                                 {% if equipement.type == 'Switch' %}
-                                    <a href="{{ path('port', {'name': item.NomInterface}) }} " class="btn btn-primary offset-md-9" name="modifPort">
+                                    <a href="{{ path('port', {'name': item.NomInterface}) }} " class="btn btn-primary" name="modifPort">
                                         Modifier le port
                                     </a>
                                 {% elseif equipement.type == 'Router' %}
-                                    <a href="{{ path('interface', {'name': item.NomInterface}) }} " class="btn btn-primary offset-md-9" name="modifinterface">
+                                    <a href="{{ path('interface', {'name': item.NomInterface}) }} " class="btn btn-primary" name="modifinterface">
                                         Modifier l'interface
                                     </a>
                                 {% endif %}
