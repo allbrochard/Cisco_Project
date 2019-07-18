@@ -91,6 +91,7 @@ class DefaultController extends AbstractController
         dump(count($tabNames[0]));
 
         for($i = 1; $i < count($tabNames[0])-1 ; $i++){
+            dump($i);
             $tab = array (
                 "NomInterface" => $tabNames[0][$i], 
                 "StatutAdmin" =>  $interfacesStatusAdmin[0][$i],
