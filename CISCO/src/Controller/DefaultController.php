@@ -99,7 +99,7 @@ class DefaultController extends AbstractController
                     "StatutLink" => $tabStatusLinks[0][$i]
                 );
                 array_push($tabVlan, $tabV);
-            }elseif(strpos( $tabNames[0][$i], 'Null')){
+            }elseif(strpos( $tabNames[0][$i], 'Vlan')||strpos( $tabNames[0][$i], 'Null')){
                 
             }else{
                 $tab = array(
