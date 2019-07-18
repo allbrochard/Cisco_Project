@@ -43,7 +43,7 @@
                         <li id="port" class="list-group-item row">
                             <span class="col-md-1">{{item["NomInterface"]}}</span>
                             <label>{{item["StatutAdmin"]}}</label>
-                            <span class="col-md-3" id="{{ item["StatutAdmin"]}}">
+                            <span id="{{ item["StatutAdmin"]}}">
                                 <script>
                                     element = document.getElementById("{{ item["StatutAdmin"] }}");
                                     element.classList.remove("pastille offset-md-3 badge badge-pill badge-success");
