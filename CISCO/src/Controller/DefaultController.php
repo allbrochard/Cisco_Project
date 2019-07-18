@@ -81,7 +81,7 @@ class DefaultController extends AbstractController
         }else{
             $domaine='';
         }
-
+        $domaine=str_replace('.', '', $domaine);
         $interfacesNames = shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' 1.3.6.1.2.1.2.2.1.2 -Ov');
         $interfacesStatusAdmin = shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' 1.3.6.1.2.1.2.2.1.7 -Ov');
         $interfacesStatusLinks = shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' 1.3.6.1.2.1.2.2.1.8 -Ov');
