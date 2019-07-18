@@ -6,27 +6,21 @@
 {% block javascripts %}
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.5.0/js/bootstrap4-toggle.min.js"></script>
-    <script src"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
-    <script src"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/core.js"></script>
-  
-    <script>
-     function changerNom(){
-         var value = document.getElementById('nameInput').value;
-         {{ fonction_equipement.setEquipmentName(value) }}
-     }
-    </script>   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/core.js"></script>
+
 {% endblock %}
 {% block body %}
 <div class="panel panel-primary offset-md-3 col-md-6" id="result_panel">
+    <input type="hidden" value="equipement" name="type_form">
     <div class="panel-heading"><h3 class="panel-title">Supervision de l'équipement {{equipement.nom}}</h3>
     </br>
         </div>
             <div class="panel-body">
                 <div class="nomEquipement">
                         <label class="labelTitre" >Nom de l'équipement : </label>
-                        <input id="nameInput" type="text" value="{{equipement.nom}}"></input>                        
-                        <button type="button" onclick="changerNom()" id="btnNom" class="bt2 btn btn-light"/><span class="glyphicon glyphicon-check">Valider</span></button>
-                </div>  
+                        <input id="nameInput" name="nameInput" type="text" value="{{equipement.nom}}"></input>
+                </div>
                 <div class="typeEquipement">
                         <label class="labelTitre">Type de l'équipement : </label>
                         <label> {{equipement.type}}</label>

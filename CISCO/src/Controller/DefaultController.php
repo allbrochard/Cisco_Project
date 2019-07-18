@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Service\Fonction_equipement;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Annotation\Route;
@@ -45,17 +46,22 @@ class DefaultController extends AbstractController
     /**
      * @Route("/equipement_supervision", name="equipement")
      */
-    public function getSupervisionEquipement(Request $request)
+    public function getSupervisionEquipement(Request $request, Fonction_equipement $fonction_equipement)
     {
         $ip = $_SESSION['ip_equipement'];
+        if($request->request->get('type_form')=='connexion') {
+            $username = $request->request->get('user');
+            $userpswd = $request->request->get('userpswd');
+            $adminpswd = $request->request->get('adminpswd');
 
-        $username = $request->request->get('user');
-        $userpswd = $request->request->get('userpswd');
-        $adminpswd = $request->request->get('adminpswd');
-
-        $_SESSION['user'] = $username;
-        $_SESSION['mp_user'] = $userpswd;
-        $_SESSION['mp_admin'] = $adminpswd;
+            $_SESSION['user'] = $username;
+            $_SESSION['mp_user'] = $userpswd;
+            $_SESSION['mp_admin'] = $adminpswd;
+        }
+        if ($request->request->get('type_form')=='equipement'){
+            $response = $fonction_equipement->setEquipmentName($request->request->get('nameInput'));
+            dump($response);
+        }
 
         $comu = 'cisco';
         if(strpos(shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' .1.3.6.1.2.1.1.9.1.3.30'), 'Switched')){
