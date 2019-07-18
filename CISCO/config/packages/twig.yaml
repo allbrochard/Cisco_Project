@@ -3,4 +3,4 @@ twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
     globals:
-        fonction_equipement : '@Fonction_equipenent'
+        fonction_equipement : '@App/Service/Fonction_equipenent'
