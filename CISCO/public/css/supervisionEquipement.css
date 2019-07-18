@@ -14,8 +14,8 @@
     position: relative;
     padding-top: 20px;
 }
-.btn{
-  
+.pastille{
+  border-radius: 200px !important;
 }
 /* The switch - the box around the slider */
 .switch {
