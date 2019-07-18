@@ -60,12 +60,13 @@
                                         element.setAttribute("class", "pastille offset-md-3 badge badge-pill badge-danger");
                                     </script>
                                 {% endif %}
-                            </span>                                                  
+                            </span>   
+                            <a>
+                            <button name="modifPort">Modifier le port</button>
+                            </a>                                               
                         </li>
 
-                        <a>
-                            <button name="modifPort">Modifier le port</button>
-                        </a>
+                        
                     {% endfor %}   
                 </ul>
                 {% if equipement.type == 'switch' %}
