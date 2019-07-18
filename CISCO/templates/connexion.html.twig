@@ -24,6 +24,14 @@
                 <input name="adminpswd" type="password">
             </label>
             <br>
+            {% if(type != 'switch' ) and ( type != 'router') %}
+            <label>Type de l'équipement :
+                <input name="type" type="text">
+            </label>
+            <br>
+            {% else %}
+                <input name="type" type="hidden" value="{{ type }}">
+            {% endif %}
             <input type="submit" value="se connecter">
             <a href="{{path('equipement_liste')}}">
                 <button class="bt1 btn btn-light" type="button"/>Retour</button>
