@@ -42,7 +42,7 @@
                     {% for item in equipement.info %}                  
                     
                         <li id="port" class="list-group-item row">
-                            <span class="col-md-1">{{ item.NomInterface }}</span>
+                            <span class="col-md-1">{{ item.NomInterface | replace('-', '/')}}</span>
                             <div class="offset-md-3 divStatutAdmin">
                                 <label>{% if item.StatutAdmin == 1 %} Actif {% else %} Inactif {% endif %}</label>
                                 <span class="pastille offset-md-3 badge badge-pill {% if item.StatutAdmin == 1 %}badge-success{% else %}badge-danger{% endif %}"></span>
