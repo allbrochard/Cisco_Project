@@ -36,9 +36,10 @@
 {% endblock %}
 {% block body %}
     <div class="panel panel-primary offset-md-3 col-md-6" id="result_panel">
-        <form method="POST">
+        <form method="POST" action="{{ path('port_modif') }}">
+            <input type="hidden" name="name" value="{{port_name}}">
             <div class="panel-heading">
-                <h3 class="panel-title">Modification du port
+                <h3 class="panel-title">Modification du port 
                     {{port_name}}
                 </h3>
                 </br>
@@ -49,14 +50,15 @@
             <div class="typePort">
                 <label class="labelTitre">
                 Type de port : 
-                <select id="typePort" onchange="typePortVlan()">
+                <select name="typePort" id="typePort" onchange="typePortVlan()">
                     <option value="trunk">Trunk</option>
                     <option value="access">Access</option>
                 </select>
                 </label>
             </div>
             <div class="vlan" id="vlanDiv">
-                <select id="vlans" >
+                <select id="vlans" name="vlan">
+                    <option value="null" selected="selected"></option>
                     {% for vlan in vlans %}
                         <option value="{{ vlan.NomInterface }}">{{ vlan.NomInterface }}</option>
                     {% endfor %}
