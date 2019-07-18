@@ -97,12 +97,12 @@ class DefaultController extends AbstractController
                 $statutAdmin = 1;
             }
             elseif(strpos($tabStatusAdmin[0][$i],"2")) {
-                $statusAdmin = 2;
+                $statutAdmin = 2;
             }
             if(strpos($tabNames[0][$i], 'Vlan') && $_SESSION['type']=='Switch'){ 
                 $tabV = array(
                     "NomInterface" => $tabNames[0][$i],
-                    "StatutAdmin" => $statusAdmin,
+                    "StatutAdmin" => $statutAdmin,
                     "StatutLink" => $tabStatusLinks[0][$i]
                 );
                 array_push($tabVlan, $tabV);
@@ -111,7 +111,7 @@ class DefaultController extends AbstractController
             }else{
                 $tab = array(
                     "NomInterface" => $tabNames[0][$i],
-                    "StatutAdmin" => $statusAdmin,
+                    "StatutAdmin" => $statutAdmin,
                     "StatutLink" => $tabStatusLinks[0][$i]
                 );
                 array_push($tabFinal, $tab);
