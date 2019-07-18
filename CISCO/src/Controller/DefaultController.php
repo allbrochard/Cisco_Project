@@ -55,15 +55,15 @@ class DefaultController extends AbstractController
             $username = $request->request->get('user');
             $userpswd = $request->request->get('userpswd');
             $adminpswd = $request->request->get('adminpswd');
-
+            $type = $request->request->get('type');
+            dump($type);
             $_SESSION['user'] = $username;
             $_SESSION['mp_user'] = $userpswd;
             $_SESSION['mp_admin'] = $adminpswd;
-            $_SESSION['type'] =  $request->request->get('type');
+            $_SESSION['type'] = $type;
         }
         if ($request->request->get('type_form')=='equipement'){
             $response = $fonction_equipement->setEquipmentName($request->request->get('nameInput'));
-            dump($response);
         }
 
         $comu = 'cisco';
@@ -81,7 +81,7 @@ class DefaultController extends AbstractController
         }else{
             $domaine='';
         }
-        
+
         $interfacesNames = shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' 1.3.6.1.2.1.2.2.1.2 -Ov');
         $interfacesStatusAdmin = shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' 1.3.6.1.2.1.2.2.1.7 -Ov');
         $interfacesStatusLinks = shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' 1.3.6.1.2.1.2.2.1.8 -Ov');
