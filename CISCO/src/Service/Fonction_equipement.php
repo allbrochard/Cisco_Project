@@ -31,10 +31,8 @@ class Fonction_equipement
 //        }
 //        return $response;
 //    }
-    function setEtatEquipement($bool){
 
-    }
-
+    //fonctions utilisable peut importe le type de matériel
     function setEquipmentName($name){
         $user = $_SESSION['user'];
         $mpUser = $_SESSION['mp_user'];
@@ -46,11 +44,135 @@ class Fonction_equipement
     }
 
     function getConf(){
-        $conf = shell_exec('');
+        $user = $_SESSION['user'];
+        $mpUser = $_SESSION['mp_user'];
+        $mpAdmin = $_SESSION['mp_admin'];
+        $ip = $_SESSION['ip_equipement'];
+
+        $conf = shell_exec('/script/show_run '.$ip.' '.$user.' '.$mpUser.' '.$mpAdmin);
         return $conf;
     }
 
-    function createPort(){
-        $conf = shell_exec('');
+    function activerInterface($interfaceName)
+    {
+        $user = $_SESSION['user'];
+        $mpUser = $_SESSION['mp_user'];
+        $mpAdmin = $_SESSION['mp_admin'];
+        $ip = $_SESSION['ip_equipement'];
+
+        $response = shell_exec('/script/up_interface '.$ip.' '.$user.' '.$mpUser.' '.$mpAdmin.' '.$interfaceName );
+        return $response;
+    }
+
+    function desactiverInterface($interfaceName)
+    {
+        $user = $_SESSION['user'];
+        $mpUser = $_SESSION['mp_user'];
+        $mpAdmin = $_SESSION['mp_admin'];
+        $ip = $_SESSION['ip_equipement'];
+
+        $response = shell_exec('/script/down_interface '.$ip.' '.$user.' '.$mpUser.' '.$mpAdmin.' '.$interfaceName );
+        return $response;
+    }
+
+    //fonction utilisable uniquement pour les switch
+    function createPortTrunk($interfaceName)
+    {
+        $user = $_SESSION['user'];
+        $mpUser = $_SESSION['mp_user'];
+        $mpAdmin = $_SESSION['mp_admin'];
+        $ip = $_SESSION['ip_equipement'];
+
+        $response = shell_exec('/script/create_port_switch_trunk '.$ip.' '.$user.' '.$mpUser.' '.$mpAdmin.' '.$interfaceName );
+        return $response;
+    }
+
+    function createPortAccess($interfaceName, $vlanId)
+    {
+        $user = $_SESSION['user'];
+        $mpUser = $_SESSION['mp_user'];
+        $mpAdmin = $_SESSION['mp_admin'];
+        $ip = $_SESSION['ip_equipement'];
+
+        $response = shell_exec('/script/create_port_switch_access '.$ip.' '.$user.' '.$mpUser.' '.$mpAdmin.' '.$interfaceName.' '.$vlanId );
+        return $response;
+    }
+
+    function createVlan($vlanId, $vlanName)
+    {
+        $user = $_SESSION['user'];
+        $mpUser = $_SESSION['mp_user'];
+        $mpAdmin = $_SESSION['mp_admin'];
+        $ip = $_SESSION['ip_equipement'];
+
+        $response = shell_exec('/script/create_vlan '.$ip.' '.$user.' '.$mpUser.' '.$mpAdmin.' '.$vlanId.' '.$vlanName );
+        return $response;
+    }
+
+    function deletePort($interfaceName)
+    {
+        $user = $_SESSION['user'];
+        $mpUser = $_SESSION['mp_user'];
+        $mpAdmin = $_SESSION['mp_admin'];
+        $ip = $_SESSION['ip_equipement'];
+
+        $response = shell_exec('/script/delete_port_switch '.$ip.' '.$user.' '.$mpUser.' '.$mpAdmin.' '.$interfaceName );
+        return $response;
+    }
+
+    function deleteVlan($vlanId)
+    {
+        $user = $_SESSION['user'];
+        $mpUser = $_SESSION['mp_user'];
+        $mpAdmin = $_SESSION['mp_admin'];
+        $ip = $_SESSION['ip_equipement'];
+
+        $response = shell_exec('/script/delete_vlan '.$ip.' '.$user.' '.$mpUser.' '.$mpAdmin.' '.$vlanId );
+        return $response;
+    }
+
+    //fonction utilisable uniquement pour les routeurs
+    function createInterface($interfaceName, $ipInterface, $mask)
+    {
+        $user = $_SESSION['user'];
+        $mpUser = $_SESSION['mp_user'];
+        $mpAdmin = $_SESSION['mp_admin'];
+        $ipEquipement = $_SESSION['ip_equipement'];
+
+        $response = shell_exec('/script/create_interface '.$ipEquipement.' '.$user.' '.$mpUser.' '.$mpAdmin.' '.$interfaceName.' '.$ipInterface.' '.$mask );
+        return $response;
+    }
+
+    function createSousInterface($interfaceName, $ipInterface, $mask, $vlanId)
+    {
+        $user = $_SESSION['user'];
+        $mpUser = $_SESSION['mp_user'];
+        $mpAdmin = $_SESSION['mp_admin'];
+        $ipEquipement = $_SESSION['ip_equipement'];
+
+        $response = shell_exec('/script/create_sous_interface '.$ipEquipement.' '.$user.' '.$mpUser.' '.$mpAdmin.' '.$interfaceName.' '.$ipInterface.' '.$mask.' '.$vlanId );
+        return $response;
+    }
+
+    function deleteInterface($interfaceName)
+    {
+        $user = $_SESSION['user'];
+        $mpUser = $_SESSION['mp_user'];
+        $mpAdmin = $_SESSION['mp_admin'];
+        $ip = $_SESSION['ip_equipement'];
+
+        $response = shell_exec('/script/delete_interface '.$ip.' '.$user.' '.$mpUser.' '.$mpAdmin.' '.$interfaceName );
+        return $response;
+    }
+
+    function deleteSousInterface($interfaceName)
+    {
+        $user = $_SESSION['user'];
+        $mpUser = $_SESSION['mp_user'];
+        $mpAdmin = $_SESSION['mp_admin'];
+        $ip = $_SESSION['ip_equipement'];
+
+        $response = shell_exec('/script/delete_sous_interface '.$ip.' '.$user.' '.$mpUser.' '.$mpAdmin.' '.$interfaceName );
+        return $response;
     }
 }
