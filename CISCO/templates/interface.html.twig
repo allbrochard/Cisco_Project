@@ -16,14 +16,13 @@
         <div class="nomPort">
             <label class="labelTitre">Nom de l'interface : {{interface_name}}</label>
         </div>
-        <div class="typePort">
-             <label class="labelTitre">
-             Nom du port :
-             <select name="typePort">
-                <option value="trunk">Trunk</option>
-                <option value="access">Access</option>
-             </select>
-             </label>
+        <div class="idInterface">
+            <label class="labelTitre">Changer l'ip</label>
+            <input type="text" value="{{ ip }}">
+        </div>
+        <div class="maskInterface">
+            <label class="labelTitre">Changer le mask</label>
+            <input type="text" value="{{ mask }}">
         </div>
     <div>
     {% endblock %}
