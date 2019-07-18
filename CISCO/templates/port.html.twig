@@ -16,5 +16,14 @@
         <div class="nomPort">
             <label class="labelTitre">Nom du port : {{port_name}}</label>
         </div>
+        <div class="typePort">
+             <label class="labelTitre">
+             Nom du port : 
+             <select name="typePort">
+                <option value="trunk">Trunk</option>
+                <option value="access">Access</option>
+             </select>
+             </label>
+        </div>
     <div>
     {% endblock %}
