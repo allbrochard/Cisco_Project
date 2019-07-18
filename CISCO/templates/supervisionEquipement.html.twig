@@ -61,19 +61,25 @@
                                         element.setAttribute("class", "pastille offset-md-3 badge badge-pill badge-danger");
                                     </script>
                                 {% endif %}
-                            </span>   
-                            <a href="{{ path('port', {'name': item.NomInterface}) }} " class="btn btn-primary offset-md-9" name="modifPort">
-                                Modifier le port
-                            </a>
+                            </span>
+                            {% if equipement.type == 'Switch' %}
+                                <a href="{{ path('port', {'name': item.NomInterface}) }} " class="btn btn-primary offset-md-9" name="modifPort">
+                                    Modifier le port
+                                </a>
+                            {% elseif equipement.type == 'Routeur' %}
+                                <a href="{{ path('interface', {'name': item.NomInterface}) }} " class="btn btn-primary offset-md-9" name="modifinterface">
+                                    Modifier l'interface
+                                </a>
+                            {% endif %}
                         </li>
 
                         
                     {% endfor %}   
                 </ul>
-                {% if equipement.type == 'switch' %}
+                {% if equipement.type == 'Switch' %}
                     <button id="addPort">Ajouter un port</button>
                 {% endif %}
-                {% if equipement.type == 'routeur' %}
+                {% if equipement.type == 'Routeur' %}
                     <button id="addPort">Ajouter une interface</button>
                 {% endif %}
             </div>
