@@ -8,12 +8,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class PortController extends AbstractController
 {
     /**
-     * @Route("/port", name="port")
+     * @Route("/port/{name}", name="port")
      */
-    public function index()
+    public function index($name)
     {
-        return $this->render('port/index.html.twig', [
-            'controller_name' => 'PortController',
+        return $this->render('port.html.twig', [
+            'port_name' => $name,
         ]);
     }
 }
