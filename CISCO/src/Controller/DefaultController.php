@@ -76,6 +76,7 @@ class DefaultController extends AbstractController
         echo '<pre>' ;
         var_dump($interfacesNames);
         echo '</pre>' ;
+        die();
         $equipement = array(
             'nom' => $nom,
             'type' => $type,
