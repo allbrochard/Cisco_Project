@@ -93,9 +93,9 @@ class DefaultController extends AbstractController
 
         for($i = 1; $i < count($tabNames[0])-1 ; $i++){
             if(strpos($tabNames[0][$i], 'Vlan') && $_SESSION['type']=='Switch'){
-                $statutAdmin = 0;
+                $statusAdmin = 0;
                 if (strpos($tabStatusAdmin[0][$i],"1")) {
-                    $statutAdmin = 1;
+                    $statusAdmin = 1;
                 }
                 elseif(strpos($tabStatusAdmin[0][$i],"2")) {
                     $statusAdmin = 2;
