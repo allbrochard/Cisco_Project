@@ -56,7 +56,6 @@ class DefaultController extends AbstractController
             $userpswd = $request->request->get('userpswd');
             $adminpswd = $request->request->get('adminpswd');
             $type = $request->request->get('type');
-            dump($type);
             $_SESSION['user'] = $username;
             $_SESSION['mp_user'] = $userpswd;
             $_SESSION['mp_admin'] = $adminpswd;
@@ -67,11 +66,11 @@ class DefaultController extends AbstractController
         }
 
         $comu = 'cisco';
-        if(strpos(shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' .1.3.6.1.2.1.1.9.1.3.30'), 'Switched')){
+        if(strpos(shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' .1.3.6.1.2.1.1.9.1.3.30'), 'Switched')&& !isset($type)){
             $type='Switch';
-        }elseif(strpos(shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' .1.3.6.1.2.1.1'), 'ISR')){
+        }elseif(strpos(shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' .1.3.6.1.2.1.1'), 'ISR')&& !isset($type)){
             $type='Router';
-        }else{
+        }elseif(!isset($type)){
             $type = 'Autre équipement Cisco';
         }
         $nom = str_replace('"', '', shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' .1.3.6.1.2.1.1.5.0 -Ov -Oq'));
@@ -117,7 +116,6 @@ class DefaultController extends AbstractController
                 );
                 array_push($tabFinal, $tab);
             }
-            dump($name);
         }
 
         $equipement = array(
@@ -146,7 +144,6 @@ class DefaultController extends AbstractController
         }else{
             $type = 'Autre équipement Cisco';
         }
-        dump($type);
         $_SESSION["ip_equipement"] = $ip;
         return $this->render('connexion.html.twig', array(
             'type' => $type
