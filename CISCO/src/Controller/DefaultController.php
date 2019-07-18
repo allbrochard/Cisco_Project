@@ -117,6 +117,7 @@ class DefaultController extends AbstractController
                 );
                 array_push($tabFinal, $tab);
             }
+            dump($name);
         }
 
         $equipement = array(
