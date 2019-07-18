@@ -42,7 +42,7 @@
                     
                         <li id="port" class="list-group-item row">
                             <span class="col-md-1">{{item["NomInterface"]}}</span>
-                            <span id="{{ item["StatutAdmin"]}}">                                   
+                            <span class="col-md-3" id="{{ item["StatutAdmin"]}}">
                                 <script>
                                     element = document.getElementById("{{ item["StatutAdmin"] }}");
                                     element.classList.remove("pastille offset-md-3 badge badge-pill badge-success");
@@ -63,7 +63,7 @@
                         </li>
 
                         <a>
-                            <button class='btn btn-primary' name="modifPort">Modifier le port
+                            <button name="modifPort">Modifier le port
                         </a>
                     {% endfor %}   
                 </ul>
