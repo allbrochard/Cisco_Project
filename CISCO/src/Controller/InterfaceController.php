@@ -13,13 +13,16 @@ class InterfaceController extends AbstractController
     public function index($name)
     {
         $comu = 'cisco';
+        dump($_SESSION['ip']);
+        $name = str_replace('-', '/', $name);
         $response = shell_exec('snmpwalk -c '.$comu.' -v 2c '.$_SESSION['ip'].' 1.3.6.1.2.1.2.2.1.2 | grep \''.$name.'"\'');
         $num = strstr(str_replace('iso.3.6.1.2.1.2.2.1.2.', '', $response), ' =', true);
-        $name = str_replace('-', '/', $name);
-        $ip = strstr(str_replace('iso.3.6.1.2.1.4.20.1.2.', '',
-            shell_exec('snmpwalk -c '.$comu.' -v 2c '.$_SESSION['ip'].' 1.3.6.1.2.1.4.20.1.2 | grep "'.$num.'>"')), ' =', true);
+        dump($num);
+        $response = shell_exec('snmpwalk -c '.$comu.' -v 2c '.$_SESSION['ip'].' 1.3.6.1.2.1.4.20.1.2 | grep "'.$num.'>"');
+        $ip = strstr(str_replace('iso.3.6.1.2.1.4.20.1.2.', '', $response), ' =', true);
+        dump($ip);
         $mask = shell_exec('snmpwalk -c '.$comu.' -v 2c '.$_SESSION['ip'].' iso.3.6.1.2.1.4.20.1.3.'.$ip.' -Ov -Oq');
-
+        dump($mask);
         return $this->render('interface.html.twig', array(
             'interface_name' => $name,
             'ip' => $ip,
