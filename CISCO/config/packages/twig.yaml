@@ -4,5 +4,5 @@ twig:
     strict_variables: '%kernel.debug%'
     globals:
         # the value is the service's id
-        user_management: '@App\Service\Fonction_equipement'
+        fonction_equipement: '@App\Service\Fonction_equipement'
 
