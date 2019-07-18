@@ -49,4 +49,8 @@ class Fonction_equipement
         $conf = shell_exec('');
         return $conf;
     }
+
+    function createPort(){
+        $conf = shell_exec('');
+    }
 }

@@ -76,10 +76,12 @@ class DefaultController extends AbstractController
             $domaine = strstr($nom, '.');
             $nom = strstr($nom, '.', true);
         }
-        $interfacesNames = shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' 1.3.6.1.2.1.2.2.1.2');
+        $interfacesNames = shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' 1.3.6.1.2.1.2.2.1.2 -Ov');
         $interfacesStatusAdmin = shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' 1.3.6.1.2.1.2.2.1.7');
         $interfacesStatusLinks = shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' 1.3.6.1.2.1.2.2.1.8');
-        dump($interfacesNames[0]);
+        $tab = Array(explode("STIRNG:", $interfacesNames));
+        dump($interfacesNames);
+        dump($tab);
         $equipement = array(
             'nom' => $nom,
             'type' => $type,
