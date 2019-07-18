@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/ajoutInterface.css') }}" />
+{% endblock %}
+{% block javascripts %}
+{% endblock %}
+{% block body %}
+    <div class ="body">
+        <form class="formCreation">
+            <div>
+                <label>Nom Interface</label>
+                <input type="text" placeholder="nom de l'interface"></input>
+            </div>
+            <div>
+                <label>Ip Interface</label>
+                <input type="text" placeholder="IP de l'interface"></input>
+            </div>
+            <div>
+                <label>Mask Interface</label>
+                <input type="text" placeholder="masque de l'interface"></input>
+            </div>
+             <div>
+                <label> VLAN </label>
+                
+            </div>
+        </form>
+    </div>
+{% endblock %}

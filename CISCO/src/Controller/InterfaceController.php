@@ -33,8 +33,8 @@ class InterfaceController extends AbstractController
     /**
      * @Route("/interface/ajout/", name="ajout_interface")
      */
-    public function ajoutInterface($name, $ip, $mask){
-        createInterface($name, $ip, $mask);
+    public function ajoutSousInterface($name, $ip, $mask, $vlan){
+        createInterface($name, $ip, $mask, $vlan);
         return $this->render('interface_ajout.html.twig', array(
             'interface_name' => $name,
             'interface_ip' => $ip,
