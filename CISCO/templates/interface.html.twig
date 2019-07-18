@@ -13,16 +13,18 @@
             </h3>
             </br>
         </div>
-        <div class="nomPort">
-            <label class="labelTitre">Nom de l'interface : {{interface_name}}</label>
-        </div>
-        <div class="idInterface">
-            <label class="labelTitre">Changer l'ip</label>
-            <input type="text" value="{{ ip }}">
-        </div>
-        <div class="maskInterface">
-            <label class="labelTitre">Changer le mask</label>
-            <input type="text" value="{{ mask }}">
-        </div>
+        <form method="POST" action="{{ path('ajout_interface') ,{'name': interface_name}}}">
+            <div class="nomPort">
+                <label class="labelTitre">Nom de l'interface : {{interface_name}}</label>
+            </div>
+            <div class="idInterface">
+                <label class="labelTitre">Changer l'ip</label>
+                <input type="text" value="{{ ip }}">
+            </div>
+            <div class="maskInterface">
+                <label class="labelTitre">Changer le mask</label>
+                <input type="text" value="{{ mask }}">
+            </div>
+        </form>
     <div>
     {% endblock %}

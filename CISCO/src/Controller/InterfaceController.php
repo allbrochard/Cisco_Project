@@ -12,7 +12,7 @@ class InterfaceController extends AbstractController
     /**
      * @Route("/interface/{name}", name="interface")
      */
-    public function index($name)
+    public function index(Request $request,Fonction_equipement $fonction_equipement,$name)
     {
         $comu = 'cisco';
         $name = str_replace(' ', '',str_replace('-', '/', $name));
@@ -23,6 +23,15 @@ class InterfaceController extends AbstractController
         dump('réponse ip :  '.$response);
         $ip = strstr(str_replace('iso.3.6.1.2.1.4.20.1.2.', '', $response), ' =', true);
         $mask = shell_exec('snmpwalk -c '.$comu.' -v 2c '.$_SESSION['ip_equipement'].' iso.3.6.1.2.1.4.20.1.3.'.$ip.' -Ov -Oq');
+        if ($request->request->get('type_form')=='interface_ajout') {
+            $fonction_equipement->createSousInterface(
+                $request->request->get('nom'),
+                $request->request->get('ip'),
+                $request->request->get('mask'),
+                $request->request->get('vlan'),
+            );
+            return $this->redirectToRoute('equipement');
+        }
         return $this->render('interface.html.twig', array(
             'interface_name' => $name,
             'ip' => $ip,
