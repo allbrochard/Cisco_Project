@@ -99,7 +99,7 @@ class DefaultController extends AbstractController
             elseif(strpos($tabStatusAdmin[0][$i],"2")) {
                 $statutAdmin = 2;
             }
-            $name =  str_replace("\n","", str_replace('"', '',$tabNames[0][$i]));
+            $name =  str_replace("/", "-", str_replace("\n","", str_replace('"', '',$tabNames[0][$i])));
             if(strpos($tabNames[0][$i], 'Vlan') && $_SESSION['type']=='Switch'){ 
                 $tabV = array(
                     "NomInterface" => $name,
