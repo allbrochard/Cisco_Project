@@ -23,7 +23,9 @@
 }
 .pastille{
     border-radius: 200px !important;
-  }
+    width: 15px;
+    height: 10px;
+}
 a:link {
     text-decoration: none;
     color: black;
