@@ -38,30 +38,16 @@
             </div>
             <div>
                 <ul class="list-group lgPorts" >
-                    <li id="port" class="list-group-item row">
-                            <span class="col-md-1">Port 1</span>
+                    {% for item in equipement.info %}
+                        <li id="port" class="list-group-item row">
+                            <span class="col-md-1">{{item["NomInterface"]}}</span>
                             <span class="offset-md-3 badge badge-pill badge-danger">OFF</span>
                             <label class="switch offset-md-5">
                                 <input type="checkbox" onClick="setEtatEquipement('ON')">
                                 <span class="slider round"></span>
                             </label>
-                    </li>
-                    <li id="port" class="list-group-item row">
-                            <span class="col-md-1">Port 2</span>
-                            <span class="offset-md-3">KO</span>
-                            <label class="switch offset-md-5">
-                                <input type="checkbox" onclick="set">
-                                <span class="slider round"></span>
-                            </label>
-                    </li>
-                    <li id="port" class="list-group-item row">
-                            <span class="col-md-1">Port 3</span>
-                            <span class="offset-md-3">OK</span>
-                            <label class="switch offset-md-5">
-                                <input type="checkbox">
-                                <span class="slider round"></span>
-                            </label>
-                    </li>
+                         </li>
+                    {% endfor %}   
                 </ul>
             </div>
              <div>

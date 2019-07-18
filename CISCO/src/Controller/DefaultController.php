@@ -105,6 +105,7 @@ class DefaultController extends AbstractController
             'type' => $type,
             'domaine' => $domaine,
             'ip' => $ip,
+            'info' => $tabFinal,
         );
         return $this->render('supervisionEquipement.html.twig', [
             'controller_name' => 'DefaultController',
