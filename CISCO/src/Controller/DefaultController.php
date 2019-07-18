@@ -99,9 +99,10 @@ class DefaultController extends AbstractController
             elseif(strpos($tabStatusAdmin[0][$i],"2")) {
                 $statutAdmin = 2;
             }
+            $name = str_replace('"', '',$tabNames[0][$i]);
             if(strpos($tabNames[0][$i], 'Vlan') && $_SESSION['type']=='Switch'){ 
                 $tabV = array(
-                    "NomInterface" => $tabNames[0][$i],
+                    "NomInterface" => $name,
                     "StatutAdmin" => $statutAdmin,
                     "StatutLink" => $tabStatusLinks[0][$i]
                 );
@@ -110,7 +111,7 @@ class DefaultController extends AbstractController
                 
             }else{
                 $tab = array(
-                    "NomInterface" => $tabNames[0][$i],
+                    "NomInterface" => $name,
                     "StatutAdmin" => $statutAdmin,
                     "StatutLink" => $tabStatusLinks[0][$i]
                 );
