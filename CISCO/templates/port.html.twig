@@ -4,6 +4,32 @@
 {% endblock %}
 {% block javascripts %}
     <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.5.0/js/bootstrap4-toggle.min.js"></script>
+    <script>
+        $( document ).ready(function() {
+            var access = false
+        }
+
+        function typePort()
+        {
+            var e = document.getElementById("typePort");
+            var typePort = e.options[e.selectedIndex].value;
+            if (typePort == "access"){
+                hide();
+            }else{
+                show();
+            }
+        }
+
+        function hide(){
+            var select = document.getElementById('vlans');
+            select.style.visibility = 'hidden';
+        }
+
+        function show(){
+            var select = document.getElementById('vlans');
+            select.style.visibility = 'visible';
+        }
+    </script>
 {% endblock %}
 {% block body %}
     <div class="panel panel-primary offset-md-3 col-md-6" id="result_panel">
@@ -19,11 +45,18 @@
         <div class="typePort">
              <label class="labelTitre">
              Type de port : 
-             <select name="typePort">
+             <select id="typePort" onchange="typePort()">
                 <option value="trunk">Trunk</option>
                 <option value="access">Access</option>
              </select>
              </label>
+        </div>
+        <div class="vlan">
+            <select id="vlans" >
+                {% for vlan in vlans %}
+                    <option value="{{ vlan }}">{{ vlan }}</option>
+                {% endif %}
+            </select>
         </div>
     <div>
     {% endblock %}

@@ -12,8 +12,10 @@ class PortController extends AbstractController
      */
     public function index($name)
     {
+        $vlans = $_SESSION["vlanID"];
         return $this->render('port.html.twig', [
             'port_name' => $name,
+            'vlan' => $vlans,
         ]);
     }
 }

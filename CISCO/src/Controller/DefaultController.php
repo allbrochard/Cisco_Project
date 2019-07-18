@@ -105,6 +105,7 @@ class DefaultController extends AbstractController
                     "StatutAdmin" => $statutAdmin,
                     "StatutLink" => $tabStatusLinks[0][$i]
                 );
+                $_SESSION["vlanID"] = $name;
                 array_push($tabVlan, $tabV);
             }elseif(strpos( $tabNames[0][$i], 'Vlan')||strpos( $tabNames[0][$i], 'Null')){
                 
