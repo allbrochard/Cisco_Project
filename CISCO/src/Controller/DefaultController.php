@@ -88,14 +88,23 @@ class DefaultController extends AbstractController
         $tabStatusAdmin = Array(explode("INTEGER:", $interfacesStatusAdmin));
         $tabStatusLinks = Array(explode("INTEGER:", $interfacesStatusLinks));
         $tabFinal = array();
-            for($i = 1; $i < count($tabNames[0])-1 ; $i++){
-            $tab = array (
-                "NomInterface" => $tabNames[0][$i], 
-                "StatutAdmin" =>  $tabStatusAdmin[0][$i],
-                "StatutLink" =>  $tabStatusLinks[0][$i]                 
-            );
-            array_push($tabFinal, $tab);
-           
+        $tabVlan = array();
+        for($i = 1; $i < count($tabNames[0])-1 ; $i++){
+            if(strpos($tabNames[0][$i], 'Vlan')){
+                $tabV = array(
+                    "NomInterface" => $tabNames[0][$i],
+                    "StatutAdmin" => $tabStatusAdmin[0][$i],
+                    "StatutLink" => $tabStatusLinks[0][$i]
+                );
+                array_push($tabVlan, $tabV);
+            }else {
+                $tab = array(
+                    "NomInterface" => $tabNames[0][$i],
+                    "StatutAdmin" => $tabStatusAdmin[0][$i],
+                    "StatutLink" => $tabStatusLinks[0][$i]
+                );
+                array_push($tabFinal, $tab);
+            }
         }
         
         dump($tabFinal);
