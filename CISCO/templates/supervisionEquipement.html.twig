@@ -26,10 +26,12 @@
                     <label class="labelTitre">Type de l'équipement : </label>
                     <label> {{equipement.type}}</label>
             </div>
+            {% if(equipement.domaine!= '') %}
                <div class="domainEquipement">
                     <label class="labelTitre">Domaine de l'équipement : </label>
                     <label> {{equipement.domaine}}</label>
-            </div>
+                </div>
+            {% endif %}
             <div class="idEquipement">
                     <label class="labelTitre">IP de l'équipement : </label>
                     <label> {{equipement.ip}}</label>
