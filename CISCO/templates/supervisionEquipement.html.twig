@@ -43,7 +43,7 @@
                 <div class="nomEquipement">
                         <label class="labelTitre" >Nom de l'équipement : </label>
                         <input id="nameInput" type="text" value="{{equipement.nom}}"></input>                        
-                        <button type="button" onclick="{{fonction_equipement.setEquipmentName(document.getElementById('nameInput').value)}}" id="btnNom" class="bt2 btn btn-light"/><span class="glyphicon glyphicon-check">Valider</span></button>
+                        <button type="button" onclick="{{fonction_equipement.setEquipmentName(<script>document.getElementById('nameInput').value</script>)}}" id="btnNom" class="bt2 btn btn-light"/><span class="glyphicon glyphicon-check">Valider</span></button>
                 </div>  
                 <div class="typeEquipement">
                         <label class="labelTitre">Type de l'équipement : </label>

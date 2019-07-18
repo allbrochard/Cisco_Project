@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cccd9281-9836-4c8a-88ff-e478908a4737" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Service/Fonction_equipement.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Fonction_equipement.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/supervisionEquipement.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/supervisionEquipement.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,20 +15,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/supervisionEquipement.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="380">
-              <caret line="45" column="94" selection-start-line="45" selection-start-column="94" selection-end-line="45" selection-end-column="94" />
+              <caret line="45" column="153" selection-start-line="45" selection-start-column="153" selection-end-line="45" selection-end-column="153" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Service/Fonction_equipement.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="32" column="7" lean-forward="true" selection-start-line="13" selection-start-column="5" selection-end-line="32" selection-end-column="7" />
+            <state relative-caret-position="400">
+              <caret line="35" column="5" lean-forward="true" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -58,8 +57,8 @@
         <option value="$PROJECT_DIR$/src/Service/DownloadFile.php" />
         <option value="$PROJECT_DIR$/config/routes.yaml" />
         <option value="$PROJECT_DIR$/config/packages/twig.yaml" />
-        <option value="$PROJECT_DIR$/templates/supervisionEquipement.html.twig" />
         <option value="$PROJECT_DIR$/src/Service/Fonction_equipement.php" />
+        <option value="$PROJECT_DIR$/templates/supervisionEquipement.html.twig" />
       </list>
     </option>
   </component>
@@ -269,12 +268,12 @@
       <workItem from="1563179593073" duration="604000" />
       <workItem from="1563260218800" duration="377000" />
       <workItem from="1563281300495" duration="2344000" />
-      <workItem from="1563432940363" duration="1626000" />
+      <workItem from="1563432940363" duration="1700000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36382000" />
+    <option name="totallyTimeSpent" value="36456000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
@@ -383,17 +382,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/supervisionEquipement.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/Service/Fonction_equipement.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="45" column="94" selection-start-line="45" selection-start-column="94" selection-end-line="45" selection-end-column="94" />
+        <state relative-caret-position="400">
+          <caret line="35" column="5" lean-forward="true" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Service/Fonction_equipement.php">
+    <entry file="file://$PROJECT_DIR$/templates/supervisionEquipement.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="32" column="7" lean-forward="true" selection-start-line="13" selection-start-column="5" selection-end-line="32" selection-end-column="7" />
+        <state relative-caret-position="380">
+          <caret line="45" column="153" selection-start-line="45" selection-start-column="153" selection-end-line="45" selection-end-column="153" />
         </state>
       </provider>
     </entry>
