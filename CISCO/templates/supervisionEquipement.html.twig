@@ -19,12 +19,13 @@
         <div class="panel-body">
             <input type="hidden" value="equipement" name="type_form">
             <div class="nomEquipement">
-                        <label class="labelTitre" >Nom de l'équipement : </label>
-                        <input id="nameInput" name="nameInput" type="text" value="{{equipement.nom}}">
+                <label class="labelTitre" >Nom de l'équipement : </label>
+                <input id="nameInput" name="nameInput" type="text" value="{{equipement.nom}}">
+                <input type="submit" class="bt0 btn btn-light" value="Enregistrer nouveau nom">
             </div>
             <div class="typeEquipement">
-                    <label class="labelTitre">Type de l'équipement : </label>
-                    <label> {{equipement.type}}</label>
+                <label class="labelTitre">Type de l'équipement : </label>
+                <label> {{equipement.type}}</label>
             </div>
             {% if(equipement.domaine!= '') %}
                <div class="domainEquipement">
@@ -80,7 +81,6 @@
     </div>
     <div class="buttonBlock">
     </br>
-        <input type="submit" class="bt0 btn btn-light" value="Valider les modifications"></input>
         <a href="{{path('equipement_liste')}}" class="bt1 btn btn-light">Retour</a>
     </div>
     </form>
