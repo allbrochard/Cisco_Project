@@ -12,6 +12,7 @@ class PortController extends AbstractController
      */
     public function index($name)
     {
+        $name = str_replace('-', '/', $name);
         return $this->render('port.html.twig', [
             'port_name' => $name,
         ]);
