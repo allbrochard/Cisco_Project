@@ -26,7 +26,10 @@
             <br>
             {% if(type != 'switch' ) and ( type != 'router') %}
             <label>Type de l'équipement :
-                <input name="type" type="text">
+                <select id="type" name="type">
+                    <option value="router">router</option>
+                    <option value="switch">switch</option>
+                </select>
             </label>
             <br>
             {% else %}

@@ -127,6 +127,7 @@ class DefaultController extends AbstractController
         }else{
             $type = 'Autre équipement Cisco';
         }
+        dump($type);
         $_SESSION["ip_equipement"] = $ip;
         return $this->render('connexion.html.twig', array(
             'type' => $type
