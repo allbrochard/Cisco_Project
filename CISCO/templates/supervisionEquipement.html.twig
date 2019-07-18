@@ -44,23 +44,7 @@
                         <li id="port" class="list-group-item row">
                             <span class="col-md-1">{{ item.NomInterface }}</span>
                             <label>{{item.StatutAdmin}}</label>
-                            <span class="pastille" id="{{ item.StatutAdmin }}">
-                                <script>                                  
-                                    element = document.getElementById("{{item.StatutAdmin }}");
-                                    element.classList.remove("pastille offset-md-3 badge badge-pill badge-success");
-                                    element.classList.remove("pastille offset-md-3 badge badge-pill badge-danger");
-                                </script>
-                                {% if item.StatutAdmin == 1  %}
-                                    <script>                                
-                                        element = document.getElementById("{{  item.StatutAdmin }}");
-                                        element.setAttribute("class", "pastille offset-md-3 badge badge-pill badge-success");
-                                    </script>
-                                {% elseif item.StatutAdmin == 2  %}
-                                    <script>
-                                        element = document.getElementById("{{  item.StatutAdmin }}");
-                                        element.setAttribute("class", "pastille offset-md-3 badge badge-pill badge-danger");
-                                    </script>
-                                {% endif %}
+                            <span class="pastille offset-md-3 badge badge-pill {% if item.StatutAdmin == 1 %}badge-success{% else %}badge-danger{% endif %}">
                             </span>
                             {% if equipement.type == 'Switch' %}
                                 <a href="{{ path('port', {'name': item.NomInterface}) }} " class="btn btn-primary offset-md-9" name="modifPort">
