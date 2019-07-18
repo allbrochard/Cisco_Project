@@ -54,7 +54,7 @@
                                         element.text("ON");
                                         element.setAttribute("class", "offset-md-3 badge badge-pill badge-success");
                                     </script>
-                                {% else if item["StatutAdmin"] == 2 %}
+                                {% elseif item["StatutAdmin"] == 2 %}
                                     <script>
                                         element = document.getElementById("{{  item["StatutAdmin"] }}");
                                         element.text("OFF");
