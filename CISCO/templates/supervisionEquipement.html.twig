@@ -38,15 +38,31 @@
             </div>
             <div>
                 <ul class="list-group lgPorts" >
-                    {% for item in equipement.info %}
+                    {% for item in equipement.info %}                  
+                    
                         <li id="port" class="list-group-item row">
                             <span class="col-md-1">{{item["NomInterface"]}}</span>
-                            <span class="offset-md-3 badge badge-pill badge-danger">OFF</span>
-                            <label class="switch offset-md-5">
-                                <input type="checkbox" onClick="setEtatEquipement('ON')">
-                                <span class="slider round"></span>
-                            </label>
-                         </li>
+                            <span id="{{ item["StatutAdmin"}}">
+                                <script>
+                                    element = document.getElementById("{{ item["StatutAdmin"] }}");
+                                    element.classList.remove("offset-md-3 badge badge-pill badge-success");
+                                    element.classList.remove("offset-md-3 badge badge-pill badge-danger");
+                                </script>
+                                {% if equipement.on == true %}
+                                    <script>                                
+                                        element = document.getElementById("{{  item["StatutAdmin"] }}");
+                                        element.text("ON");
+                                        element.setAttribute("class", "offset-md-3 badge badge-pill badge-success");
+                                    </script>
+                                {% else %}
+                                    <script>
+                                        element = document.getElementById("{{  item["StatutAdmin"] }}");
+                                        element.text("OFF");
+                                        element.setAttribute("class", "offset-md-3 badge badge-pill badge-danger");
+                                    </script>
+                                {% endif %}
+                            </span>                                                  
+                        </li>
                     {% endfor %}   
                 </ul>
                 {% if equipement.type == 'switch' %}
