@@ -79,9 +79,16 @@ class DefaultController extends AbstractController
         $interfacesNames = shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' 1.3.6.1.2.1.2.2.1.2 -Ov');
         $interfacesStatusAdmin = shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' 1.3.6.1.2.1.2.2.1.7');
         $interfacesStatusLinks = shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' 1.3.6.1.2.1.2.2.1.8');
-        $tab = Array(explode("STRING:", $interfacesNames));
-        //$tab  = array_splice($array[0]);
-        dump($interfacesNames);
+        $tabNames = Array(explode("STRING:", $interfacesNames));
+        $tabStatusAdmin = Array(explode("STRING:", $interfacesStatusAdmin));
+        $tabStatusLinks = Array(explode("STRING:", $interfacesStatusLinks));
+        for($i = 1; $i < count($tabNames) ; $i++){
+            $tab[$tabNames[i]] = array (
+                $interfacesStatusAdmin[i],
+                $interfacesStatusLinks[i]
+            );
+        }
+        
         dump($tab);
         $equipement = array(
             'nom' => $nom,
