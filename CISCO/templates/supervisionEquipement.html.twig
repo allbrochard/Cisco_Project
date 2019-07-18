@@ -46,11 +46,11 @@
                             <label>{{item.StatutAdmin}}</label>
                             <span class="pastille offset-md-3 badge badge-pill {% if item.StatutAdmin == 1 %}badge-success{% else %}badge-danger{% endif %}">
                             </span>
-                            {% if equipement.type == 'switch' %}
+                            {% if equipement.type == 'Switch' %}
                                 <a href="{{ path('port', {'name': item.NomInterface}) }} " class="btn btn-primary offset-md-9" name="modifPort">
                                     Modifier le port
                                 </a>
-                            {% elseif equipement.type == 'routeur' %}
+                            {% elseif equipement.type == 'Routeur' %}
                                 <a href="{{ path('interface', {'name': item.NomInterface}) }} " class="btn btn-primary offset-md-9" name="modifinterface">
                                     Modifier l'interface
                                 </a>
@@ -60,10 +60,10 @@
                         
                     {% endfor %}   
                 </ul>
-                {% if equipement.type == 'switch' %}
+                {% if equipement.type == 'Switch' %}
                     <button id="addPort">Ajouter un port</button>
                 {% endif %}
-                {% if equipement.type == 'routeur' %}
+                {% if equipement.type == 'Routeur' %}
                     <button id="addPort">Ajouter une interface</button>
                 {% endif %}
             </div>
