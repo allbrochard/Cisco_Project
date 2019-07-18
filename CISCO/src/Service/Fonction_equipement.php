@@ -9,7 +9,7 @@ namespace App\Service;
 
 //use Symfony\Component\Validator\Constraints\Date;
 
-class Fonctionequipement
+class Fonction_equipement
 {
     public function indexFonction($action, $name){
 
