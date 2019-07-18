@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Request;
+use App\Service\Fonction_equipement;
 
 class PortController extends AbstractController
 {
@@ -19,5 +21,13 @@ class PortController extends AbstractController
             'port_name' => $name,
             'vlans' => $vlans,
         ]);
+    }
+
+    /**
+     * @Route("/port/modif/{name}", name="port_modif")
+     */
+    public function modifPort(Request $request, Fonction_equipement $fonctionEquipement)
+    {
+        
     }
 }
