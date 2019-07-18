@@ -36,30 +36,36 @@
 {% endblock %}
 {% block body %}
     <div class="panel panel-primary offset-md-3 col-md-6" id="result_panel">
-        <div class="panel-heading">
-            <h3 class="panel-title">Modification du port
-                {{port_name}}
-            </h3>
-            </br>
-        </div>
-        <div class="nomPort">
-            <label class="labelTitre">Nom du port : {{port_name}}</label>
-        </div>
-        <div class="typePort">
-             <label class="labelTitre">
-             Type de port : 
-             <select id="typePort" onchange="typePortVlan()">
-                <option value="trunk">Trunk</option>
-                <option value="access">Access</option>
-             </select>
-             </label>
-        </div>
-        <div class="vlan" id="vlanDiv">
-            <select id="vlans" >
-                {% for vlan in vlans %}
-                    <option value="{{ vlan.NomInterface }}">{{ vlan.NomInterface }}</option>
-                {% endfor %}
-            </select>
-        </div>
+        <form method="POST">
+            <div class="panel-heading">
+                <h3 class="panel-title">Modification du port
+                    {{port_name}}
+                </h3>
+                </br>
+            </div>
+            <div class="nomPort">
+                <label class="labelTitre">Nom du port : {{port_name}}</label>
+            </div>
+            <div class="typePort">
+                <label class="labelTitre">
+                Type de port : 
+                <select id="typePort" onchange="typePortVlan()">
+                    <option value="trunk">Trunk</option>
+                    <option value="access">Access</option>
+                </select>
+                </label>
+            </div>
+            <div class="vlan" id="vlanDiv">
+                <select id="vlans" >
+                    {% for vlan in vlans %}
+                        <option value="{{ vlan.NomInterface }}">{{ vlan.NomInterface }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="buttonBlock">
+                <input type="submit" class="bt0 btn btn-light" value="Modifier le port">
+                <a href="{{path('equipement_liste')}}" class="bt1 btn btn-light">Retour</a>
+            <div>
+        </form>
     <div>
     {% endblock %}
