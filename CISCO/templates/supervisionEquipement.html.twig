@@ -49,12 +49,12 @@
                                     element.classList.remove("pastille offset-md-3 badge badge-pill badge-success");
                                     element.classList.remove("pastille offset-md-3 badge badge-pill badge-danger");
                                 </script>
-                                {% if item["StatutAdmin"] == " 1 " %}
+                                {% if "1" in item["StatutAdmin"]  %}
                                     <script>                                
                                         element = document.getElementById("{{  item["StatutAdmin"] }}");
                                         element.setAttribute("class", "pastille offset-md-3 badge badge-pill badge-success");
                                     </script>
-                                {% elseif item["StatutAdmin"] == " 2 " %}
+                                {% elseif "2" in item["StatutAdmin"]  %}
                                     <script>
                                         element = document.getElementById("{{  item["StatutAdmin"] }}");
                                         element.setAttribute("class", "pastille offset-md-3 badge badge-pill badge-danger");
