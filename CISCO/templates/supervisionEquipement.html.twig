@@ -46,6 +46,10 @@
                             <div class="offset-md-3 divStatutAdmin">
                                 <label>{% if item.StatutAdmin == 1 %} Actif {% else %} Inactif {% endif %}</label>
                                 <span class="pastille offset-md-3 badge badge-pill {% if item.StatutAdmin == 1 %}badge-success{% else %}badge-danger{% endif %}"></span>
+                            </div> 
+                             <div class="offset-md-3 divStatutLink">
+                                <label>{% if item.StatutLink == 1 %} Connecté {% else %} Déconnecté {% endif %}</label>
+                                <span class="pastille offset-md-3 badge badge-pill {% if item.StatutLink == 1 %}badge-success{% else %}badge-danger{% endif %}"></span>
                             </div>                            
                             {% if equipement.type == 'Switch' %}
                                 <a href="{{ path('port', {'name': item.NomInterface}) }} " class="btn btn-primary offset-md-9" name="modifPort">
