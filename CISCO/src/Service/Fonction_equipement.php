@@ -11,26 +11,26 @@ namespace App\Service;
 
 class Fonction_equipement
 {
-    public function indexFonction($action, $name){
-
-        if(isset($action) && function_exists($action)) {
-            $action = $action;
-            $var = isset($name) ? $name : null;
-            $getData = $action($var);
-            // do whatever with the result
-        }
-        switch($action) {
-            case('changer_nom'):
-                $response = $this->setEquipmentName($name);
-                break;
-            case 'get_conf':
-                $response = $this->getConf();
-                break;
-            default:
-                die('Access denied for this function!');
-        }
-        return $response;
-    }
+//    public function indexFonction($action, $name){
+//
+//        if(isset($action) && function_exists($action)) {
+//            $action = $action;
+//            $var = isset($name) ? $name : null;
+//            $getData = $action($var);
+//            // do whatever with the result
+//        }
+//        switch($action) {
+//            case('changer_nom'):
+//                $response = $this->setEquipmentName($name);
+//                break;
+//            case 'get_conf':
+//                $response = $this->getConf();
+//                break;
+//            default:
+//                die('Access denied for this function!');
+//        }
+//        return $response;
+//    }
     function setEtatEquipement($bool){
 
     }
