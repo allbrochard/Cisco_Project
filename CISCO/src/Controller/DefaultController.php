@@ -80,7 +80,7 @@ class DefaultController extends AbstractController
         $interfacesStatusAdmin = shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' 1.3.6.1.2.1.2.2.1.7');
         $interfacesStatusLinks = shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' 1.3.6.1.2.1.2.2.1.8');
         $tab = Array(explode("STRING:", $interfacesNames));
-        \array_splice($tab, 0, 1);
+        $tab = \array_splice($tab, 0, 1);
         dump($interfacesNames);
         dump($tab);
         $equipement = array(
