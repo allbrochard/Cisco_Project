@@ -28,7 +28,7 @@
         <entry file="file://$PROJECT_DIR$/config/packages/twig.yaml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="80">
-              <caret line="5" column="60" selection-start-line="5" selection-start-column="60" selection-end-line="5" selection-end-column="60" />
+              <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -267,12 +267,12 @@
       <workItem from="1563179593073" duration="604000" />
       <workItem from="1563260218800" duration="377000" />
       <workItem from="1563281300495" duration="2344000" />
-      <workItem from="1563432940363" duration="459000" />
+      <workItem from="1563432940363" duration="503000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35215000" />
+    <option name="totallyTimeSpent" value="35259000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="531" y="0" width="1011" height="870" extended-state="0" />
@@ -391,7 +391,7 @@
     <entry file="file://$PROJECT_DIR$/config/packages/twig.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
-          <caret line="5" column="60" selection-start-line="5" selection-start-column="60" selection-end-line="5" selection-end-column="60" />
+          <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
         </state>
       </provider>
     </entry>
