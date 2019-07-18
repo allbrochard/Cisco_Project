@@ -92,14 +92,15 @@ class DefaultController extends AbstractController
         $tabVlan = array();
 
         for($i = 1; $i < count($tabNames[0])-1 ; $i++){
-            $statutAdmin = 0;
-            if (strpos($tabStatusAdmin[0][$i],"1")) {
-                $statutAdmin = 1;
-            }
-            elseif(strpos($tabStatusAdmin[0][$i],"2")) {
-                $statusAdmin = 2;
-            }
-            if(strpos($tabNames[0][$i], 'Vlan') && $_SESSION['type']=='Switch'){ 
+            if(strpos($tabNames[0][$i], 'Vlan') && $_SESSION['type']=='Switch'){
+                $statusAdmin = 0;
+                if (strpos($tabStatusAdmin[0][$i],"1")) {
+                    $statusAdmin = 1;
+                }
+                elseif(strpos($tabStatusAdmin[0][$i],"2")) {
+                    $statusAdmin = 2;
+                }
+
                 $tabV = array(
                     "NomInterface" => $tabNames[0][$i],
                     "StatutAdmin" => $statusAdmin,
