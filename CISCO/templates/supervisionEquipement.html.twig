@@ -42,25 +42,26 @@
                     
                         <li id="port" class="list-group-item row">
                             <span class="col-md-1">{{item["NomInterface"]}}</span>
-                            <span class="col-md-3 pastille" id="{{ item["StatutAdmin"]}}">                                   
+                            <span id="{{ item["StatutAdmin"]}}">                                   
                                 <script>
                                     element = document.getElementById("{{ item["StatutAdmin"] }}");
-                                    element.classList.remove("offset-md-3 badge badge-pill badge-success");
-                                    element.classList.remove("offset-md-3 badge badge-pill badge-danger");
+                                    element.classList.remove("pastille offset-md-3 badge badge-pill badge-success");
+                                    element.classList.remove("pastille offset-md-3 badge badge-pill badge-danger");
                                 </script>
                                 {% if item["StatutAdmin"] == 1 %}
                                     <script>                                
                                         element = document.getElementById("{{  item["StatutAdmin"] }}");
-                                        element.setAttribute("class", "offset-md-3 badge badge-pill badge-success");
+                                        element.setAttribute("class", "pastille offset-md-3 badge badge-pill badge-success");
                                     </script>
                                 {% elseif item["StatutAdmin"] == 2 %}
                                     <script>
                                         element = document.getElementById("{{  item["StatutAdmin"] }}");
-                                        element.setAttribute("class", "offset-md-3 badge badge-pill badge-danger");
+                                        element.setAttribute("class", "pastille offset-md-3 badge badge-pill badge-danger");
                                     </script>
                                 {% endif %}
                             </span>                                                  
                         </li>
+
                         <a>
                             <button class='btn btn-primary' name="modifPort">Modifier le port
                         </a>
