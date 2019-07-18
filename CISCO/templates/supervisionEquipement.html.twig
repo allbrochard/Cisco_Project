@@ -49,6 +49,12 @@
                          </li>
                     {% endfor %}   
                 </ul>
+                {% if equipement.type == 'switch' %}
+                    <button id="addPort">Ajouter un port</button>
+                {% endif %}
+                {% if equipement.type == 'routeur' %}
+                    <button id="addPort">Ajouter une interface</button>
+                {% endif %}
             </div>
              <div>
                 <ul class="list-group lgMachines" >
