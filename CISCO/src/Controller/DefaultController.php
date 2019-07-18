@@ -121,9 +121,9 @@ class DefaultController extends AbstractController
     {
         $comu = 'cisco';
         if(strpos(shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' .1.3.6.1.2.1.1.9.1.3.30'), 'Switched')){
-            $type='Switch';
+            $type='switch';
         }elseif(strpos(shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' .1.3.6.1.2.1.1'), 'ISR')){
-            $type='Router';
+            $type='router';
         }else{
             $type = 'Autre équipement Cisco';
         }
