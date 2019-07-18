@@ -13,12 +13,13 @@ class InterfaceController extends AbstractController
     public function index($name)
     {
         $comu = 'cisco';
-        $name = str_replace('-', '/', $name);
-        dump('snmpwalk -c '.$comu.' -v 2c '.$_SESSION['ip_equipement'].' 1.3.6.1.2.1.2.2.1.2 | grep \''.$name.'"\'');
+        $name = str_replace(' ', '',str_replace('-', '/', $name));
+
         $response = shell_exec('snmpwalk -c '.$comu.' -v 2c '.$_SESSION['ip_equipement'].' 1.3.6.1.2.1.2.2.1.2 | grep \''.$name.'"\'');
+        dump($response);
         $num = strstr(str_replace('iso.3.6.1.2.1.2.2.1.2.', '', $response), ' =', true);
-        dump($num);
         $response = shell_exec('snmpwalk -c '.$comu.' -v 2c '.$_SESSION['ip_equipement'].' 1.3.6.1.2.1.4.20.1.2 | grep "'.$num.'>"');
+        dump('snmpwalk -c '.$comu.' -v 2c '.$_SESSION['ip_equipement'].' 1.3.6.1.2.1.4.20.1.2 | grep "'.$num.'>"');
         $ip = strstr(str_replace('iso.3.6.1.2.1.4.20.1.2.', '', $response), ' =', true);
         dump($ip);
         $mask = shell_exec('snmpwalk -c '.$comu.' -v 2c '.$_SESSION['ip_equipement'].' iso.3.6.1.2.1.4.20.1.3.'.$ip.' -Ov -Oq');
@@ -33,10 +34,12 @@ class InterfaceController extends AbstractController
     /**
      * @Route("/interface/ajout/", name="ajout_interface")
      */
-    public function ajoutInterface(){
-
+    public function ajoutInterface($name, $ip, $mask){
+        createInterface($name, $ip, $mask);
         return $this->render('interface_ajout.html.twig', array(
-            'interface_name' => '',
+            'interface_name' => $name,
+            'interface_ip' => $ip,
+            'interface_mask' => $mask 
         ));
     }
 }
