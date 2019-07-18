@@ -12,6 +12,7 @@ class InterfaceController extends AbstractController
      */
     public function index($name)
     {
+        $name = str_replace('-', '/', $name);
         return $this->render('interface.html.twig', array(
             'interface_name' => $name,
         ));
