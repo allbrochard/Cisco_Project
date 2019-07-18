@@ -42,7 +42,9 @@
                     {% for item in equipement.info %}                  
                     
                         <li id="port" class="list-group-item row">
-                            <span class="col-md-4">{{ item.originalName}}</span>
+                            <div class="col-md-4">
+                                <span>{{ item.originalName}}</span>
+                            </div>
                             <div class="offset-md-4 divStatutAdmin row">
                                 <div class="col-md-12">
                                     <label>{% if item.StatutAdmin == 1 %} Actif {% else %} Inactif {% endif %}</label>
@@ -53,7 +55,7 @@
                                     <span class="pastille offset-md-4 badge badge-pill {% if item.StatutLink == 1 %}badge-success{% else %}badge-danger{% endif %}"></span>
                                 </div>
                             </div> 
-                             <div class="offset-md-4 divStatutLink">
+                            <div class="offset-md-4 divStatutLink">
                                 {% if equipement.type == 'Switch' %}
                                     <a href="{{ path('port', {'name': item.NomInterface}) }} " class="btn btn-primary offset-md-9" name="modifPort">
                                         Modifier le port
@@ -63,7 +65,7 @@
                                         Modifier l'interface
                                     </a>
                                 {% endif %}
-                             </div>
+                            </div>
                         </li>
 
                         
