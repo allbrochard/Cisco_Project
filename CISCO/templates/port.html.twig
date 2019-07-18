@@ -24,12 +24,12 @@
         }
 
         function hide(){
-            var select = document.getElementById('vlans');
+            var select = document.getElementById('vlanDiv');
             select.style.visibility = 'hidden';
         }
 
         function show(){
-            var select = document.getElementById('vlans');
+            var select = document.getElementById('vlanDiv');
             select.style.visibility = 'visible';
         }
     </script>
@@ -54,7 +54,7 @@
              </select>
              </label>
         </div>
-        <div class="vlan">
+        <div class="vlan" id="vlanDiv">
             <select id="vlans" >
                 {% for vlan in vlans %}
                     <option value="{{ vlan }}">{{ vlan }}</option>
