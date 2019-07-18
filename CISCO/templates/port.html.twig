@@ -9,10 +9,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/core.js"></script>
     <script>
         $( document ).ready(function() {
-            var access = false
+            var access = false;
         }
 
-        function typePort()
+        function typePortVlan()
         {
             var e = document.getElementById("typePort");
             var typePort = e.options[e.selectedIndex].value;
@@ -48,7 +48,7 @@
         <div class="typePort">
              <label class="labelTitre">
              Type de port : 
-             <select id="typePort" onchange="typePort()">
+             <select id="typePort" onchange="typePortVlan()">
                 <option value="trunk">Trunk</option>
                 <option value="access">Access</option>
              </select>
