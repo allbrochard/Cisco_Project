@@ -82,6 +82,7 @@ class DefaultController extends AbstractController
         $tabNames = Array(explode("STRING:", $interfacesNames));
         $tabStatusAdmin = Array(explode("STRING:", $interfacesStatusAdmin));
         $tabStatusLinks = Array(explode("STRING:", $interfacesStatusLinks));
+        $tab = array();
         for($i = 1; $i < count($tabNames) ; $i++){
             $tab[$tabNames[i]] = array (
                 $interfacesStatusAdmin[i],
