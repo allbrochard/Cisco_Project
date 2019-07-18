@@ -21,6 +21,9 @@
     border: 2px solid black;
     border-radius: 5px;
 }
+.pastille{
+    border-radius: 200px !important;
+  }
 a:link {
     text-decoration: none;
     color: black;
