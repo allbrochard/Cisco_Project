@@ -96,15 +96,15 @@ class DefaultController extends AbstractController
                     "StatutAdmin" => $tabStatusAdmin[0][$i],
                     "StatutLink" => $tabStatusLinks[0][$i]
                 );
+                array_push($tabVlan, $tabV);
             }else {
                 $tab = array(
                     "NomInterface" => $tabNames[0][$i],
                     "StatutAdmin" => $tabStatusAdmin[0][$i],
                     "StatutLink" => $tabStatusLinks[0][$i]
                 );
+                array_push($tabFinal, $tab);
             }
-            array_push($tabFinal, $tab);
-            array_push($tabVlan, $tabV);
         }
         
         dump($tabFinal);
