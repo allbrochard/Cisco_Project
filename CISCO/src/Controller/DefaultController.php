@@ -90,7 +90,7 @@ class DefaultController extends AbstractController
         $tabFinal = array();
         $tabVlan = array();
 
-        for($i = 1; $i < count($tabNames[0])-1 ; $i++){
+        for($i = 1; $i <= count($tabNames[0])-1 ; $i++){
             $statutAdmin = 0;
             if (strpos($tabStatusAdmin[0][$i],"1")) {
                 $statutAdmin = 1;
