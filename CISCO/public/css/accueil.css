@@ -23,8 +23,8 @@
 }
 .pastille{
     border-radius: 200px !important;
-    width: 15px;
-    height: 15px;
+    width: 15px !important;
+    height: 15px !important;
 }
 a:link {
     text-decoration: none;

@@ -19,21 +19,21 @@
                         <strong>{{equipement.nom}}</strong>
                         <br/>
                         <p class="description-item">{{equipement.type}}</p>
-                        <span id="{{ equipement.ip }}" class="pastille">
+                        <span id="{{ equipement.ip }}">
                             <script>
                                 element = document.getElementById("{{ equipement.ip }}");
-                                element.classList.remove("offset-md-3 badge badge-pill badge-success");
-                                element.classList.remove("offset-md-3 badge badge-pill badge-danger");
+                                element.classList.remove("pastille offset-md-3 badge badge-pill badge-success");
+                                element.classList.remove("pastille offset-md-3 badge badge-pill badge-danger");
                             </script>
                             {% if equipement.on == true %}
                                 <script>                                
                                     element = document.getElementById("{{ equipement.ip }}");
-                                    element.setAttribute("class", "offset-md-3 badge badge-pill badge-success");
+                                    element.setAttribute("class", "pastille offset-md-3 badge badge-pill badge-success");
                                 </script>
                             {% else %}
                                 <script>
                                     element = document.getElementById("{{ equipement.ip }}");
-                                    element.setAttribute("class", "offset-md-3 badge badge-pill badge-danger");
+                                    element.setAttribute("class", "pastille offset-md-3 badge badge-pill badge-danger");
                                 </script>
                             {% endif %}
                         </span>
