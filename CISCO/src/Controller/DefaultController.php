@@ -114,7 +114,7 @@ class DefaultController extends AbstractController
                     "StatutLink" => $statutLink,
                     'originalName' => $originalName,
                 );
-                $_SESSION["vlanID"] = $name;
+                
                 array_push($tabVlan, $tabV);
             }elseif(strpos( $tabNames[0][$i], 'Vlan')||strpos( $tabNames[0][$i], 'Null')){
                 
@@ -129,6 +129,7 @@ class DefaultController extends AbstractController
             }
         }
 
+        $_SESSION["vlanID"] = $tabVlan;
         $equipement = array(
             'nom' => $nom,
             'type' => $type,
