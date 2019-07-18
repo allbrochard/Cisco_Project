@@ -55,15 +55,15 @@ class DefaultController extends AbstractController
             $username = $request->request->get('user');
             $userpswd = $request->request->get('userpswd');
             $adminpswd = $request->request->get('adminpswd');
-
+            $type = $request->request->get('type');
+            dump($type);
             $_SESSION['user'] = $username;
             $_SESSION['mp_user'] = $userpswd;
             $_SESSION['mp_admin'] = $adminpswd;
-            $_SESSION['type'] =  $request->request->get('type');
+            $_SESSION['type'] = $type;
         }
         if ($request->request->get('type_form')=='equipement'){
             $response = $fonction_equipement->setEquipmentName($request->request->get('nameInput'));
-            dump($response);
         }
 
         $comu = 'cisco';
@@ -81,6 +81,7 @@ class DefaultController extends AbstractController
         }else{
             $domaine='';
         }
+
         $interfacesNames = shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' 1.3.6.1.2.1.2.2.1.2 -Ov');
         $interfacesStatusAdmin = shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' 1.3.6.1.2.1.2.2.1.7 -Ov');
         $interfacesStatusLinks = shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' 1.3.6.1.2.1.2.2.1.8 -Ov');
@@ -89,15 +90,18 @@ class DefaultController extends AbstractController
         $tabStatusLinks = Array(explode("INTEGER:", $interfacesStatusLinks));
         $tabFinal = array();
         $tabVlan = array();
+
         for($i = 1; $i < count($tabNames[0])-1 ; $i++){
-            if(strpos($tabNames[0][$i], 'Vlan')){
+            if(strpos($tabNames[0][$i], 'Vlan') && $_SESSION['type']=='Switch'){
                 $tabV = array(
                     "NomInterface" => $tabNames[0][$i],
                     "StatutAdmin" => $tabStatusAdmin[0][$i],
                     "StatutLink" => $tabStatusLinks[0][$i]
                 );
                 array_push($tabVlan, $tabV);
-            }else {
+            }elseif(strpos( $tabNames[0][$i], 'Null')){
+                
+            }else{
                 $tab = array(
                     "NomInterface" => $tabNames[0][$i],
                     "StatutAdmin" => $tabStatusAdmin[0][$i],
@@ -106,8 +110,7 @@ class DefaultController extends AbstractController
                 array_push($tabFinal, $tab);
             }
         }
-        
-        dump($tabFinal);
+
         $equipement = array(
             'nom' => $nom,
             'type' => $type,
