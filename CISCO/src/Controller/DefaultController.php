@@ -82,19 +82,26 @@ class DefaultController extends AbstractController
             $domaine='';
         }
         $interfacesNames = shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' 1.3.6.1.2.1.2.2.1.2 -Ov');
-        $interfacesStatusAdmin = shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' 1.3.6.1.2.1.2.2.1.7');
-        $interfacesStatusLinks = shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' 1.3.6.1.2.1.2.2.1.8');
+        $interfacesStatusAdmin = shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' 1.3.6.1.2.1.2.2.1.7 -Ov');
+        $interfacesStatusLinks = shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' 1.3.6.1.2.1.2.2.1.8 -Ov');
         $tabNames = Array(explode("STRING:", $interfacesNames));
-        $tabStatusAdmin = Array(explode("STRING:", $interfacesStatusAdmin));
-        $tabStatusLinks = Array(explode("STRING:", $interfacesStatusLinks));
-        for($i = 1; $i < count($tabNames) ; $i++){
-            $tab[$tabNames[i]] = array (
-                $interfacesStatusAdmin[i],
-                $interfacesStatusLinks[i]
+        $tabStatusAdmin = Array(explode("INTEGER:", $interfacesStatusAdmin));
+        $tabStatusLinks = Array(explode("INTEGER:", $interfacesStatusLinks));
+        $tabFinal = array();
+        dump(count($tabNames[0]));
+        for($i = 1; $i < count($tabNames[0]) ; $i++){
+            $tab = array (
+                "NomInterface" => $tabNames[0][$i], 
+                "StatutAdmin" =>  $interfacesStatusAdmin[0][$i],
+                "StatutLink" =>  $interfacesStatusLinks[0][$i]                 
             );
+            $tabFinal[] = $tab;
+           
         }
         
-        dump($tab);
+        dump($tabFinal);
+        dump($tabStatusAdmin);
+        dump($tabStatusLinks);
         $equipement = array(
             'nom' => $nom,
             'type' => $type,
