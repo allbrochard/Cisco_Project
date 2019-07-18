@@ -106,11 +106,13 @@ class DefaultController extends AbstractController
                 $statutLink = 2;
             }
             $name =  str_replace("/", "-", str_replace("\n","", str_replace('"', '',$tabNames[0][$i])));
+            $originalName = str_replace("\n","", str_replace('"', '',$tabNames[0][$i]));
             if(strpos($tabNames[0][$i], 'Vlan') && $_SESSION['type']=='Switch'){ 
                 $tabV = array(
                     "NomInterface" => $name,
                     "StatutAdmin" => $statutAdmin,
-                    "StatutLink" => $statutLink
+                    "StatutLink" => $statutLink,
+                    'originalName' => $originalName,
                 );
                 array_push($tabVlan, $tabV);
             }elseif(strpos( $tabNames[0][$i], 'Vlan')||strpos( $tabNames[0][$i], 'Null')){
@@ -119,7 +121,8 @@ class DefaultController extends AbstractController
                 $tab = array(
                     "NomInterface" => $name,
                     "StatutAdmin" => $statutAdmin,
-                    "StatutLink" => $statutLink
+                    "StatutLink" => $statutLink,
+                    'originalName' => $originalName,
                 );
                 array_push($tabFinal, $tab);
             }
