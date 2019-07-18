@@ -11,98 +11,94 @@
 
 {% endblock %}
 {% block body %}
-<div class="panel panel-primary offset-md-3 col-md-6" id="result_panel">
-    <input type="hidden" value="equipement" name="type_form">
-    <div class="panel-heading"><h3 class="panel-title">Supervision de l'équipement {{equipement.nom}}</h3>
-    </br>
+    <div class="panel panel-primary offset-md-3 col-md-6" id="result_panel">
+        <form method="POST" action="{{ path('equipement') }}">
+        <div class="panel-heading"><h3 class="panel-title">Supervision de l'équipement {{equipement.nom}}</h3>
+            </br>
         </div>
-            <div class="panel-body">
-                <div class="nomEquipement">
+        <div class="panel-body">
+            <input type="hidden" value="equipement" name="type_form">
+            <div class="nomEquipement">
                         <label class="labelTitre" >Nom de l'équipement : </label>
                         <input id="nameInput" name="nameInput" type="text" value="{{equipement.nom}}"></input>
-                </div>
-                <div class="typeEquipement">
-                        <label class="labelTitre">Type de l'équipement : </label>
-                        <label> {{equipement.type}}</label>
-                </div>
-                   <div class="domainEquipement">
-                        <label class="labelTitre">Domaine de l'équipement : </label>
-                        <label> {{equipement.domaine}}</label>
-                </div>
-                <div class="idEquipement">
-                        <label class="labelTitre">IP de l'équipement : </label>
-                        <label> {{equipement.ip}}</label>
-                </div>
-                <div>
-                    <ul class="list-group lgPorts" >
-                        <li id="port" class="list-group-item row">
-                                <span class="col-md-1">Port 1</span>
-                                <span class="offset-md-3 badge badge-pill badge-danger">OFF</span>
-                                <label class="switch offset-md-5">
-                                    <input type="checkbox" onClick="setEtatEquipement('ON')">
-                                    <span class="slider round"></span>
-                                </label>
-                        </li>
-                        <li id="port" class="list-group-item row">
-                                <span class="col-md-1">Port 2</span>
-                                <span class="offset-md-3">KO</span>
-                                <label class="switch offset-md-5">
-                                    <input type="checkbox" onclick="set">
-                                    <span class="slider round"></span>
-                                </label>
-                        </li>
-                        <li id="port" class="list-group-item row">
-                                <span class="col-md-1">Port 3</span>
-                                <span class="offset-md-3">OK</span>
-                                <label class="switch offset-md-5">
-                                    <input type="checkbox">
-                                    <span class="slider round"></span>
-                                </label>
-                        </li>
-                    </ul>
-                </div>
-                 <div>  
-                    <ul class="list-group lgMachines" >
-                        <li id="port" class="list-group-item row">
-                                <span class="col-md-1">Vlan 1</span>
-                                <span class="offset-md-3">4569</span>
-                                <label class="switch offset-md-5">
+            </div>
+            <div class="typeEquipement">
+                    <label class="labelTitre">Type de l'équipement : </label>
+                    <label> {{equipement.type}}</label>
+            </div>
+               <div class="domainEquipement">
+                    <label class="labelTitre">Domaine de l'équipement : </label>
+                    <label> {{equipement.domaine}}</label>
+            </div>
+            <div class="idEquipement">
+                    <label class="labelTitre">IP de l'équipement : </label>
+                    <label> {{equipement.ip}}</label>
+            </div>
+            <div>
+                <ul class="list-group lgPorts" >
+                    <li id="port" class="list-group-item row">
+                            <span class="col-md-1">Port 1</span>
+                            <span class="offset-md-3 badge badge-pill badge-danger">OFF</span>
+                            <label class="switch offset-md-5">
+                                <input type="checkbox" onClick="setEtatEquipement('ON')">
+                                <span class="slider round"></span>
+                            </label>
+                    </li>
+                    <li id="port" class="list-group-item row">
+                            <span class="col-md-1">Port 2</span>
+                            <span class="offset-md-3">KO</span>
+                            <label class="switch offset-md-5">
+                                <input type="checkbox" onclick="set">
+                                <span class="slider round"></span>
+                            </label>
+                    </li>
+                    <li id="port" class="list-group-item row">
+                            <span class="col-md-1">Port 3</span>
+                            <span class="offset-md-3">OK</span>
+                            <label class="switch offset-md-5">
                                 <input type="checkbox">
                                 <span class="slider round"></span>
-                                </label>
-                        </li>
-                        <li id="port" class="list-group-item row">
-                                <span class="col-md-1">Vlan 2</span>
-                                <span class="offset-md-3">1234</span>
-                                <label class="switch offset-md-5">
-                                <input type="checkbox">
-                                <span class="slider round"></span>
-                                </label>
-                        </li>
-                        <li id="port" class="list-group-item row">
-                                <span class="col-md-1">Vlan 3</span>
-                                <span class="offset-md-3">1235</span>
-                                <label class="switch offset-md-5">
-                                <input type="checkbox">
-                                <span class="slider round"></span>
-                                </label>
-                        </li>
-                    </ul>
-                </div>
+                            </label>
+                    </li>
+                </ul>
+            </div>
+             <div>
+                <ul class="list-group lgMachines" >
+                    <li id="port" class="list-group-item row">
+                            <span class="col-md-1">Vlan 1</span>
+                            <span class="offset-md-3">4569</span>
+                            <label class="switch offset-md-5">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                            </label>
+                    </li>
+                    <li id="port" class="list-group-item row">
+                            <span class="col-md-1">Vlan 2</span>
+                            <span class="offset-md-3">1234</span>
+                            <label class="switch offset-md-5">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                            </label>
+                    </li>
+                    <li id="port" class="list-group-item row">
+                            <span class="col-md-1">Vlan 3</span>
+                            <span class="offset-md-3">1235</span>
+                            <label class="switch offset-md-5">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                            </label>
+                    </li>
+                </ul>
             </div>
         </div>
-        <div class="buttonBlock">
-        </br>
-            <button type="button" class="bt0 btn btn-light">Valider les modifications</button>
-           
-            <a href="{{path('equipement_liste')}}">
-                <button type="button" class="bt1 btn btn-light"/>Retour</button>
-            </a>
-
-           
-        </div>
+    </div>
+    <div class="buttonBlock">
+    </br>
+        <input type="submit" class="bt0 btn btn-light">Valider les modifications</input>
+        <a href="{{path('equipement_liste')}}" class="bt1 btn btn-light">Retour</a>
+    </div>
+    </form>
 </div>
-
   {% endblock %}
 
   
