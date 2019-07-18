@@ -90,20 +90,29 @@ class DefaultController extends AbstractController
         $tabFinal = array();
         $tabVlan = array();
 
-        for($i = 1; $i < count($tabNames[0])-1 ; $i++){
+        for($i = 1; $i <= count($tabNames[0])-1 ; $i++){
             $statutAdmin = 0;
             if (strpos($tabStatusAdmin[0][$i],"1")) {
                 $statutAdmin = 1;
             }
-            elseif(strpos($tabStatusAdmin[0][$i],"2")) {
+            elseif(strpos($tabStatusLinks[0][$i],"2")) {
                 $statutAdmin = 2;
             }
+            $statutLink = 0;
+            if (strpos($tabStatusLinks[0][$i],"1")) {
+                $statutLink = 1;
+            }
+            elseif(strpos($tabStatusLinks[0][$i],"2")) {
+                $statutLink = 2;
+            }
             $name =  str_replace("/", "-", str_replace("\n","", str_replace('"', '',$tabNames[0][$i])));
+            $originalName = str_replace("\n","", str_replace('"', '',$tabNames[0][$i]));
             if(strpos($tabNames[0][$i], 'Vlan') && $_SESSION['type']=='Switch'){ 
                 $tabV = array(
                     "NomInterface" => $name,
                     "StatutAdmin" => $statutAdmin,
-                    "StatutLink" => $tabStatusLinks[0][$i]
+                    "StatutLink" => $statutLink,
+                    'originalName' => $originalName,
                 );
                 $_SESSION["vlanID"] = $name;
                 array_push($tabVlan, $tabV);
@@ -113,7 +122,8 @@ class DefaultController extends AbstractController
                 $tab = array(
                     "NomInterface" => $name,
                     "StatutAdmin" => $statutAdmin,
-                    "StatutLink" => $tabStatusLinks[0][$i]
+                    "StatutLink" => $statutLink,
+                    'originalName' => $originalName,
                 );
                 array_push($tabFinal, $tab);
             }
