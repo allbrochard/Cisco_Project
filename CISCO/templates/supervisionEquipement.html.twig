@@ -75,7 +75,7 @@
                     <button id="addPort">Ajouter un port</button>
                 {% endif %}
                 {% if equipement.type == 'Router' %}
-                    <button id="addPort">Ajouter une interface</button>
+                    <a href="{{path('ajout_interface')}}" class="bt1 btn btn-light" >Ajouter une interface</a>
                 {% endif %}
             </div>
         </div>
