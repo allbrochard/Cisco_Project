@@ -83,9 +83,9 @@
             </br>
         </div>
         <div>
-               <label class="switch">
+               <label class="switch" onClick="modifEtat({{etat}})">
                 <input type="checkbox" {% if etat == 1 %} checked="checked" {% else %} {% endif %}
-                 name="etat" onClick="modifEtat({{etat}})">
+                 name="etat" >
                  <input id ='idEtat' name ="numEtat" type="hidden" value=""/>
                 <span class="slider round"></span>
                 </label>
