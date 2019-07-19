@@ -60,13 +60,11 @@ class InterfaceController extends AbstractController
         if ($request->request->get('type_form') !== null && $request->request->get('type_form') == 'interface_ajout') {
 
             $response = $fonction_equipement->createSousInterface(
-                $request->request->get('interface_name'),
+                $request->request->get('interface_name').'.'.$request->request->get('vlan'),
                 $request->request->get('ip'),
                 $request->request->get('mask'),
                 $request->request->get('vlan')
             );
-            dump($response);
-            die;
             return $this->redirectToRoute('equipement');
         }
         $interface_liste = array();
