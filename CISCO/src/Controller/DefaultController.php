@@ -63,6 +63,9 @@ class DefaultController extends AbstractController
         }
         if ($request->request->get('type_form')=='equipement'){
             $response = $fonction_equipement->setEquipmentName($request->request->get('nameInput'));
+            $username = $_SESSION['user'];
+            $userpswd = $_SESSION['mp_user'];
+            $adminpswd = $_SESSION['mp_admin'];
         }
 
         $comu = 'cisco';
@@ -81,6 +84,8 @@ class DefaultController extends AbstractController
             $domaine='';
         }
         $domaine=str_replace('.', '', $domaine);
+        $vlan = shell_exec('/script/show_vlan '.$ip.' '.$username.' '.$userpswd.' '.$adminpswd);
+        dump($vlan);
         $interfacesNames = shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' 1.3.6.1.2.1.2.2.1.2 -Ov');
         $interfacesStatusAdmin = shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' 1.3.6.1.2.1.2.2.1.7 -Ov');
         $interfacesStatusLinks = shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' 1.3.6.1.2.1.2.2.1.8 -Ov');
