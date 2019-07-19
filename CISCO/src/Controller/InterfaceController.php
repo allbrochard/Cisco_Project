@@ -37,7 +37,7 @@ class InterfaceController extends AbstractController
                     $request->request->get('mask')
                 );
             }
-            if($request->request->get('etat') == 1){
+            if($request->request->get('numEtat') == 1){
                 $fonction_equipement->activerInterface($name);
             }else{
                 $fonction_equipement->desactiverInterface($name);
@@ -48,6 +48,7 @@ class InterfaceController extends AbstractController
             dump($tab['originalName'] );
             if($tab['originalName'] == ' '.$name){
                 $statutAdmin = $tab['StatutAdmin'];
+                dump($statutAdmin);
             }
         }
         $nameUrl =  str_replace("/", "-", $name);
