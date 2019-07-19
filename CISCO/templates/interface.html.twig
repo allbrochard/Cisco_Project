@@ -83,15 +83,16 @@
             </h3>
             </br>
         </div>
-        <div>
-            <label class="switch">
-                <input id="checkbox" type="checkbox" {% if etat == 1 %} checked="checked" {% endif %}
-                name="etat" >
-                <span class="slider round"></span>
-            </label>
-            <input id ='idEtat' name ="numEtat" type="hidden" value="{{etat}}"/>
-        </div>
+
         <form method="POST" action="{{ path('interface',{'name': nameUrl}) }}">
+            <div>
+                <label class="switch">
+                    <input id="checkbox" type="checkbox" {% if etat == 1 %} checked="checked" {% endif %}
+                    name="etat" >
+                    <span class="slider round"></span>
+                </label>
+                <input id='idEtat' name="numEtat" type="hidden" value="{{etat}}"/>
+            </div>
             <input type="hidden" name="type_form" value="interface_modification">
             <input type="hidden" name="nom" value="{{interface_name}}">
             <div class="nomInterface">
@@ -110,5 +111,5 @@
             <input type="submit" value="Enregistrer">
             <a href="{{path('equipement')}}" class="bt1 btn btn-light" >Retour</a>
         </form>
-    <div>
+    </div>
 {% endblock %}
