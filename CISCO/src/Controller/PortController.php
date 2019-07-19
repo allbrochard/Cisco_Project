@@ -16,6 +16,9 @@ class PortController extends AbstractController
     {
         $vlans = $_SESSION["vlanID"];
         $ip = $_SESSION["ip_equipement"];
+        $username = $_SESSION['user'];
+        $userpswd = $_SESSION['mp_user'];
+        $adminpswd = $_SESSION['mp_admin'];
         $portInfo = shell_exec('/script/show_port_info '.$ip.' '.$username.' '.$userpswd.' '.$adminpswd);
         dump($portInfo);
         $name = str_replace('-', '/', $name);
