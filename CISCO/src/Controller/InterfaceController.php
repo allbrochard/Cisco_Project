@@ -45,8 +45,9 @@ class InterfaceController extends AbstractController
             return $this->redirectToRoute('equipement');
         }
         foreach ($_SESSION['tabFinal'] as $tab){
-            if($tab['originalName'] == $name){
-                $statutAdmin = $tab['StatutAdmin '];
+            dump($tab['originalName'] );
+            if($tab['originalName'] == ' '.$name){
+                $statutAdmin = $tab['StatutAdmin'];
             }
         }
         $nameUrl =  str_replace("/", "-", $name);
