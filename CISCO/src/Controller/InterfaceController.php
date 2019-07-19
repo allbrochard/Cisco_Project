@@ -43,7 +43,7 @@ class InterfaceController extends AbstractController
      * @Route("/interface/ajout/{name}/{ip}/{mask]", name="ajout_interface")
      */
     public function ajoutInterface(Request $request,Fonction_equipement $fonction_equipement, $name, $ip, $mask){
-        if (isset($request->request->get('type_form')) && $request->request->get('type_form')=='interface_ajout') {
+        if ($request->request->get('type_form') !== null && $request->request->get('type_form')=='interface_ajout') {
             $fonction_equipement->createSousInterface(
                 $request->request->get('nom'),
                 $request->request->get('ip'),
