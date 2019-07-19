@@ -46,16 +46,16 @@
                                 <span>{{ item.originalName}}</span>
                             </div>
                             <div class="offset-md-3  divStatut row">
-                                <div class="col-md-12 divStatutAdmin ">
+                                <div class="col-md-6 divStatutAdmin ">
                                     <label>{% if item.StatutAdmin == 1 %} Actif {% else %} Inactif {% endif %}</label>
                                     <span class="pastille offset-md-3 badge badge-pill {% if item.StatutAdmin == 1 %}badge-success{% else %}badge-danger{% endif %}"></span>
                                 </div>
-                                <div class="col-md-12 divStatutLink">
+                                <div class="col-md-6 divStatutLink">
                                     <label>{% if item.StatutLink == 1 %} Connecté {% else %} Déconnecté {% endif %}</label>
                                     <span class="pastille offset-md-4 badge badge-pill {% if item.StatutLink == 1 %}badge-success{% else %}badge-danger{% endif %}"></span>
                                 </div>
                             </div> 
-                            <div class="offset-md-3">
+                            <div class="offset-md-4">
                                 {% if equipement.type == 'Switch' %}
                                     <a href="{{ path('port', {'name': item.NomInterface}) }} " class="btn btn-primary" name="modifPort">
                                         Modifier le port

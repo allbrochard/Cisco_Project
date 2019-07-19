@@ -13,15 +13,19 @@
         <form method="POST" action="{{ path('ajout_interface') ,{'name': nameUrl, 'ip': interface_ip, 'mask': interface_mask}}}">
             <input type="hidden" name="type_form" value="interface_ajout">
             <label>Nom de l'interface :
-                <input name="nom" type="text" value="{{ interface_name }}">
+                <select name="interface_name" id="interface_name">
+                    {% for interface_name in interface_names %}
+                        <option value="{{ interface_name }}">{{ interface_name }}</option>
+                    {% endfor %}
+                </select>
             </label>
             <br>
             <label>ip de l'interface :
-                <input name="ip" type="text" value="{{ interface_ip}}">
+                <input name="ip" type="text" value="">
             </label>
             <br>
             <label>mask de l'interface :
-                <input name="mask" type="text" value="{{ interface_mask }}">
+                <input name="mask" type="text" value="">
             </label>
             <br>
             <label>Vlan de l'interface :
