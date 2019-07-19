@@ -15,7 +15,8 @@ class PortController extends AbstractController
     public function index($name)
     {
         $vlans = $_SESSION["vlanID"];
-        dump($vlans);
+        $portInfo = shell_exec('/script/show_port_info '.$ip.' '.$username.' '.$userpswd.' '.$adminpswd);
+        dump($portInfo);
         $name = str_replace('-', '/', $name);
         return $this->render('port.html.twig', [
             'port_name' => $name,
