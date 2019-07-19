@@ -24,6 +24,10 @@ class InterfaceController extends AbstractController
         if(strpos($name, '.')){
             if ($request->request->get('type_form')=='interface_modification') {
                 $Vlan = strstr($name, '.');
+                dump($Vlan);
+                dump($request->request->get('nom'));
+                dump($request->request->get('ip'));
+                dump($request->request->get('mask'));
                 $response = $fonction_equipement->createSousInterface(
                     $request->request->get('nom'),
                     $request->request->get('ip'),
