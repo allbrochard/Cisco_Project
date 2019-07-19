@@ -39,7 +39,7 @@ class PortController extends AbstractController
         return $this->render('port.html.twig', [
             'port_name' => $name,
             'vlans' => $vlans,
-            'status_admin' => $statutAdmin,
+            'etat' => $statutAdmin,
         ]);
     }
 
