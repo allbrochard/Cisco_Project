@@ -3,18 +3,6 @@
       <link rel="stylesheet" href="{{ asset('css/recup_conf_equipement.css') }}"/>
 {% endblock %}
 {% block javascripts %}
-    <script>
-        function modifEtat(etat) {
-            var element = document.getElementById('idEtat');
-            if(etat == 1){
-               element.value = 2;
-            }else {
-                element.value = 1;
-            }
-        }
-    </script>
-{% endblock %}
-{% block body %}
     <style>
             .switch {
             position: relative;
@@ -76,6 +64,19 @@
             border-radius: 50%;
             }
     </style>
+    <script>
+        function modifEtat(etat) {
+            var element = document.getElementById('idEtat');
+            if(etat == 1){
+               element.value = 2;
+            }else {
+                element.value = 1;
+            }
+        }
+    </script>
+{% endblock %}
+{% block body %}
+   
     <div class="panel panel-primary offset-md-3 col-md-6" id="result_panel">
         <div class="panel-heading">
             <h3 class="panel-title">Modification de l'interface {{interface_name}}
