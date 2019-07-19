@@ -23,6 +23,7 @@ class PortController extends AbstractController
         dump($_SESSION['tabFinal']);
         foreach ($_SESSION['tabFinal'] as $tab){
             if($tab['NomInterface'] == ' '.$name){
+                dump('test');
                 $statutAdmin = $tab['StatutAdmin'];
             }
         }
