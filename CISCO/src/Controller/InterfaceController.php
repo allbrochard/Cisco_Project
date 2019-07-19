@@ -65,13 +65,11 @@ class InterfaceController extends AbstractController
                 $request->request->get('mask'),
                 $request->request->get('vlan')
             );
-            dump($response);
-            die;
             return $this->redirectToRoute('equipement');
         }
         $interface_liste = array();
         foreach ($_SESSION['interface_liste'][0] as $interface_name){
-            if(!strpos($interface_name, '.')&&$interface_name != ''&&!strpos($interface_name, 'Vlan')&&!strpos($interface_name, 'Null')){
+            if(!strpos($interface_name, '.')&&$interface_name != ''&&!strpos($interface_name, 'Vlan')&&!strpos($interface_name, 'Null')&&!strpos($interface_name, 'Serial')){
                 array_push($interface_liste,  str_replace("\n","", str_replace('"', '',$interface_name)));
             }
         }
