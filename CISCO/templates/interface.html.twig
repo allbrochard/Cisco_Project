@@ -13,7 +13,7 @@
             </h3>
             </br>
         </div>
-        <form method="POST" action="{{ path('interface',{'name': interface_name}) }}">
+        <form method="POST" action="{{ path('interface',{'name': nameUrl}) }}">
             <input type="hidden" name="type_form" value="interface_modification">
             <div class="nomInterface">
                 <label class="labelTitre">Nom de l'interface : {{interface_name}}</label>

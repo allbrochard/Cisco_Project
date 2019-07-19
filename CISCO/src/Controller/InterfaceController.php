@@ -44,12 +44,13 @@ class InterfaceController extends AbstractController
             }
             $Vlan = '';
         }
-
+        $nameUrl =  str_replace("/", "-", $name);
         return $this->render('interface.html.twig', array(
             'interface_name' => $name,
             'ip' => $ip,
             'mask' => $mask,
-            'Vlan' => $Vlan
+            'Vlan' => $Vlan,
+            'nameUrl' => $nameUrl
         ));
     }
 
@@ -66,10 +67,12 @@ class InterfaceController extends AbstractController
             );
             return $this->redirectToRoute('equipement');
         }
+        $nameUrl =  str_replace("/", "-", $name);
         return $this->render('interface_ajout.html.twig', array(
             'interface_name' => $name,
             'interface_ip' => $ip,
-            'interface_mask' => $mask 
+            'interface_mask' => $mask,
+            'nameUrl' => $nameUrl
         ));
     }
 }
