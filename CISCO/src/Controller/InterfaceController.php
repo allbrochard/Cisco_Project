@@ -53,7 +53,7 @@ class InterfaceController extends AbstractController
     }
 
     /**
-     * @Route("/interface/ajout", name="ajout_interface")
+     * @Route("ajout/interface", name="ajout_interface")
      */
     public function ajoutInterface(Request $request,Fonction_equipement $fonction_equipement)
     {
