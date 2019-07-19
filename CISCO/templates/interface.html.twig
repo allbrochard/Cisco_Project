@@ -3,6 +3,9 @@
       <link rel="stylesheet" href="{{ asset('css/recup_conf_equipement.css') }}"/>
 {% endblock %}
 {% block javascripts %}
+  
+{% endblock %}
+{% block body %}
     <style>
             .switch {
             position: relative;
@@ -74,9 +77,6 @@
             }
     });
     </script>
-{% endblock %}
-{% block body %}
-   
     <div class="panel panel-primary offset-md-3 col-md-6" id="result_panel">
         <div class="panel-heading">
             <h3 class="panel-title">Modification de l'interface {{interface_name}}
