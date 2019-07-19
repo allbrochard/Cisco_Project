@@ -33,9 +33,9 @@ class PortController extends AbstractController
         $vlan = $request->request->get('vlan');
 
         if($typePort == 'trunk'){
-            
+            $fonctionEquipement->createPortTrunk($portName);
         }elseif($typePort == 'access'){
-
+            $fonctionEquipement->createPortAccess($portName, $vlan);
         }
     }
 }
