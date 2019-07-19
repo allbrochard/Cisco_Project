@@ -87,12 +87,12 @@ class DefaultController extends AbstractController
         $vlan = shell_exec('/script/show_vlan '.$ip.' '.$username.' '.$userpswd.' '.$adminpswd);
         $pos = strpos($vlan, 'VLAN');
         $tabRecupVlan = substr($vlan, $pos);
-        $arrayVlan = explode(' ', $tabRecupVlan);
-        dump($arrayVlan);
+        dump($tabRecupVlan);
         $interfacesNames = shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' 1.3.6.1.2.1.2.2.1.2 -Ov');
         $interfacesStatusAdmin = shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' 1.3.6.1.2.1.2.2.1.7 -Ov');
         $interfacesStatusLinks = shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' 1.3.6.1.2.1.2.2.1.8 -Ov');
         $tabNames = Array(explode("STRING:", $interfacesNames));
+        $_SESSION['interface_liste'] = $tabNames;
         $tabStatusAdmin = Array(explode("INTEGER:", $interfacesStatusAdmin));
         $tabStatusLinks = Array(explode("INTEGER:", $interfacesStatusLinks));
         $tabFinal = array();

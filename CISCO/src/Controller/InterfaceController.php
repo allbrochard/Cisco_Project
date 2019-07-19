@@ -68,7 +68,7 @@ class InterfaceController extends AbstractController
         }
         $nameUrl =  str_replace("/", "-", $name);
         return $this->render('interface_ajout.html.twig', array(
-            'interface_name' => $name,
+            'interface_names' => $_SESSION['interface_liste'],
             'interface_ip' => $ip,
             'interface_mask' => $mask,
             'nameUrl' => $nameUrl
