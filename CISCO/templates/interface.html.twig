@@ -65,14 +65,14 @@
             }
     </style>
     <script>
-        function modifEtat(etat) {
-            var element = document.getElementById('idEtat');
-            if(etat == 1){
+    $('.switch').click(function(){
+         var element = document.getElementById('idEtat');
+            if(element.value == 1){
                element.value = 2;
             }else {
                 element.value = 1;
             }
-        }
+    });
     </script>
 {% endblock %}
 {% block body %}
@@ -87,8 +87,8 @@
                <label class="switch">
                 <input type="checkbox" {% if etat == 1 %} checked="checked" {% else %} {% endif %}
                  name="etat" >
-                 <input id ='idEtat' name ="numEtat" type="hidden" value=""/>
-                <span class="slider round"  onClick="modifEtat({{etat}})"></span>
+                 <input id ='idEtat' name ="numEtat" type="hidden" value="{{etat}}"/>
+                <span class="slider round"></span>
                 </label>
         </div>
         <form method="POST" action="{{ path('interface',{'name': nameUrl}) }}">
