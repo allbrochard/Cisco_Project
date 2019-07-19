@@ -20,6 +20,7 @@ class PortController extends AbstractController
         $userpswd = $_SESSION['mp_user'];
         $adminpswd = $_SESSION['mp_admin'];
 
+        dump($_SESSION['tabFinal']);
         foreach ($_SESSION['tabFinal'] as $tab){
             if($tab['NomInterface'] == ' '.$name){
                 $statutAdmin = $tab['StatutAdmin'];
