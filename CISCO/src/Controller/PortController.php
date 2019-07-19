@@ -28,6 +28,8 @@ class PortController extends AbstractController
      */
     public function modifPort(Request $request, Fonction_equipement $fonctionEquipement)
     {
+        $vlans = $_SESSION["vlanID"];
+
         $portName = $request->request->get('name');
         $typePort = $request->request->get('typePort');
         $vlan = $request->request->get('vlan');
@@ -37,5 +39,9 @@ class PortController extends AbstractController
         }elseif($typePort == 'access'){
             $fonctionEquipement->createPortAccess($portName, $vlan);
         }
+        return $this->render('port.html.twig', [
+            'port_name' => $portName,
+            'vlans' => $vlans,
+        ]);
     }
 }
