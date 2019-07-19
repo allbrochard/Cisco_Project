@@ -1,10 +1,10 @@
 {% extends "base.html.twig" %}
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('css/accueil.css') }}"/>
-    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.5.0/css/bootstrap4-toggle.min.css" rel="stylesheet">
+   
 {% endblock %}
 {% block javascripts %}
-<script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.5.0/js/bootstrap4-toggle.min.js"></script>
+<script src="{{ asset('js/bootstrap4-toggle.min.js') }}"
 {% endblock %}
 {% block body %}
     <div class="panel panel-primary offset-md-3 col-md-6" id="result_panel">

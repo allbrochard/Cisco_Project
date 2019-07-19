@@ -106,8 +106,10 @@ class DefaultController extends AbstractController
             if (strlen($vlan) > 4 )
             {
                 unset($vlan);
-            }elseif (strpos($vlan,"") || strpos($vlan,"VLAN") || strpos($vlan,"----"))
+            }elseif (strpos($vlan, "VLAN") || strpos($vlan, "----"))
             {
+                unset($vlan);
+            }elseif(strlen($vlan) == 0){
                 unset($vlan);
             }else{
                 array_push($tabVlan, $vlan);
