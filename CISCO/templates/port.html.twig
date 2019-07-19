@@ -60,7 +60,7 @@
                 <select id="vlans" name="vlan">
                     <option value="null" selected="selected"></option>
                     {% for vlan in vlans %}
-                        <option value="{{ vlan.NomInterface }}">{{ vlan.NomInterface }}</option>
+                        <option value="{{ vlan }}">{{ vlan }}</option>
                     {% endfor %}
                 </select>
             </div>
