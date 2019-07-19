@@ -58,7 +58,7 @@
                             </div> 
                             <div class="offset-md-9">
                                 {% if equipement.type == 'Switch' %}
-                                    <a href="{{ path('port', {'name': item.NomInterface}) }} " class="btn btn-primary" name="modifPort">
+                                    <a href="{{ path('port', {'name': item.NomInterface}) }} " class="btn btn-warning" name="modifPort">
                                         Modifier le port
                                     </a>
                                 {% elseif equipement.type == 'Router' %}
