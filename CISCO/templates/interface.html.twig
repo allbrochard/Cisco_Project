@@ -12,18 +12,19 @@
             </h3>
             </br>
         </div>
+        <div>
+               <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+                </label>
+        </div>
         <form method="POST" action="{{ path('interface',{'name': nameUrl}) }}">
             <input type="hidden" name="type_form" value="interface_modification">
             <input type="hidden" name="nom" value="{{interface_name}}">
             <div class="nomInterface">
                 <label class="labelTitre">Nom de l'interface : {{interface_name}}</label>
             </div>
-            <div>
-               <label class="switch">
-                <input type="checkbox">
-                <span class="slider round"></span>
-                </label>
-            </div>
+            
             <div class="idInterface">
                 <label class="labelTitre">Changer l'ip</label>
                 <input type="text" name="ip" value="{{ ip }}">
