@@ -61,7 +61,7 @@ class PortController extends AbstractController
             $response = $fonctionEquipement->createPortAccess($portName, $vlan);
         }
 
-        if($request->request->get('etat') == '1'){
+        if($request->request->get('numEtat') == '1'){
             $response = $fonctionEquipement->activerInterface($portName);
         }else{
             $response = $fonctionEquipement->desactiverInterface($portName);
