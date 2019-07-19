@@ -10,7 +10,7 @@
         </div>
     </div>
     <div class="panel-body offset-md-4 col-md-4">
-        <form method="POST" action="{{ path('ajout_interface') ,{'name': interface_name, 'ip': interface_ip, 'mask': interface_mask}}}">
+        <form method="POST" action="{{ path('ajout_interface') ,{'name': nameUrl, 'ip': interface_ip, 'mask': interface_mask}}}">
             <input type="hidden" name="type_form" value="interface_ajout">
             <label>Nom de l'interface :
                 <input name="nom" type="text" value="{{ interface_name }}">
