@@ -23,19 +23,13 @@ class InterfaceController extends AbstractController
         $mask = shell_exec('snmpwalk -c '.$comu.' -v 2c '.$_SESSION['ip_equipement'].' iso.3.6.1.2.1.4.20.1.3.'.$ip.' -Ov -Oq');
         if(strpos($name, '.')){
             if ($request->request->get('type_form')=='interface_modification') {
-                $Vlan = strstr($name, '.');
-                dump($Vlan);
-                dump($request->request->get('nom'));
-                dump($request->request->get('ip'));
-                dump($request->request->get('mask'));
+                $Vlan = str_replace('.', '',strstr($name, '.'));
                 $response = $fonction_equipement->createSousInterface(
                     $request->request->get('nom'),
                     $request->request->get('ip'),
                     $request->request->get('mask'),
                     $Vlan
                 );
-                dump($response);
-                die;
                 return $this->redirectToRoute('equipement');
             }
 
@@ -46,8 +40,6 @@ class InterfaceController extends AbstractController
                     $request->request->get('ip'),
                     $request->request->get('mask')
                 );
-                dump($response);
-                die;
                 return $this->redirectToRoute('equipement');
             }
         }
