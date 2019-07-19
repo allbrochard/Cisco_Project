@@ -37,7 +37,9 @@ class InterfaceController extends AbstractController
                     $request->request->get('mask')
                 );
             }
-            if($request->request->get('numEtat') == 1){
+            dump($request->request->get('numEtat'));
+            dump($request->request->get('etat'));
+            if($request->request->get('numEtat') === '1'){
                 $fonction_equipement->activerInterface($name);
             }else{
                 $fonction_equipement->desactiverInterface($name);
