@@ -114,7 +114,10 @@ class DefaultController extends AbstractController
             if(strlen($vlan) == 0){
                 unset($vlan);
             }
-            array_push($tabVlan, $vlan);
+            if(isset($vlan)){
+                array_push($tabVlan, $vlan);
+            }
+            
         }
         dump($tabVlan);
         $interfacesNames = shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' 1.3.6.1.2.1.2.2.1.2 -Ov');
