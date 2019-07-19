@@ -24,22 +24,26 @@ class InterfaceController extends AbstractController
         if(strpos($name, '.')){
             if ($request->request->get('type_form')=='interface_modification') {
                 $Vlan = strstr($name, '.');
-                $fonction_equipement->createSousInterface(
+                $response = $fonction_equipement->createSousInterface(
                     $request->request->get('nom'),
                     $request->request->get('ip'),
                     $request->request->get('mask'),
                     $Vlan
                 );
+                dump($response);
+                die;
                 return $this->redirectToRoute('equipement');
             }
 
         }else{
             if ($request->request->get('type_form')=='interface_modification') {
-                $fonction_equipement->createInterface(
+                $response =$fonction_equipement->createInterface(
                     $request->request->get('nom'),
                     $request->request->get('ip'),
                     $request->request->get('mask')
                 );
+                dump($response);
+                die;
                 return $this->redirectToRoute('equipement');
             }
         }
