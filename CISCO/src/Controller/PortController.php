@@ -63,9 +63,9 @@ class PortController extends AbstractController
         dump($response);
 
         if($request->request->get('etat') == 1){
-            $response = $fonction_equipement->activerInterface($name);
+            $response = $fonctionEquipement->activerInterface($name);
         }else{
-            $response = $fonction_equipement->desactiverInterface($name);
+            $response = $fonctionEquipement->desactiverInterface($name);
         }
         dump($response);
         return $this->render('port.html.twig', [
