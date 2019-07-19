@@ -54,10 +54,11 @@ class InterfaceController extends AbstractController
     }
 
     /**
-     * @Route("/interface/ajout/{name}/{ip}/{mask]", name="ajout_interface")
+     * @Route("/interface/ajout", name="ajout_interface")
      */
-    public function ajoutInterface(Request $request,Fonction_equipement $fonction_equipement, $name, $ip, $mask){
-        if ($request->request->get('type_form') !== null && $request->request->get('type_form')=='interface_ajout') {
+    public function ajoutInterface(Request $request,Fonction_equipement $fonction_equipement)
+    {
+        if ($request->request->get('type_form') !== null && $request->request->get('type_form') == 'interface_ajout') {
             $fonction_equipement->createSousInterface(
                 $request->request->get('nom'),
                 $request->request->get('ip'),
@@ -66,11 +67,16 @@ class InterfaceController extends AbstractController
             );
             return $this->redirectToRoute('equipement');
         }
+        $interface_liste = array();
+        foreach ($_SESSION['interface_liste'] as $interface_name){
+            if(!strpos($interface_name, '.')){
+                array_push($interface_liste, $interface_name);
+            }
+        }
+
         $nameUrl =  str_replace("/", "-", $name);
         return $this->render('interface_ajout.html.twig', array(
-            'interface_names' => $_SESSION['interface_liste'],
-            'interface_ip' => $ip,
-            'interface_mask' => $mask,
+            'interface_names' => $interface_liste,
             'nameUrl' => $nameUrl
         ));
     }
