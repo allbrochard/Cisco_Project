@@ -47,10 +47,12 @@ class PortController extends AbstractController
         $vlan = $request->request->get('vlan');
 
         if($typePort == 'trunk'){
-            $fonctionEquipement->createPortTrunk($portName);
+            $response = $fonctionEquipement->createPortTrunk($portName);
         }elseif($typePort == 'access'){
-            $fonctionEquipement->createPortAccess($portName, $vlan);
+            $response = $fonctionEquipement->createPortAccess($portName, $vlan);
         }
+        dump($response);
+        die;
         return $this->render('port.html.twig', [
             'port_name' => $portName,
             'vlans' => $vlans,
