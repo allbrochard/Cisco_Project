@@ -107,7 +107,12 @@
             </div>
             <div>
                <label class="switch">
+               {% if status_admin == 1 %}
+                <input type="checkbox" checked="checked">
+                {% endif %}
+                {% if status_admin ==  %}
                 <input type="checkbox">
+                {% endif %}
                 <span class="slider round"></span>
                 </label>
         </div>
