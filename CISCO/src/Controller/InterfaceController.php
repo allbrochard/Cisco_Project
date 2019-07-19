@@ -58,8 +58,9 @@ class InterfaceController extends AbstractController
     public function ajoutInterface(Request $request,Fonction_equipement $fonction_equipement)
     {
         if ($request->request->get('type_form') !== null && $request->request->get('type_form') == 'interface_ajout') {
+
             $response = $fonction_equipement->createSousInterface(
-                $request->request->get('nom'),
+                $request->request->get('interface_name'),
                 $request->request->get('ip'),
                 $request->request->get('mask'),
                 $request->request->get('vlan')
