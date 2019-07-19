@@ -68,7 +68,7 @@ class InterfaceController extends AbstractController
         }
         $interface_liste = array();
         foreach ($_SESSION['interface_liste'][0] as $interface_name){
-            if(!strpos($interface_name, '.')&&$interface_name != ''){
+            if(!strpos($interface_name, '.')&&$interface_name != ''&&!strpos($interface_name, 'Vlan')&&!strpos($interface_name, 'Null')){
                 array_push($interface_liste,  str_replace("\n","", str_replace('"', '',$interface_name)));
             }
         }
