@@ -21,8 +21,8 @@ class PortController extends AbstractController
         $adminpswd = $_SESSION['mp_admin'];
 
         foreach ($_SESSION['tabFinal'] as $tab){
-            if($tab['NomInterface'] == $name){
-                $statutAdmin = $tab['StatutAdmin '];
+            if($tab['NomInterface'] == ' '.$name){
+                $statutAdmin = $tab['StatutAdmin'];
             }
         }
 
