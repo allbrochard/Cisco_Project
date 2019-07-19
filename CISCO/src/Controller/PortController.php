@@ -20,7 +20,14 @@ class PortController extends AbstractController
         $userpswd = $_SESSION['mp_user'];
         $adminpswd = $_SESSION['mp_admin'];
         $portInfo = shell_exec('/script/show_port_info '.$ip.' '.$username.' '.$userpswd.' '.$adminpswd);
-        dump($portInfo);
+        $tok = strtok($portInfo, "\n\r");
+        $arrayPort = array();
+        while($tok !== false)
+        {
+            $tok = strtok("\n\r");
+            array_push($arrayPort, $tok);
+        }
+        dump($arrayPort);
         $name = str_replace('-', '/', $name);
         return $this->render('port.html.twig', [
             'port_name' => $name,
