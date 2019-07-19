@@ -21,27 +21,28 @@ class InterfaceController extends AbstractController
         $response = shell_exec('snmpwalk -c '.$comu.' -v 2c '.$_SESSION['ip_equipement'].' 1.3.6.1.2.1.4.20.1.2 | grep "'.$num.'\>"');
         $ip = strstr(str_replace('iso.3.6.1.2.1.4.20.1.2.', '', $response), ' =', true);
         $mask = shell_exec('snmpwalk -c '.$comu.' -v 2c '.$_SESSION['ip_equipement'].' iso.3.6.1.2.1.4.20.1.3.'.$ip.' -Ov -Oq');
-        if(strpos($name, '.')){
-            if ($request->request->get('type_form')=='interface_modification') {
+        if ($request->request->get('type_form')=='interface_modification') {
+            if(strpos($name, '.')){
                 $Vlan = str_replace('.', '',strstr($name, '.'));
-                $response = $fonction_equipement->createSousInterface(
+                $fonction_equipement->createSousInterface(
                     $request->request->get('nom'),
                     $request->request->get('ip'),
                     $request->request->get('mask'),
                     $Vlan
                 );
-                return $this->redirectToRoute('equipement');
-            }
-
-        }else{
-            if ($request->request->get('type_form')=='interface_modification') {
-                $response =$fonction_equipement->createInterface(
+            }else{
+                $fonction_equipement->createInterface(
                     $request->request->get('nom'),
                     $request->request->get('ip'),
                     $request->request->get('mask')
                 );
-                return $this->redirectToRoute('equipement');
             }
+            if($request->request->get('etat') == 1){
+                $fonction_equipement->activerInterface($name);
+            }else{
+                $fonction_equipement->desactiverInterface($name);
+            }
+            return $this->redirectToRoute('equipement');
         }
         foreach ($_SESSION['tabFinal'] as $tab){
             if($tab['originalName'] == $name){
