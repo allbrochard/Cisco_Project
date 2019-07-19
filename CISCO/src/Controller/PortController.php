@@ -66,7 +66,7 @@ class PortController extends AbstractController
         }else{
             $response = $fonctionEquipement->desactiverInterface($portName);
         }
-
+        dump($response);
 
 
         return $this->render('supervisionEquipement.html.twig', [
