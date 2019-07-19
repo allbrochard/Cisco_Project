@@ -20,7 +20,7 @@
   width: 15px !important;
   height: 15px !important;
 }
-.divStatutAdmin, .divStatutLink{
+.divStatutAdmin, .divStatutLink, .divStatut{
   display: inline-block;
 }
 /* The switch - the box around the slider */
