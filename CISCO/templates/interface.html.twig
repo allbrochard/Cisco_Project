@@ -13,7 +13,8 @@
             </h3>
             </br>
         </div>
-        <form method="POST" action="{{ path('ajout_interface',{'name': interface_name}) }}">
+        <form method="POST" action="{{ path('interface',{'name': interface_name}) }}">
+            <input type="hidden" name="type_form" value="interface_modification">
             <div class="nomInterface">
                 <label class="labelTitre">Nom de l'interface : {{interface_name}}</label>
             </div>
@@ -25,6 +26,8 @@
                 <label class="labelTitre">Changer le mask</label>
                 <input type="text" value="{{ mask }}">
             </div>
+            <br>
+            <input type="submit" value="Ajouter">
         </form>
     <div>
     {% endblock %}
