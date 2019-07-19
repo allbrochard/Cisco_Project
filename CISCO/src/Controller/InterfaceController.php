@@ -46,7 +46,7 @@ class InterfaceController extends AbstractController
         }
         foreach ($_SESSION['tabFinal'] as $tab){
             dump($tab['originalName'] );
-            if($tab['originalName'] == $name){
+            if($tab['originalName'] == ' '.$name){
                 $statutAdmin = $tab['StatutAdmin'];
             }
         }
