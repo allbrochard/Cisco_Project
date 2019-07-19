@@ -19,10 +19,11 @@ class PortController extends AbstractController
         $username = $_SESSION['user'];
         $userpswd = $_SESSION['mp_user'];
         $adminpswd = $_SESSION['mp_admin'];
-
+        dump($name);
         dump($_SESSION['tabFinal']);
         foreach ($_SESSION['tabFinal'] as $tab){
-            if($tab['NomInterface'] == ' '.$name){
+            if($tab['NomInterface'] == $name){
+                dump('test');
                 $statutAdmin = $tab['StatutAdmin'];
             }
         }
@@ -35,7 +36,6 @@ class PortController extends AbstractController
             $tok = strtok("\n\r");
             array_push($arrayPort, $tok);
         }
-        dump($arrayPort);
         $name = str_replace('-', '/', $name);
         return $this->render('port.html.twig', [
             'port_name' => $name,
