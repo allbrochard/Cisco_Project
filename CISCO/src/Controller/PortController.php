@@ -19,8 +19,7 @@ class PortController extends AbstractController
         $username = $_SESSION['user'];
         $userpswd = $_SESSION['mp_user'];
         $adminpswd = $_SESSION['mp_admin'];
-        dump($name);
-        dump($_SESSION['tabFinal']);
+        
         foreach ($_SESSION['tabFinal'] as $tab){
             if($tab['NomInterface'] == $name){
                 $statutAdmin = $tab['StatutAdmin'];
@@ -67,8 +66,6 @@ class PortController extends AbstractController
         }else{
             $response = $fonctionEquipement->desactiverInterface($portName);
         }
-        dump($response);
-
 
         return $this->render('supervisionEquipement.html.twig', [
             'equipement' => $equipement,
