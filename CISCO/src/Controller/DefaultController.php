@@ -155,7 +155,7 @@ class DefaultController extends AbstractController
                 array_push($tabFinal, $tab);
             }
         }
-
+        $_SESSION['tabFinal'] = $tabFinal;
         $_SESSION["vlanID"] = $tabVlan;
         $equipement = array(
             'nom' => $nom,

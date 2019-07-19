@@ -43,12 +43,18 @@ class InterfaceController extends AbstractController
                 return $this->redirectToRoute('equipement');
             }
         }
+        foreach ($_SESSION['tabFinal'] as $tab){
+            if($tab['originalName'] == $name){
+                $statutAdmin = $tab['StatutAdmin '];
+            }
+        }
         $nameUrl =  str_replace("/", "-", $name);
         return $this->render('interface.html.twig', array(
             'interface_name' => $name,
             'ip' => $ip,
             'mask' => $mask,
-            'nameUrl' => $nameUrl
+            'nameUrl' => $nameUrl,
+            'etat' => $statutAdmin
         ));
     }
 
