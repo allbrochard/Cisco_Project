@@ -87,11 +87,11 @@ class DefaultController extends AbstractController
         }
         $domaine=str_replace('.', '', $domaine);
         $vlan = shell_exec('/script/show_vlan '.$ip.' '.$username.' '.$userpswd.' '.$adminpswd);
-        $tok = strtok($vlan, " \n");
+        $tok = strtok($vlan, "\n\r");
         $arrayVlan = array();
         while($tok !== false)
         {
-            $tok = strtok(" \n");
+            $tok = strtok("\n\r");
             array_push($arrayVlan, $tok);
         }
         dump($arrayVlan);
