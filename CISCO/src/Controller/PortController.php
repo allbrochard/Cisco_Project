@@ -54,6 +54,7 @@ class PortController extends AbstractController
         $typePort = $request->request->get('typePort');
         $vlan = $request->request->get('vlan');
 
+        $equipement = $_SESSION['equipement'];
         if($typePort == 'trunk'){
             $response = $fonctionEquipement->createPortTrunk($portName);
         }elseif($typePort == 'access'){
@@ -68,16 +69,9 @@ class PortController extends AbstractController
         }
         dump($response);
 
-        foreach ($_SESSION['tabFinal'] as $tab){
-            if($tab['NomInterface'] == $portName){
-                $statutAdmin = $tab['StatutAdmin'];
-            }
-        }
 
-        return $this->render('port.html.twig', [
-            'port_name' => $portName,
-            'vlans' => $vlans,
-            'status_admin' => $statutAdmin,
+        return $this->render('equipement.html.twig', [
+            'equipement' => $equipement,
         ]);
     }
 }

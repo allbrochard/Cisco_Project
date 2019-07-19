@@ -164,6 +164,7 @@ class DefaultController extends AbstractController
             'ip' => $ip,
             'info' => $tabFinal,
         );
+        $_SESSION['equipement'] = $equipement;
         return $this->render('supervisionEquipement.html.twig', [
             'controller_name' => 'DefaultController',
             'equipement' => $equipement,
