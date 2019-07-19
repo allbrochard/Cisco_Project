@@ -19,28 +19,31 @@ class InterfaceController extends AbstractController
         $response = shell_exec('snmpwalk -c '.$comu.' -v 2c '.$_SESSION['ip_equipement'].' 1.3.6.1.2.1.2.2.1.2 | grep \''.$name.'"\'');
         $num = strstr(str_replace('iso.3.6.1.2.1.2.2.1.2.', '', $response), ' =', true);
         $response = shell_exec('snmpwalk -c '.$comu.' -v 2c '.$_SESSION['ip_equipement'].' 1.3.6.1.2.1.4.20.1.2 | grep "'.$num.'\>"');
-        dump('réponse ip :  '.$response);
         $ip = strstr(str_replace('iso.3.6.1.2.1.4.20.1.2.', '', $response), ' =', true);
         $mask = shell_exec('snmpwalk -c '.$comu.' -v 2c '.$_SESSION['ip_equipement'].' iso.3.6.1.2.1.4.20.1.3.'.$ip.' -Ov -Oq');
         if(strpos($name, '.')){
             if ($request->request->get('type_form')=='interface_modification') {
                 $Vlan = strstr($name, '.');
-                $fonction_equipement->createSousInterface(
+                $response = $fonction_equipement->createSousInterface(
                     $request->request->get('nom'),
                     $request->request->get('ip'),
                     $request->request->get('mask'),
                     $Vlan
                 );
+                dump($response);
+                die;
                 return $this->redirectToRoute('equipement');
             }
 
         }else{
             if ($request->request->get('type_form')=='interface_modification') {
-                $fonction_equipement->createInterface(
+                $response =$fonction_equipement->createInterface(
                     $request->request->get('nom'),
                     $request->request->get('ip'),
                     $request->request->get('mask')
                 );
+                dump($response);
+                die;
                 return $this->redirectToRoute('equipement');
             }
         }
@@ -73,11 +76,9 @@ class InterfaceController extends AbstractController
                 array_push($interface_liste, $interface_name);
             }
         }
-
-        $nameUrl =  str_replace("/", "-", $name);
+        dump($interface_liste);
         return $this->render('interface_ajout.html.twig', array(
-            'interface_names' => $interface_liste,
-            'nameUrl' => $nameUrl
+            'interface_names' => $interface_liste
         ));
     }
 }
