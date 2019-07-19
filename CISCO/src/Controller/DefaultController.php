@@ -91,9 +91,9 @@ class DefaultController extends AbstractController
         $arrayVlan = array();
         while($tok !== false)
         {
-
+            array_push($arrayVlan, strtok("\r\n"));
         }
-
+        dump($arrayVlan);
         $arrayVlan = explode('\r\n', $tabRecupVlan);
         dump($tabRecupVlan);
         $interfacesNames = shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' 1.3.6.1.2.1.2.2.1.2 -Ov');
