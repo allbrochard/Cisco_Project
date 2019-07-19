@@ -1,0 +1,18 @@
+#!/usr/bin/expect
+set user [lindex $argv 1]
+set ip [lindex $argv 0]
+set password [lindex $argv 2]
+set password_en [lindex $argv 3]
+spawn ssh $user@$ip
+sleep 3
+send "$password\n"
+sleep 1
+send "en\n"
+sleep 1
+send "$password_en\n"
+sleep 1
+send "terminal length 0\n"
+send "show run\n"
+sleep 1
+send "exit\n"
+interact

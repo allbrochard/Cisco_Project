@@ -1,0 +1,24 @@
+#!/usr/bin/expect
+set user [lindex $argv 1]
+set ip [lindex $argv 0]
+set password [lindex $argv 2]
+set password_en [lindex $argv 3]
+set vlan_id [lindex $argv 4]
+spawn ssh $user@$ip
+sleep 3
+send "$password\n"
+sleep 1
+send "en\n"
+sleep 1
+send "$password_en\n"
+sleep 1
+send "conf t\n"
+sleep 1
+send "no vlan $vlan_id\n"
+sleep 1
+send "exit\n"
+sleep 5
+send "wr\n"
+sleep 1
+send "exit\n"
+interact
