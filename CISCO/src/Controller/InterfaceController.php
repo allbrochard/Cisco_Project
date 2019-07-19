@@ -46,7 +46,7 @@ class InterfaceController extends AbstractController
         }
         foreach ($_SESSION['tabFinal'] as $tab){
             if($tab['originalName'] == $name){
-                $statutAdmin = $tab['StatutAdmin '];
+                $statutAdmin = $tab['StatutAdmin'];
             }
         }
         $nameUrl =  str_replace("/", "-", $name);
