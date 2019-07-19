@@ -67,7 +67,12 @@
             border-radius: 50%;
             }
     </style>
+    <script>
+    $('.checkbox').change(function(){
+    alert('changed');
+    })
     
+    </script>
     <div class="panel panel-primary offset-md-3 col-md-6" id="result_panel">
         <div class="panel-heading">
             <h3 class="panel-title">Modification de l'interface {{interface_name}}
@@ -76,7 +81,7 @@
         </div>
         <div>
                <label class="switch">
-                <input type="checkbox" {% if etat == 1 %} checked="checked" {% else %} {% endif %}
+                <input id="checkbox" type="checkbox" {% if etat == 1 %} checked="checked" {% else %} {% endif %}
                  name="etat" >
                  <input id ='idEtat' name ="numEtat" type="hidden" value="{{etat}}"/>
                 <span class="slider round"></span>
