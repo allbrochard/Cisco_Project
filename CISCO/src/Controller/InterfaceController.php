@@ -74,10 +74,8 @@ class InterfaceController extends AbstractController
             }
         }
 
-        $nameUrl =  str_replace("/", "-", $name);
         return $this->render('interface_ajout.html.twig', array(
-            'interface_names' => $interface_liste,
-            'nameUrl' => $nameUrl
+            'interface_names' => $interface_liste
         ));
     }
 }
