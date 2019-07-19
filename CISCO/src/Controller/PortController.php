@@ -70,7 +70,7 @@ class PortController extends AbstractController
         dump($response);
 
 
-        return $this->render('equipement.html.twig', [
+        return $this->render('supervisionEquipement.html.twig', [
             'equipement' => $equipement,
         ]);
     }
