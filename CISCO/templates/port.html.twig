@@ -10,6 +10,14 @@
     <script>
         $( document ).ready(function() {
             hide();
+             $('#checkbox').change(() => {
+                var element = document.getElementById('idEtat');
+                if(element.value == 1){
+                    element.value = 2;
+                }else {
+                    element.value = 1;
+                }
+            });
         })
 
         function typePortVlan()
@@ -107,12 +115,7 @@
             </div>
             <div>
                <label class="switch">
-               {% if status_admin == 1 %}
-                <input type="checkbox" checked="checked">
-                {% endif %}
-                {% if status_admin == 2 %}
-                <input type="checkbox">
-                {% endif %}
+                <input type="checkbox" {% if etat == 1 %} checked="checked" {% endif %}>
                 <span class="slider round"></span>
                 </label>
         </div>
