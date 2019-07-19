@@ -67,9 +67,9 @@ class InterfaceController extends AbstractController
             return $this->redirectToRoute('equipement');
         }
         $interface_liste = array();
-        dump($_SESSION['interface_liste']);
-        foreach ($_SESSION['interface_liste'] as $interface_name){
-            if(!strpos($interface_name, '.')){
+        dump($_SESSION['interface_liste'][0]);
+        foreach ($_SESSION['interface_liste'][0] as $interface_name){
+            if(!strpos($interface_name, '.')&&$interface_name != ''){
                 array_push($interface_liste, $interface_name);
             }
         }
