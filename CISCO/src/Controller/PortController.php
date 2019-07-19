@@ -61,7 +61,7 @@ class PortController extends AbstractController
         }
         dump($response);
 
-        if($request->request->get('etat') == 1){
+        if($request->request->get('etat') == '1'){
             $response = $fonctionEquipement->activerInterface($portName);
         }else{
             $response = $fonctionEquipement->desactiverInterface($portName);
@@ -70,7 +70,6 @@ class PortController extends AbstractController
 
         foreach ($_SESSION['tabFinal'] as $tab){
             if($tab['NomInterface'] == $portName){
-                dump('test');
                 $statutAdmin = $tab['StatutAdmin'];
             }
         }
