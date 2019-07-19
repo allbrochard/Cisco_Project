@@ -83,11 +83,11 @@
             </br>
         </div>
         <div>
-               <label class="switch" onClick="modifEtat({{etat}})">
+               <label class="switch">
                 <input type="checkbox" {% if etat == 1 %} checked="checked" {% else %} {% endif %}
                  name="etat" >
                  <input id ='idEtat' name ="numEtat" type="hidden" value=""/>
-                <span class="slider round"></span>
+                <span class="slider round"  onClick="modifEtat({{etat}})"></span>
                 </label>
         </div>
         <form method="POST" action="{{ path('interface',{'name': nameUrl}) }}">
