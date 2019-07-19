@@ -61,6 +61,13 @@ class PortController extends AbstractController
             $response = $fonctionEquipement->createPortAccess($portName, $vlan);
         }
         dump($response);
+
+        if($request->request->get('etat') == 1){
+            $response = $fonction_equipement->activerInterface($name);
+        }else{
+            $response = $fonction_equipement->desactiverInterface($name);
+        }
+        dump($response);
         return $this->render('port.html.twig', [
             'port_name' => $portName,
             'vlans' => $vlans,
