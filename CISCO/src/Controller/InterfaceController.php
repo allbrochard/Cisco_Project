@@ -38,6 +38,7 @@ class InterfaceController extends AbstractController
                 );
             }
             dump($request->request->get('numEtat'));
+            dump($request->request->get('etat'));
             die;
             if($request->request->get('numEtat') == '1'){
                 $fonction_equipement->activerInterface($name);
