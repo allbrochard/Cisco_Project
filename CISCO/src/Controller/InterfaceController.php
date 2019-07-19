@@ -70,7 +70,7 @@ class InterfaceController extends AbstractController
         dump($_SESSION['interface_liste'][0]);
         foreach ($_SESSION['interface_liste'][0] as $interface_name){
             if(!strpos($interface_name, '.')&&$interface_name != ''){
-                array_push($interface_liste, $interface_name);
+                array_push($interface_liste, str_replace('"', '',$interface_name));
             }
         }
         dump($interface_liste);
