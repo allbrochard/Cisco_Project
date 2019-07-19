@@ -61,11 +61,13 @@ class DefaultController extends AbstractController
             $_SESSION['mp_admin'] = $adminpswd;
             $_SESSION['type'] = $type;
         }
-        if ($request->request->get('type_form')=='equipement'){
-            $response = $fonction_equipement->setEquipmentName($request->request->get('nameInput'));
+        else{
             $username = $_SESSION['user'];
             $userpswd = $_SESSION['mp_user'];
             $adminpswd = $_SESSION['mp_admin'];
+        }
+        if ($request->request->get('type_form')=='equipement'){
+            $response = $fonction_equipement->setEquipmentName($request->request->get('nameInput'));
         }
 
         $comu = 'cisco';
@@ -85,8 +87,13 @@ class DefaultController extends AbstractController
         }
         $domaine=str_replace('.', '', $domaine);
         $vlan = shell_exec('/script/show_vlan '.$ip.' '.$username.' '.$userpswd.' '.$adminpswd);
-        $pos = strpos($vlan, 'VLAN');
-        $tabRecupVlan = substr($vlan, $pos);
+        $tok = strtok($vlan, "\r\n");
+        $arrayVlan = array();
+        while($tok !== false)
+        {
+
+        }
+
         $arrayVlan = explode('\r\n', $tabRecupVlan);
         dump($tabRecupVlan);
         $interfacesNames = shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' 1.3.6.1.2.1.2.2.1.2 -Ov');
