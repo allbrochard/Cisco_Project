@@ -3,7 +3,16 @@
       <link rel="stylesheet" href="{{ asset('css/recup_conf_equipement.css') }}"/>
 {% endblock %}
 {% block javascripts %}
-
+    <script>
+        function modifEtat(etat) {
+            var element = document.getElementById('idEtat');
+            if(etat == 1){
+               element.value = 2;
+            }else {
+                element.value = 1;
+            }
+        }
+    </script>
 {% endblock %}
 {% block body %}
     <style>
@@ -76,7 +85,8 @@
         <div>
                <label class="switch">
                 <input type="checkbox" {% if etat == 1 %} checked="checked" {% else %} {% endif %}
-                 name="etat">
+                 name="etat" onClick="modifEtat({{etat}})">
+                 <input id ='idEtat' name ="numEtat" type="hidden" value=""/>
                 <span class="slider round"></span>
                 </label>
         </div>
