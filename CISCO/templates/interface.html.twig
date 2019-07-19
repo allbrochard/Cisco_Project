@@ -13,8 +13,8 @@
             </h3>
             </br>
         </div>
-        <form method="POST" action="{{ path('ajout_interface') ,{'name': interface_name}}}">
-            <div class="nomPort">
+        <form method="POST" action="{{ path('ajout_interface',{'name': interface_name}) }}">
+            <div class="nomInterface">
                 <label class="labelTitre">Nom de l'interface : {{interface_name}}</label>
             </div>
             <div class="idInterface">
