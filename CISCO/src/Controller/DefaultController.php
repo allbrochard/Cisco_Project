@@ -141,19 +141,11 @@ class DefaultController extends AbstractController
             }
             $name =  str_replace("/", "-", str_replace("\n","", str_replace('"', '',$tabNames[0][$i])));
             $originalName = str_replace("\n","", str_replace('"', '',$tabNames[0][$i]));
-            /*if(strpos($tabNames[0][$i], 'Vlan') && $_SESSION['type']=='Switch'){ 
-                $tabV = array(
-                    "NomInterface" => $name,
-                    "StatutAdmin" => $statutAdmin,
-                    "StatutLink" => $statutLink,
-                    'originalName' => $originalName,
-                    'ipEquipement' => $ip,
-                );
+            if(strpos($tabNames[0][$i], 'Vlan') && $_SESSION['type']=='Switch'){ 
                 
-                array_push($tabVlan, $tabV);
             }elseif(strpos( $tabNames[0][$i], 'Vlan')||strpos( $tabNames[0][$i], 'Null')){
                 
-            }else{*/
+            }else{
                 $tab = array(
                     "NomInterface" => $name,
                     "StatutAdmin" => $statutAdmin,
