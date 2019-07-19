@@ -36,7 +36,7 @@ class PortController extends AbstractController
     }
 
     /**
-     * @Route("/port/modif", name="port_modif")
+     * @Route("/modif/port", name="port_modif")
      */
     public function modifPort(Request $request, Fonction_equipement $fonctionEquipement)
     {
