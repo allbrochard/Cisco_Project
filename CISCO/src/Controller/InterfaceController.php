@@ -65,6 +65,7 @@ class InterfaceController extends AbstractController
                 $request->request->get('vlan')
             );
             dump($response);
+            die;
             return $this->redirectToRoute('equipement');
         }
         $interface_liste = array();
