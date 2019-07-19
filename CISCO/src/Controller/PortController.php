@@ -28,6 +28,14 @@ class PortController extends AbstractController
      */
     public function modifPort(Request $request, Fonction_equipement $fonctionEquipement)
     {
-        
+        $portName = $request->request->get('name');
+        $typePort = $request->request->get('typePort');
+        $vlan = $request->request->get('vlan');
+
+        if($typePort == 'trunk'){
+            
+        }elseif($typePort == 'access'){
+
+        }
     }
 }
