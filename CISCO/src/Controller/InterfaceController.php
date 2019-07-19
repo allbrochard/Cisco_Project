@@ -58,17 +58,18 @@ class InterfaceController extends AbstractController
     public function ajoutInterface(Request $request,Fonction_equipement $fonction_equipement)
     {
         if ($request->request->get('type_form') !== null && $request->request->get('type_form') == 'interface_ajout') {
-            $fonction_equipement->createSousInterface(
+            $response = $fonction_equipement->createSousInterface(
                 $request->request->get('nom'),
                 $request->request->get('ip'),
                 $request->request->get('mask'),
                 $request->request->get('vlan')
             );
+            dump($response);
             return $this->redirectToRoute('equipement');
         }
         $interface_liste = array();
         foreach ($_SESSION['interface_liste'][0] as $interface_name){
-            if(!strpos($interface_name, '.')&&$interface_name != ''){
+            if(!strpos($interface_name, '.')&&$interface_name != ''&&!strpos($interface_name, 'Vlan')&&!strpos($interface_name, 'Null')){
                 array_push($interface_liste,  str_replace("\n","", str_replace('"', '',$interface_name)));
             }
         }
