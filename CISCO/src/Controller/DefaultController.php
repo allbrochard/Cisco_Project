@@ -87,16 +87,20 @@ class DefaultController extends AbstractController
         }
         $domaine=str_replace('.', '', $domaine);
         $vlan = shell_exec('/script/show_vlan '.$ip.' '.$username.' '.$userpswd.' '.$adminpswd);
-        $tok = strtok($vlan, " \n");
+        $tok = strtok($vlan, "\n\r");
         $arrayVlan = array();
         while($tok !== false)
         {
-            $tok = strtok(" \n");
+            $tok = strtok("\n\r");
             array_push($arrayVlan, $tok);
         }
-        dump($arrayVlan);
-        $arrayVlan = explode('\r\n', $tabRecupVlan);
-        dump($tabRecupVlan);
+        $tabV =array();
+        foreach($arrayVlan as $vlans)
+        {
+            $vlan = substr($vlans, 0, strpos($vlans, " "));
+            array_push($tabV, $vlan);
+        }
+        dump($tabV);
         $interfacesNames = shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' 1.3.6.1.2.1.2.2.1.2 -Ov');
         $interfacesStatusAdmin = shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' 1.3.6.1.2.1.2.2.1.7 -Ov');
         $interfacesStatusLinks = shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' 1.3.6.1.2.1.2.2.1.8 -Ov');
