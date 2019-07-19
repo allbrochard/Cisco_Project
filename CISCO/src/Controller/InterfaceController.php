@@ -19,7 +19,6 @@ class InterfaceController extends AbstractController
         $response = shell_exec('snmpwalk -c '.$comu.' -v 2c '.$_SESSION['ip_equipement'].' 1.3.6.1.2.1.2.2.1.2 | grep \''.$name.'"\'');
         $num = strstr(str_replace('iso.3.6.1.2.1.2.2.1.2.', '', $response), ' =', true);
         $response = shell_exec('snmpwalk -c '.$comu.' -v 2c '.$_SESSION['ip_equipement'].' 1.3.6.1.2.1.4.20.1.2 | grep "'.$num.'\>"');
-        dump('réponse ip :  '.$response);
         $ip = strstr(str_replace('iso.3.6.1.2.1.4.20.1.2.', '', $response), ' =', true);
         $mask = shell_exec('snmpwalk -c '.$comu.' -v 2c '.$_SESSION['ip_equipement'].' iso.3.6.1.2.1.4.20.1.3.'.$ip.' -Ov -Oq');
         if(strpos($name, '.')){
@@ -73,7 +72,7 @@ class InterfaceController extends AbstractController
                 array_push($interface_liste, $interface_name);
             }
         }
-
+        dump($interface_liste);
         return $this->render('interface_ajout.html.twig', array(
             'interface_names' => $interface_liste
         ));
