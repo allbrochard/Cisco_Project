@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="cccd9281-9836-4c8a-88ff-e478908a4737" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/src/Controller/InterfaceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/InterfaceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/interface.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/interface.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,8 +27,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/InterfaceController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="40" column="42" selection-start-line="40" selection-start-column="42" selection-end-line="40" selection-end-column="42" />
+            <state relative-caret-position="336">
+              <caret line="39" column="52" lean-forward="true" selection-start-line="39" selection-start-column="52" selection-end-line="39" selection-end-column="52" />
               <folding>
                 <element signature="e#34#70#0#PHP" expanded="true" />
               </folding>
@@ -311,7 +310,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69527000" />
+    <option name="totallyTimeSpent" value="69814000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
@@ -463,8 +462,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/InterfaceController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="40" column="42" selection-start-line="40" selection-start-column="42" selection-end-line="40" selection-end-column="42" />
+        <state relative-caret-position="336">
+          <caret line="39" column="52" lean-forward="true" selection-start-line="39" selection-start-column="52" selection-end-line="39" selection-end-column="52" />
           <folding>
             <element signature="e#34#70#0#PHP" expanded="true" />
           </folding>
