@@ -1,9 +1,10 @@
 {% extends "base.html.twig" %}
 {% block stylesheets %}
       <link rel="stylesheet" href="{{ asset('css/recup_conf_equipement.css') }}"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 {% endblock %}
 {% block javascripts %}
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 {% endblock %}
 {% block body %}
     <style>
@@ -89,7 +90,7 @@
         </div>
         <div>
                <label class="switch">
-                <input id="checkbox" type="checkbox" {% if etat == 1 %} checked="checked" {% else %} {% endif %}
+                <input id="checkbox" type="checkbox" {% if etat == 1 %} checked="checked" {% endif %}
                  name="etat" >
                  <input id ='idEtat' name ="numEtat" type="hidden" value="{{etat}}"/>
                 <span class="slider round"></span>
