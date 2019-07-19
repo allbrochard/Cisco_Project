@@ -18,9 +18,11 @@
             <div class="nomInterface">
                 <label class="labelTitre">Nom de l'interface : {{interface_name}}</label>
             </div>
-          <button type="button" class="btn btn-secondary btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off">
-        <div class="handle"></div>
-      </button>
+            <div class="col-sm-5">
+                <button type="button" class="btn btn-secondary btn-toggle active" data-toggle="button" aria-pressed="true" autocomplete="off">
+                <div class="handle"></div>
+                </button>
+            </div>
             <div class="idInterface">
                 <label class="labelTitre">Changer l'ip</label>
                 <input type="text" name="ip" value="{{ ip }}">
