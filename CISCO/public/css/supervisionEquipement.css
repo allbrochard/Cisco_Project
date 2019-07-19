@@ -20,7 +20,13 @@
   width: 15px !important;
   height: 15px !important;
 }
-.divStatutAdmin, .divStatutLink, .divStatut{
+.divStatutLink{
+  float: left;
+}
+.divStatutAdmin{
+  float: left;
+}
+.divStatut{
   display: inline-block;
 }
 /* The switch - the box around the slider */
