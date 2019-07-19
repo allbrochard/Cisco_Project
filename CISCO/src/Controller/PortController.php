@@ -60,14 +60,13 @@ class PortController extends AbstractController
         }elseif($typePort == 'access'){
             $response = $fonctionEquipement->createPortAccess($portName, $vlan);
         }
-        dump($response);
 
         if($request->request->get('etat') == '1'){
             $response = $fonctionEquipement->activerInterface($portName);
         }else{
             $response = $fonctionEquipement->desactiverInterface($portName);
         }
-        dump($response);
+
 
 
         return $this->render('supervisionEquipement.html.twig', [
