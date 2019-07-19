@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cccd9281-9836-4c8a-88ff-e478908a4737" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Controller/InterfaceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/InterfaceController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/interface.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/interface.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/supervisionEquipement.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/supervisionEquipement.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,11 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/interface.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="16" column="57" lean-forward="true" selection-start-line="16" selection-start-column="57" selection-end-line="16" selection-end-column="79" />
+            <state relative-caret-position="528">
+              <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -35,10 +33,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/InterfaceController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
+            <state relative-caret-position="288">
               <caret line="51" column="27" selection-start-line="51" selection-start-column="27" selection-end-line="51" selection-end-column="27" />
               <folding>
                 <element signature="e#34#70#0#PHP" expanded="true" />
@@ -119,8 +117,8 @@
         <option value="$PROJECT_DIR$/src/Controller/DefaultController.php" />
         <option value="$PROJECT_DIR$/templates/interface_ajout.html.twig" />
         <option value="$PROJECT_DIR$/templates/supervisionEquipement.html.twig" />
-        <option value="$PROJECT_DIR$/templates/interface.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/InterfaceController.php" />
+        <option value="$PROJECT_DIR$/templates/interface.html.twig" />
       </list>
     </option>
   </component>
@@ -334,12 +332,12 @@
       <workItem from="1563260218800" duration="377000" />
       <workItem from="1563281300495" duration="2344000" />
       <workItem from="1563432940363" duration="6783000" />
-      <workItem from="1563473726884" duration="7918000" />
+      <workItem from="1563473726884" duration="8053000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59233000" />
+    <option name="totallyTimeSpent" value="59368000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
@@ -499,20 +497,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/interface.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="16" column="57" lean-forward="true" selection-start-line="16" selection-start-column="57" selection-end-line="16" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/InterfaceController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
+        <state relative-caret-position="288">
           <caret line="51" column="27" selection-start-line="51" selection-start-column="27" selection-end-line="51" selection-end-column="27" />
           <folding>
             <element signature="e#34#70#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/interface.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
         </state>
       </provider>
     </entry>
