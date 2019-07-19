@@ -9,8 +9,7 @@
 {% block body %}
     <div class="panel panel-primary offset-md-3 col-md-6" id="result_panel">
         <div class="panel-heading">
-            <h3 class="panel-title">Modification de l'interface
-                {{interface_name}}
+            <h3 class="panel-title">Modification de l'interface {{interface_name}}
             </h3>
             </br>
         </div>
@@ -23,11 +22,11 @@
             <input type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-size="xs">
             <div class="idInterface">
                 <label class="labelTitre">Changer l'ip</label>
-                <input type="text" value="{{ ip }}">
+                <input type="text" name="ip" value="{{ ip }}">
             </div>
             <div class="maskInterface">
                 <label class="labelTitre">Changer le mask</label>
-                <input type="text" value="{{ mask }}">
+                <input type="text" name="mask" value="{{ mask }}">
             </div>
             <br>
             <input type="submit" value="Enregistrer">
