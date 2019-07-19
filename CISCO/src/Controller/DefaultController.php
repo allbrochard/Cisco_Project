@@ -94,13 +94,26 @@ class DefaultController extends AbstractController
             $tok = strtok("\n\r");
             array_push($arrayVlan, $tok);
         }
-        $tabV =array();
+        $tabV = array();
+        $tabVlan = array();
         foreach($arrayVlan as $vlans)
         {
             $vlan = substr($vlans, 0, strpos($vlans, " "));
             array_push($tabV, $vlan);
         }
-        dump($tabV);
+        foreach($tabV as $vlan)
+        {
+            if (strlen($vlan) > 4 )
+            {
+                unset($vlan);
+            }elseif (strpos($vlan,"") || strpos($vlan,"VLAN") || strpos($vlan,"----"))
+            {
+                unset($vlan);
+            }else{
+                array_push($tabVlan, $vlan);
+            }
+        }
+        dump($tabVlan);
         $interfacesNames = shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' 1.3.6.1.2.1.2.2.1.2 -Ov');
         $interfacesStatusAdmin = shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' 1.3.6.1.2.1.2.2.1.7 -Ov');
         $interfacesStatusLinks = shell_exec('snmpwalk -v 2c -c '.$comu.' '.$ip.' 1.3.6.1.2.1.2.2.1.8 -Ov');
@@ -108,7 +121,6 @@ class DefaultController extends AbstractController
         $tabStatusAdmin = Array(explode("INTEGER:", $interfacesStatusAdmin));
         $tabStatusLinks = Array(explode("INTEGER:", $interfacesStatusLinks));
         $tabFinal = array();
-        $tabVlan = array();
 
         for($i = 1; $i <= count($tabNames[0])-1 ; $i++){
             $statutAdmin = 0;
@@ -127,7 +139,7 @@ class DefaultController extends AbstractController
             }
             $name =  str_replace("/", "-", str_replace("\n","", str_replace('"', '',$tabNames[0][$i])));
             $originalName = str_replace("\n","", str_replace('"', '',$tabNames[0][$i]));
-            if(strpos($tabNames[0][$i], 'Vlan') && $_SESSION['type']=='Switch'){ 
+            /*if(strpos($tabNames[0][$i], 'Vlan') && $_SESSION['type']=='Switch'){ 
                 $tabV = array(
                     "NomInterface" => $name,
                     "StatutAdmin" => $statutAdmin,
@@ -139,7 +151,7 @@ class DefaultController extends AbstractController
                 array_push($tabVlan, $tabV);
             }elseif(strpos( $tabNames[0][$i], 'Vlan')||strpos( $tabNames[0][$i], 'Null')){
                 
-            }else{
+            }else{*/
                 $tab = array(
                     "NomInterface" => $name,
                     "StatutAdmin" => $statutAdmin,
@@ -147,7 +159,7 @@ class DefaultController extends AbstractController
                     'originalName' => $originalName,
                 );
                 array_push($tabFinal, $tab);
-            }
+            //}
         }
 
         $_SESSION["vlanID"] = $tabVlan;
