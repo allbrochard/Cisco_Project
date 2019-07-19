@@ -1,6 +1,7 @@
 {% extends "base.html.twig" %}
 {% block stylesheets %}
-      <link rel="stylesheet" href="{{ asset('css/bootstrap4-toggle.min.css') }}"/>*
+      <link rel="stylesheet" href="{{ asset('css/bootstrap4-toggle.min.css') }}"/>
+      <link rel="stylesheet" href="{{ asset('css/toggle.less') }}"/>*
       <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 {% endblock %}
 {% block javascripts %}
@@ -21,7 +22,9 @@
             <div class="nomInterface">
                 <label class="labelTitre">Nom de l'interface : {{interface_name}}</label>
             </div>
-             <input type="checkbox" checked data-toggle="toggle">
+             <button type="button" class="btn btn-sm btn-secondary btn-toggle active" data-toggle="button" aria-pressed="true" autocomplete="off">
+        <div class="handle"></div>
+      </button>
             <div class="idInterface">
                 <label class="labelTitre">Changer l'ip</label>
                 <input type="text" name="ip" value="{{ ip }}">
