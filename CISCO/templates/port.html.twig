@@ -118,6 +118,7 @@
                 <input type="checkbox" {% if etat == 1 %} checked="checked" {% endif %}>
                 <span class="slider round"></span>
                 </label>
+                <input id='idEtat' name="numEtat" type="hidden" value="{{etat}}"/>
         </div>
             <div class="nomPort">
                 <label class="labelTitre">Nom du port : {{port_name}}</label>
