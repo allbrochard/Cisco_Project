@@ -153,7 +153,7 @@ class DefaultController extends AbstractController
                     'originalName' => $originalName,
                 );
                 array_push($tabFinal, $tab);
-            //}
+            }
         }
 
         $_SESSION["vlanID"] = $tabVlan;
