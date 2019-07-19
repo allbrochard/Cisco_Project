@@ -68,9 +68,18 @@ class PortController extends AbstractController
             $response = $fonctionEquipement->desactiverInterface($portName);
         }
         dump($response);
+
+        foreach ($_SESSION['tabFinal'] as $tab){
+            if($tab['NomInterface'] == $name){
+                dump('test');
+                $statutAdmin = $tab['StatutAdmin'];
+            }
+        }
+
         return $this->render('port.html.twig', [
             'port_name' => $portName,
             'vlans' => $vlans,
+            'status_admin' => $statutAdmin,
         ]);
     }
 }
