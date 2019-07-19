@@ -71,7 +71,6 @@
     <script>
     $( document ).ready(function() {
     $('#checkbox').change(function() {
-    alert("I'm changed!");
      var element = document.getElementById('idEtat');
             if(element.value == 1){
                element.value = 2;
@@ -92,9 +91,10 @@
                <label class="switch">
                 <input id="checkbox" type="checkbox" {% if etat == 1 %} checked="checked" {% endif %}
                  name="etat" >
-                 <input id ='idEtat' name ="numEtat" type="hidden" value="{{etat}}"/>
                 <span class="slider round"></span>
                 </label>
+                                 <input id ='idEtat' name ="numEtat" type="hidden" value="{{etat}}"/>
+
         </div>
         <form method="POST" action="{{ path('interface',{'name': nameUrl}) }}">
             <input type="hidden" name="type_form" value="interface_modification">
